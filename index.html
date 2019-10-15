@@ -15,81 +15,165 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <section>
-            <p class="titlepagprimario">Almoxarifado Quimica</p>
-        </section>
-        
-        <section class="cards">
-            <span class="complete"></span>
-            <div class="card cardinicial card1">
-                <div class="card-body cardinicialbody">
+        <main id="siteinicial">
+            <section>
+                <p class="titlepagprimario">Almoxarifado Quimica</p>
+            </section>
+            
+            <section class="cards">
+                <span class="complete"></span>
+                <div class="card1">
+                    <div class="card cardinicial" id="cardpushlogin" data-toggle="modal" data-target="#modalPushLogin">
+                        <div class="card-body cardinicialbody">
 
-                    <i class="far fa-user fa-5x"></i>
+                            <i class="far fa-user fa-5x"></i>
 
-                    <button type="submit" class="EntrarUser">Entrar</button>
-                </div>
-            </div>
-
-            <div class="card cardinicial card2">
-                <div class="card-body cardinicialbody">
-
-                    <i class="fas fa-search fa-5x"></i>
-
-                    <button type="submit" class="RealizarConsulta">Realizar Consulta</button>
-                </div>
-            </div>
-            <span class="complete"></span>
-        </section>
-
-
-        <!-- Footer -->
-        <footer class="page-footer font-small elegant-color pt-4 footerinicial">
-
-            <!-- Footer Elements -->
-            <div class="container">
-
-                <div class="rodapeinicial">
-                    <!-- Social buttons -->
-                    <ul class="list-unstyled list-inline text-center">
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-fb mx-1">
-                                <i class="fab fa-facebook-f"> </i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-tw mx-1">
-                                <i class="fab fa-twitter"> </i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-gplus mx-1">
-                                <i class="fab fa-google-plus-g"> </i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="btn-floating btn-li mx-1">
-                                <i class="fab fa-linkedin-in"> </i>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <!-- Social buttons -->
-                    <div class="LoginAdministrador">
-                        <button type="submit" class="EntrarAdmin">Painel Admin - Entrar</button>
+                            <button type="submit" class="EntrarUser" >Entrar</button>
+                        </div>
                     </div>
-
                 </div>
-            </div>
-            <!-- Footer Elements -->
+                <div class="card2">
+                    <div class="card cardinicial">
+                        <div class="card-body cardinicialbody">
         
-            <!-- Copyright -->
-            <div class="footer-copyright elegant-color-dark text-center py-3 footerprimario">
-                <p class="textfooterprimario"> © 2019 Copyright: Talles & Julie TSI|3</p>
-            </div>
-            <!-- Copyright -->
+                            <i class="fas fa-search fa-5x"></i>
         
-        </footer>
-        <!-- Footer -->
+                            <button type="submit" class="RealizarConsulta">Realizar Consulta</button>
+                        </div>
+                    </div>
+                </div>
+                <span class="complete"></span>
+            </section>
+
+
+            <!-- Footer -->
+            <footer class="page-footer font-small elegant-color pt-4 footerinicial">
+
+                <!-- Footer Elements -->
+                <div class="container">
+
+                    <div class="rodapeinicial">
+                        <!-- Social buttons -->
+                        <ul class="list-unstyled list-inline text-center">
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-fb mx-1">
+                                    <i class="fab fa-facebook-f"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-tw mx-1">
+                                    <i class="fab fa-twitter"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-gplus mx-1">
+                                    <i class="fab fa-google-plus-g"> </i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a class="btn-floating btn-li mx-1">
+                                    <i class="fab fa-linkedin-in"> </i>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <!-- Social buttons -->
+                        <div class="LoginAdministrador">
+                            <button type="submit" class="EntrarAdmin">Painel Admin - Entrar</button>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Footer Elements -->
+            
+                <!-- Copyright -->
+                <div class="footer-copyright elegant-color-dark text-center py-3 footerprimario">
+                    <p class="textfooterprimario"> © 2019 Copyright: Talles & Julie TSI|3</p>
+                </div>
+                <!-- Copyright -->
+            
+            </footer>
+            <!-- Footer -->
+        </main>
+
+
+
+        <!--Modal: modalPushLogin-->
+        <div class="modal fade" id="modalPushLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabelLogin"
+        aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <section class="displaylogin">
+                <section class="form-elegant login">
+
+                    <!--Form with header-->
+                    <div class="card cardlogin">
+                    
+                        <!--Header-->
+                        <div class="header pt-3 gridientdark headerlogin">
+                    
+                            <div class="TitleLogin">
+                                <h3 class="white-text mb-3 mt-3"><strong>Logar</strong></h3>
+                            </div>
+
+                            <div class="row mt-2 mb-3 d-flex justify-content-center">
+                                <!--Facebook-->
+                                <a class="fa-lg p-2 m-2 fb-ic"><i class="fab fa-facebook-f white-text fa-lg"> </i></a>
+                                <!--Twitter-->
+                                <a class="fa-lg p-2 m-2 tw-ic"><i class="fab fa-twitter white-text fa-lg"> </i></a>
+                                <!--Google +-->
+                                <a class="fa-lg p-2 m-2 gplus-ic"><i class="fab fa-google-plus-g white-text fa-lg"> </i></a>
+                            </div>
+                        </div>
+                        <!--Header-->
+                    
+                        <div class="card-body mx-4">
+                    
+                            <!--Body-->
+                            <div class="md-form">
+                                <input type="text" id="Form-email3" class="form-control">
+                                <label for="Form-email3">Your email</label>
+                            </div>
+                        
+                            <div class="md-form pb-1 pb-md-3">
+                                <input type="password" id="Form-pass3" class="form-control">
+                                <label for="Form-pass3">Your password</label>
+                            </div>
+                        
+                        
+                            <!--Grid row-->
+                            <div class="row d-flex align-items-center mb-4">
+                        
+                                <!--Grid column-->
+                                <div class="col-md-1 col-md-5 d-flex align-items-start">
+                                    <div class="text-center">
+                                        <button type="button" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+                        
+                                <!--Grid column-->
+                                <div class="col-md-7">
+                                    <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? <a href="#"
+                                        class="dark-grey-text ml-1 font-weight-bold"> Sign up</a></p>
+                                </div>
+                                <!--Grid column-->
+                        
+                            </div>
+                        <!--Grid row-->
+                        </div>
+                    
+                    </div>
+                    <!--/Form with header-->
+                
+                </section>
+            </section>
+        </div>
+        <!--/.Content-->
+        </div>
+        </div>
+        <!--Modal: modalPushLogin-->
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->
@@ -99,6 +183,6 @@
         <!-- MDB core JavaScript -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
         <!-- Main JavaScript Local -->
-        <script src="js/main.js/"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

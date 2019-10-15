@@ -23,7 +23,7 @@ section p.titlepagprimario{
     display: flex;
     justify-content: center;
     align-content: center;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 
 section.cards {
@@ -35,7 +35,7 @@ section.cards {
 
 .cardinicial {
     width: 300px;
-    height: 400px;
+    height: 450px;
     border: 2px solid gray;
     overflow: hidden;
     border-radius: 30px; 
@@ -464,3 +464,50 @@ li.infouser {
 .titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
 
 .footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
+
+
+/* Login Pag */
+.login {    
+    width: 450px;
+}
+
+.cardlogin {
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
+}
+
+.headerlogin {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.TitleLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonlogin {
+    color: white;
+    border-radius: 10px;
+}
+
+.gridientdark {
+    background-image: linear-gradient(to right, #585858,gray,#585858); 
+}
+
+.form-elegant .font-weight-bold {
+    font-size: 0.8rem; 
+}
+
+.form-elegant .z-depth-1a {
+    box-shadow:0 0 1em rgba(0,0,0,0.6);
+ }
+    
+.form-elegant .z-depth-1-half, .form-elegant .btn:hover {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+}
+
+.modal-dialog .modal-content {
+    background-color: transparent;
+    box-shadow: none;
+}
