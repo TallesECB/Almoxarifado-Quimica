@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Layout 2.9 Grid+Css</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+        /* HEADER */
+            /* positions */
+            @media screen and (min-width: 725px) {
+                #gridsheader {
+                    display: grid;
+                    grid-template-columns: 1fr 12fr;
+                    grid-template-rows: 2fr;
+                    height: 100px;
+                    grid-gap: 0em;
+                    margin: 0 auto;
+                }
+
+                #titlepag {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
+                #menulogin {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                    padding-right: 10px;
+                }
+
+                #conteudoheader {
+                    display: grid;
+                    grid-template-columns: 11fr 1fr;
+                }
+            }
+
+            @media screen and (max-width: 724px) {
+                #gridsheader {
+                    display: grid;
+                    grid-template-columns: 1fr 12fr;
+                    grid-template-rows: 3fr;
+                    height: 100px;
+                    grid-gap: 0em;
+                    margin: 0 auto;
+                }
+
+                #titlepag {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                }
+
+                #menulogin {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: flex-start;
+                    padding-right: 10px;
+                }
+
+                #conteudoheader {
+                    display: grid;
+                    grid-template-columns: 11fr 1fr;
+                }
+            }
+
+            /* fim positions */
+
+
+
+            /* estilizações */
+            @media screen and (min-width: 725px) {
+                @keyframes animationTitle{ 
+                    0%{ 
+                        transform: rotate(180deg); 
+                        transform-origin: 50% 20%; 
+                        opacity: 0.1; 
+                        color: gray;
+                    } 
+                    25%{ 
+                        transform: rotate(90deg); 
+                        transform-origin: 50% 30%; 
+                        opacity: 0.4; 
+                        color: gray;
+                    } 
+                    50%{ 
+                        transform: rotate(50deg); 
+                        transform-origin: 50% 40%; 
+                        opacity: 0.6; 
+                    } 
+                    85%{ 
+                        transform: rotate(15deg); 
+                        transform-origin: 50% 45%; 
+                        opacity: 0.9; 
+                    } 
+                    100%{ 
+                        transform: rotate(0deg); 
+                        transform-origin: 50% 50%; 
+                        opacity: 1;
+                    } 
+                } 
+                .animtitle{ animation: animationTitle 1s forwards 0s linear; }  /* Transforms */ /* Animation */
+                
+                #iconifsul {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                #conteudoheader {
+                    background-image: linear-gradient(to bottom right, rgb(131, 130, 130), rgb(77, 75, 75));  /* Gradients */
+                }
+
+                #titlepag {
+                    font-size: 30px;
+                    color: white;
+                }
+
+                #menulogin {
+                    background-color: #68b92c;
+                    border-radius: 0px 0px 0px 50px;   /* Border Radius */
+                    height: 30px;
+                    width: 200px;
+                }
+
+                #login {
+                    background-color: #68b92c;
+                    border: none;
+                    color: rgb(83, 83, 83);
+                    font-size: 20px;
+                }
+            }
+
+            @media screen and (max-width: 724px) {
+                @keyframes animationTitle{ 
+                    0%{ 
+                        transform: rotate(180deg); 
+                        transform-origin: 50% 20%; 
+                        opacity: 0.1; 
+                        color: gray;
+                    } 
+                    25%{ 
+                        transform: rotate(90deg); 
+                        transform-origin: 50% 30%; 
+                        opacity: 0.4; 
+                        color: gray;
+                    } 
+                    50%{ 
+                        transform: rotate(50deg); 
+                        transform-origin: 50% 40%; 
+                        opacity: 0.6; 
+                    } 
+                    85%{ 
+                        transform: rotate(15deg); 
+                        transform-origin: 50% 45%; 
+                        opacity: 0.9; 
+                    } 
+                    100%{ 
+                        transform: rotate(0deg); 
+                        transform-origin: 50% 50%; 
+                        opacity: 1;
+                    } 
+                } 
+                .animtitle{ animation: animationTitle 1s forwards 0s linear; }  /* Transforms */ /* Animation */
+                
+                #iconifsul {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                #conteudoheader {
+                    background-image: linear-gradient(to bottom right, rgb(131, 130, 130), rgb(77, 75, 75));  /* Gradients */
+                }
+
+                #titlepag {
+                    font-size: 20px;
+                    color: white;
+                }
+
+                #menulogin {
+                    background-color: #68b92c;
+                    border-radius: 0px 0px 0px 50px;   /* Border Radius */
+                    height: 18px;
+                    width: 60px;
+                }
+
+                #login {
+                    background-color: #68b92c;
+                    border: none;
+                    color: rgb(83, 83, 83);
+                    font-size: 15px;
+                }
+            }
+
+            @media screen and (max-width: 500px) {
+                #titlepag {
+                    font-size: 15px;
+                    color: white;
+                }
+            }
+            /* fim estilizações */
+        /* FIM HEADER */
+
+        /* ========================================================  */
+
+        /* SECTION */
+            @media screen and (min-width: 725px) {
+                /* positions */
+                section {
+                    display: grid;
+                    grid-template-columns: 1.5fr 8fr;
+                }
+
+                .navvertical {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding-top: 20px;
+                }
+
+                @keyframes NavLeftToRight{ 
+                    0%{ 
+                        transform: translateX(-200px); 
+                        opacity: 0.1;
+                    } 
+                    30%{ 
+                        transform: translateX(-100px);
+                        opacity: 0.4; 
+                    } 
+                    70%{ 
+                        transform: translateX(-50px); 
+                        opacity: 0.8;
+                    } 
+                    100%{ 
+                        transform: translateX(0px);
+                        opacity: 1;
+                    } 
+                } 
+
+                .navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
+
+
+                li {
+                    display: flex;
+                    justify-content: center;
+                }
+                
+                .textos {
+                    display: grid;
+                    text-align: justify;
+                    grid-template-columns: 0.5fr 10fr 0.5fr;
+                }
+                /* fim positions */
+
+
+                /* estilizações */
+                .navvertical {
+                    background-color: rgba(83, 80, 80, 0.5);     /* Colors */
+                }
+                
+                .textos {
+                    background: url(imgs/source.gif) left top no-repeat, url(imgs/source.gif) right top no-repeat; /* Backgrounds */
+                    background-size: 3.5%, 3.5%, auto;
+                    font-size: 25px;
+                }
+
+                .textblack {
+                    color: black;
+                    padding-bottom: 30px;
+                    padding-top: 30px;
+                }
+                
+                .textgreen {
+                    color: #68b92c;
+                }
+
+                li {
+                    margin-bottom: 4px;
+                    background-color: #cbf161;
+                    border-radius: 0px 0px 10px 0px;
+                    list-style: none;
+                    height: 20px;
+                    width: 100px;
+                }
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(128, 128, 128);
+                }
+                
+                li:hover {
+                    background-color: black;
+                    border-radius: 0px 0px 10px 0px;
+                    transition: 1s;  /* Transition */
+                }
+                b {
+                    font-size: 35px;
+                }
+
+                /* fim estilizações */
+            }
+
+            @media screen and (max-width: 724px) {
+                
+                /* positions */
+                section {
+                    display: grid;
+                    grid-template-rows: 1fr 9fr;
+                }
+
+                .navvertical {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 5px;
+                }
+
+                @keyframes NavLeftToRight{ 
+                    0%{ 
+                        transform: translateX(-200px); 
+                        opacity: 0.1;
+                    } 
+                    30%{ 
+                        transform: translateX(-100px);
+                        opacity: 0.4; 
+                    } 
+                    70%{ 
+                        transform: translateX(-50px); 
+                        opacity: 0.8;
+                    } 
+                    100%{ 
+                        transform: translateX(0px);
+                        opacity: 1;
+                    } 
+                } 
+
+                .navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
+
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                
+                .textos {
+                    display: grid;
+                    text-align: justify;
+                    grid-template-columns: 0.3fr 10fr 0.3fr;
+                }
+                /* fim positions */
+
+
+                /* estilizações */
+                .navvertical {
+                    background-color: rgba(83, 80, 80, 0.5);     /* Colors */
+                }
+                
+                .textos {
+                    background: url(imgs/source.gif) left top no-repeat, url(imgs/source.gif) right top no-repeat; /* Backgrounds */
+                    background-size: 5%, 5%, auto;
+                    font-size: 15px;
+                }
+
+                .textblack {
+                    color: black;
+                    padding-bottom: 30px;
+                    padding-top: 30px;
+                }
+                
+                .textgreen {
+                    color: #68b92c;
+                }
+
+                li {
+                    margin-bottom: 4px;
+                    background-color: #cbf161;
+                    border-radius: 0px 0px 10px 0px;
+                    list-style: none;
+                    height: 20px;
+                    width: 100px;
+                }
+                
+                a {
+                    text-decoration: none;
+                    color: rgb(128, 128, 128);
+                }
+                
+                li:hover {
+                    background-color: black;
+                    border-radius: 0px 0px 10px 0px;
+                    transition: 1s;  /* Transition */
+                }
+                
+                b {
+                    font-size: 15px;
+                }
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                }
+                /* fim estilizações */
+            }
+        /* FIM SECTION */
+
+        /* ========================================================  */
+
+        /* FOOTER */
+            /* positions */
+
+
+            /* estilizações */
+            @media screen and (max-width: 724px) {
+                footer {
+                    position: relative;
+                    height: 50px;
+                }
+
+                #last {
+                    padding-bottom: 10px;
+                }
+            }
+
+            @media screen and (min-width: 725px) {
+                footer {
+                    position: relative;
+                    height: 30px;
+                }
+            
+                #last {
+                    padding-bottom: 30px;
+                }
+            }
+
+            #linegreen {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                background-color: #78a300;
+            }
+            /* fim estilizações */
+        /* FIM FOOTER */
+        </style>
+    </head>
+    <body>
+        <header id="gridsheader">
+            <img id="iconifsul" src="imgs/ifsul.png">
+            <div id="conteudoheader">
+                <div id="titlepag" class="animtitle">
+                    <p>Exemplo Layout CSS com</p>
+                    <p>Box Model e Float</p>    
+                </div>
+
+                <div id="menulogin">
+                    <input id="login" type="submit" value="Login">
+                </div>
+            </div> 
+        </header>
+        
+        <section>
+            <nav class="navvertical">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Trabalho</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                    <li><a href="#">Item 4</a></li>
+                </ul>
+            </nav>
+            
+            <div class="textos">
+                <span></span>
+                <div>
+                    <p class="textblack">
+                        <b>L</b>orem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum rutrum felis id nisi molestie, ut porttitor turpis lacinia. Fusce placerat et neque ac eleifend. Nunc nec porttitor diam. Pellentesque ut nunc massa. Nunc in nulla et eros dictum commodo sed sit amet ligula. Ut pellentesque finibus eleifend. Morbi id ligula sed velit malesuada posuere. Donec ut ipsum suscipit, volutpat arcu ac, finibus justo. Pellentesque at mauris et dolor blandit placerat non id odio. Nullam congue interdum ex sed ornare. Pellentesque diam lectus, imperdiet non bibendum quis, sagittis eget eros. Duis diam lectus, rhoncus ut accumsan et, lacinia vitae elit. Nunc ac convallis dui, sed consectetur purus.
+                    </p>
+
+                    <p class="textgreen">
+                        <b>U</b>t et augue massa. Etiam tincidunt ligula sit amet mauris tristique condimentum. Duis vel felis et sapien malesuada placerat pharetra vitae lorem. Mauris quis porttitor leo. Aenean lobortis accumsan magna, sit amet varius ante aliquet vitae. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque in lorem vestibulum, imperdiet leo id, blandit urna. In vitae tortor laoreet, venenatis mauris sit amet, tincidunt urna. Suspendisse id tristique ex. Sed facilisis neque id vestibulum finibus. Phasellus leo est, iaculis semper nisi sed, scelerisque rhoncus enim. Nunc ligula nunc, auctor eu dolor eget, porttitor ultrices sapien. Praesent elementum magna eu odio cursus, sed volutpat massa vehicula. Praesent viverra diam sed dui sollicitudin pretium. Maecenas a aliquet nisl. Nulla facilisi.
+                    </p>
+                    <p class="textblack">
+                        <b>P</b>raesent nec laoreet augue, sed aliquet nibh. In magna tortor, scelerisque in mattis in, ultricies maximus lectus. Praesent condimentum efficitur mauris sed fermentum. Phasellus id erat sit amet est tristique semper id rhoncus elit. Nunc tempus magna vel semper tristique. Quisque hendrerit eleifend ante, nec suscipit tellus. Morbi iaculis lacinia tincidunt. Vivamus sed tempus lorem, sed euismod sem. Nulla porta lacinia orci, eu fringilla justo ullamcorper ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus vitae odio nec dui posuere finibus consequat a libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum nibh mauris, pharetra id consectetur et, semper malesuada risus. Praesent velit diam, tristique non urna sed, imperdiet molestie nunc. Phasellus at eros consequat, finibus purus non, tempus ipsum. Fusce convallis quis tortor porttitor vehicula.
+                    </p>
+
+                    <p class="textgreen" id="last">
+                        <b>M</b>auris nulla nulla, convallis eu est ac, malesuada mattis arcu. Donec non ullamcorper justo. Donec varius nisl nec risus condimentum, nec pellentesque sapien euismod. Ut vitae orci egestas, euismod neque at, lacinia est. Aliquam sodales sem quis mauris vehicula venenatis. Integer sed auctor leo, venenatis tempor ex. Donec et dapibus ligula, ut feugiat erat. In aliquam ipsum a arcu tincidunt, auctor porttitor mi auctor. Vestibulum ultrices risus eget leo tempus, id congue neque scelerisque.
+                    </p> 
+                </div>
+                <span></span>               
+            </div>
+        </section>
+
+        <footer id="linegreen">
+            <span>
+                <p>Not &copy;, Desenvolvido Por Talles Eduardo Carpes Balardin</p>
+            </span>
+        </footer>
+    </body>
+</html>
