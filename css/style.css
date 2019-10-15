@@ -209,17 +209,14 @@ section.cards {
     70%{ 
         transform: translateY(50px); 
         opacity: 0.8;
-        box-shadow: 0px 1px 0px #585858;
     } 
     99%{ 
         transform: translateY(0px);
         opacity: 1;
-        box-shadow: 0px 1px 0px #585858;
     }
     100%{ 
         transform: translateY(0px);
         opacity: 1;
-        box-shadow: 0px 2px 5px #585858;
     }  
 } 
 
@@ -231,7 +228,7 @@ section.cards {
 
 .EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
 
-.footerprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
+.textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
 
 .titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
 
@@ -275,7 +272,7 @@ section.conteudototal {
     grid-template-columns: 3fr 9fr;
 }
 
-p.nomesistema {
+p.titlepagsecundario {
     font-family: 'Courier New', Courier, monospace;
     font-size: 35px;
     color: black;
