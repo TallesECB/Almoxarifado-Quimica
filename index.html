@@ -34,7 +34,7 @@
                 </div>
                 <div class="card2">
                     <div class="card cardinicial">
-                        <div class="card-body cardinicialbody">
+                        <div class="card-body cardinicialbody" id="cardpushconsulta" data-toggle="modal" data-target="#modalPushConsulta">
         
                             <i class="fas fa-search fa-5x"></i>
         
@@ -44,7 +44,6 @@
                 </div>
                 <span class="complete"></span>
             </section>
-
 
             <!-- Footer -->
             <footer class="page-footer font-small elegant-color pt-4 footerinicial">
@@ -96,84 +95,135 @@
             <!-- Footer -->
         </main>
 
-
-
         <!--Modal: modalPushLogin-->
         <div class="modal fade" id="modalPushLogin" tabindex="-1" role="dialog" aria-labelledby="ModalLabelLogin"
         aria-hidden="true">
-        <div class="modal-dialog modal-notify modal-info" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <section class="displaylogin">
-                <section class="form-elegant login">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <section class="displaylogin">
+                        <section class="form-elegant login">
 
-                    <!--Form with header-->
-                    <div class="card cardlogin">
-                    
-                        <!--Header-->
-                        <div class="header pt-3 gridientdark headerlogin">
-                    
-                            <div class="TitleLogin">
-                                <h3 class="white-text mb-3 mt-3"><strong>Logar</strong></h3>
-                            </div>
+                            <!--Form with header-->
+                            <div class="card cardlogin">
+                            
+                                <!--Header-->
+                                <div class="header pt-3 gridientdark headerlogin">
+                            
+                                    <div class="TitleLogin">
+                                        <h3 class="white-text mb-3 mt-3"><strong>Logar</strong></h3>
+                                    </div>
 
-                            <div class="row mt-2 mb-3 d-flex justify-content-center">
-                                <!--Facebook-->
-                                <a class="fa-lg p-2 m-2 fb-ic"><i class="fab fa-facebook-f white-text fa-lg"> </i></a>
-                                <!--Twitter-->
-                                <a class="fa-lg p-2 m-2 tw-ic"><i class="fab fa-twitter white-text fa-lg"> </i></a>
-                                <!--Google +-->
-                                <a class="fa-lg p-2 m-2 gplus-ic"><i class="fab fa-google-plus-g white-text fa-lg"> </i></a>
-                            </div>
-                        </div>
-                        <!--Header-->
-                    
-                        <div class="card-body mx-4">
-                    
-                            <!--Body-->
-                            <div class="md-form">
-                                <input type="text" id="Form-email3" class="form-control">
-                                <label for="Form-email3">Your email</label>
-                            </div>
-                        
-                            <div class="md-form pb-1 pb-md-3">
-                                <input type="password" id="Form-pass3" class="form-control">
-                                <label for="Form-pass3">Your password</label>
-                            </div>
-                        
-                        
-                            <!--Grid row-->
-                            <div class="row d-flex align-items-center mb-4">
-                        
-                                <!--Grid column-->
-                                <div class="col-md-1 col-md-5 d-flex align-items-start">
-                                    <div class="text-center">
-                                        <button type="button" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+                                    <div class="row mt-2 mb-3 d-flex justify-content-center">
+                                        <!--Facebook-->
+                                        <a class="fa-lg p-2 m-2 fb-ic"><i class="fab fa-facebook-f white-text fa-lg"> </i></a>
+                                        <!--Twitter-->
+                                        <a class="fa-lg p-2 m-2 tw-ic"><i class="fab fa-twitter white-text fa-lg"> </i></a>
+                                        <!--Google +-->
+                                        <a class="fa-lg p-2 m-2 gplus-ic"><i class="fab fa-google-plus-g white-text fa-lg"> </i></a>
                                     </div>
                                 </div>
-                                <!--Grid column-->
-                        
-                                <!--Grid column-->
-                                <div class="col-md-7">
-                                    <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? <a href="#"
-                                        class="dark-grey-text ml-1 font-weight-bold"> Sign up</a></p>
+                                <!--Header-->
+                            
+                                <div class="card-body mx-4">
+                            
+                                    <!--Body-->
+                                    <div class="md-form">
+                                        <input type="text" id="Form-email3" class="form-control">
+                                        <label for="Form-email3">Your email</label>
+                                    </div>
+                                
+                                    <div class="md-form pb-1 pb-md-3">
+                                        <input type="password" id="Form-pass3" class="form-control">
+                                        <label for="Form-pass3">Your password</label>
+                                    </div>
+                                
+                                
+                                    <!--Grid row-->
+                                    <div class="row d-flex align-items-center mb-4">
+                                
+                                        <!--Grid column-->
+                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
+                                            <div class="text-center">
+                                                <button type="button" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+                                            </div>
+                                        </div>
+                                        <!--Grid column-->
+                                
+                                        <!--Grid column-->
+                                        <div class="col-md-7">
+                                                <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? 
+                                                <a href="#" class="dark-grey-text ml-1 font-weight-bold"> Sign up</a>
+                                            </p>
+                                        </div>
+                                        <!--Grid column-->
+                                
+                                    </div>
+                                <!--Grid row-->
                                 </div>
-                                <!--Grid column-->
-                        
+                            
                             </div>
-                        <!--Grid row-->
-                        </div>
-                    
-                    </div>
-                    <!--/Form with header-->
-                
-                </section>
-            </section>
-        </div>
-        <!--/.Content-->
-        </div>
+                            <!--/Form with header-->
+                        
+                        </section>
+                    </section>
+                </div>
+                <!--/.Content-->
+            </div>
         </div>
         <!--Modal: modalPushLogin-->
+
+        <!--Modal: modalPushConsulta-->
+        <div class="modal fade" id="modalPushConsulta" tabindex="-1" role="dialog" aria-labelledby="ModalLabelConsulta"
+        aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <section class="displaylogin">
+                        <section class="form-elegant login">
+
+                            <!--Form with header-->
+                            <div class="card cardlogin">
+                            
+                                <!--Header-->
+                                <div class="header pt-3 gridientdark headerlogin">
+                            
+                                    <div class="TitleLogin">
+                                        <h3 class="white-text mb-3 mt-3"><strong>Realizar Consulta</strong></h3>
+                                    </div>
+
+                                </div>
+                                <!--Header-->
+                            
+                                <div class="card-body mx-4">
+                                        <div class="input-group md-form">
+                                                <input type="text" id="Form-search2" class="form-control">
+                                                <label for="Form-search2">Search</label>
+                                                <span class="input-group-text dark lighten-2" id="basic-text1">
+                                                    <i class="fas fa-search text-dark" aria-hidden="true"></i>
+                                                </span>
+                                        </div>
+                                
+                                    <!--Grid row-->
+                                    <div class="row d-flex align-items-center mb-4 reagentesfrombd">
+                                
+                                        
+                                
+                                    </div>
+                                <!--Grid row-->
+                                </div>
+                            
+                            </div>
+                            <!--/Form with header-->
+                        
+                        </section>
+                    </section>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Modal: modalPushConsulta-->
+
         <!-- JQuery -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Bootstrap tooltips -->

@@ -511,3 +511,9 @@ li.infouser {
     background-color: transparent;
     box-shadow: none;
 }
+
+.buttonpesquisar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
