@@ -11,509 +11,1092 @@ li {
     list-style: none;
 }
 
-.titlepagprimario {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 35px;
-    color: black;
-    box-shadow: 0 1px 5px #585858;
-}
-
-section p.titlepagprimario{
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding-bottom: 15px;
-}
-
-section.cards {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: 20px;
-}
-
-.cardinicial {
-    width: 300px;
-    height: 450px;
-    border: 2px solid gray;
-    overflow: hidden;
-    border-radius: 30px; 
-    transition: 0.4s linear all;
-    box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-}
-
-.cardinicialbody {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-}
-
-.cardinicial:hover {
-    transform: scale(1.05,1.05);
-    transition: 0.5s linear all;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-}
-
-.EntrarUser {
-    font-family: 'Courier New', Courier, monospace;
-    border: none;
-    background: none;
-    color: gray;
-    font-size: 30px;
-}
-
-.RealizarConsulta {
-    font-family: 'Courier New', Courier, monospace;
-    border: none;
-    background: none;
-    color: gray;
-    font-size: 30px;
-}
-
-.rodapeinicial {
-    display: flex;
-    justify-content: space-between;
-}
-
-.EntrarAdmin {
-    border: none;
-    background: none;
-    color: white;
-    font-size: 15px;
-}
-
-.EntrarAdmin:hover {
-    transform: scale(1.05,1.05);
-    transition: 0.5s linear all;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-    padding: 1px;
-}
-
-.footerinicial {
-    background-image: linear-gradient(to right, black,#585858,#585858,black); 
-}
-
-@keyframes Card1LeftToRight{ 
-    0%{ 
-        transform: translateX(-200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateX(-100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateX(-50px); 
-        opacity: 0.8;
-    } 
-    100%{ 
-        transform: translateX(0px);
-        opacity: 1;
-    } 
-} 
-
-@keyframes Card2RightToLeft{ 
-    0%{ 
-        transform: translateX(200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateX(100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateX(50px); 
-        opacity: 0.8;
-    } 
-    100%{ 
-        transform: translateX(0px);
-        opacity: 1;
-    } 
-} 
-
-@keyframes SociaisLeftToRight{ 
-    0%{ 
-        transform: translateX(-50px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateX(-40px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateX(-30px); 
-        opacity: 0.8;
-    } 
-    100%{ 
-        transform: translateX(0px);
-        opacity: 1;
-    } 
-} 
-
-@keyframes EntrarRightToLeft{ 
-    0%{ 
-        transform: translateX(50px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateX(40px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateX(30px); 
-        opacity: 0.8;
-    } 
-    100%{ 
-        transform: translateX(0px);
-        opacity: 1;
-    } 
-} 
-
-@keyframes TitlePriTopToBottom{ 
-    0%{ 
-        transform: translateY(-200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateY(-100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateY(-50px); 
-        opacity: 0.8;
-        box-shadow: 0px 1px 0px #585858;
-    } 
-    99%{ 
-        transform: translateY(0px);
-        opacity: 1;
-        box-shadow: 0px 1px 0px #585858;
+@media (min-width: 1600px) {
+    .formulariobusca {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
     }
-    100%{ 
-        transform: translateY(0px);
-        opacity: 1;
-        box-shadow: 0px 2px 5px #585858;
-    }  
-} 
-
-@keyframes FooterPriBottomToTop{ 
-    0%{ 
-        transform: translateY(200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateY(100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateY(50px); 
-        opacity: 0.8;
-    } 
-    99%{ 
-        transform: translateY(0px);
-        opacity: 1;
-    }
-    100%{ 
-        transform: translateY(0px);
-        opacity: 1;
-    }  
-} 
-
-.card1  { animation: Card1LeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
-
-.card2 { animation: Card2RightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
-
-.list-unstyled { animation: SociaisLeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
-
-.EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
-
-.textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
-
-.titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
-
-
-/* Pag Secundaria */
-.secondpag {
-    display: grid;
-    grid-template-rows: 12fr;
-}
-
-.cardsecundario {
-    width: 280px;
-    height: 160px;
-    border: 2px solid gray;
-    overflow: hidden;
-    border-radius: 10px; 
-    transition: 0.4s linear all;
-    box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-}
-
-.cardsecundario:hover {
-    transform: scale(1.05,1.05);
-    transition: 0.5s linear all;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-}
-
-section.mincards {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
-    padding: 10px;
-}
-
-section.conteudototal {
-    display: grid;
-    grid-template-rows: 3fr 9fr;
-}
-
-.secondpag {
-    display: grid;
-    grid-template-columns: 3fr 9fr;
-}
-
-p.titlepagsecundario {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 35px;
-    color: black;
-}
-
-p.infosistema {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
-    color: white;
-}
-
-section p.titlepagsecundario{
-    padding-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.navvertical {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-.imguser {
-    height: 200px;
-    width: 200px;
-    background-color: #585858;
-    border-radius: 100px;
-    opacity: 0.4;
-}
-
-ul.infouser {
-    padding-top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-li.infouser {
-    background-color: #585858;
-    padding: 10px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.SairUser {
-    margin-top: 40px;
-    border: none;
-    background: none;
-    font-size: 20px;
-}
-
-.SairUser:hover {
-    transform: scale(1.05,1.05);
-    transition: 0.5s linear all;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-    padding: 8px;
-    background-color: #585858;
-}
-
-.footersucundario {
-    display: grid;
-    justify-content: center;
-    grid-template-rows: 1fr 2fr;
-    background-image: linear-gradient(to right, black,#585858,#585858,black); 
-}
-
-.options {
-    background: none;
-    border: none;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
-    color: black;
-}
-
-.cardsoptions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@keyframes NavLeftToRight{ 
-    0%{ 
-        transform: translateX(-200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateX(-100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateX(-50px); 
-        opacity: 0.8;
-    } 
-    100%{ 
-        transform: translateX(0px);
-        opacity: 1;
-    } 
-} 
-
-@keyframes TitleSecTopToBottom{ 
-    0%{ 
-        transform: translateY(-200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateY(-100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateY(-50px); 
-        opacity: 0.8;
-        box-shadow: 0px 1px 0px #585858;
-    } 
-    99%{ 
-        transform: translateY(0px);
-        opacity: 1;
-        box-shadow: 0px 1px 0px #585858;
-    }
-    100%{ 
-        transform: translateY(0px);
-        opacity: 1;
-        box-shadow: 0px 2px 5px #585858;
-    }  
-} 
-
-@keyframes FooterSecBottomToTop{ 
-    0%{ 
-        transform: translateY(200px); 
-        opacity: 0.1;
-    } 
-    30%{ 
-        transform: translateY(100px);
-        opacity: 0.4; 
-    } 
-    70%{ 
-        transform: translateY(50px); 
-        opacity: 0.8;
-        box-shadow: 0px 1px 0px #585858;
-    } 
-    99%{ 
-        transform: translateY(0px);
-        opacity: 1;
-        box-shadow: 0px 1px 0px #585858;
-    }
-    100%{ 
-        transform: translateY(0px);
-        opacity: 1;
-        box-shadow: 0px 2px 5px #585858;
-    }  
-} 
-
-@keyframes animationCards{ 
-    0%{ 
-        transform: rotate(80deg); 
-        transform-origin: 50% 20%; 
-        opacity: 0.1; 
-    } 
-    25%{ 
-        transform: rotate(60deg); 
-        transform-origin: 50% 30%; 
-        opacity: 0.2; 
-    } 
-    50%{ 
-        transform: rotate(40deg); 
-        transform-origin: 50% 40%; 
-        opacity: 0.4; 
-    } 
-    85%{ 
-        transform: rotate(20deg); 
-        transform-origin: 50% 45%; 
-        opacity: 0.6; 
-    } 
-    100%{ 
-        transform: rotate(0deg); 
-        transform-origin: 50% 50%; 
-        opacity: 1;
-    } 
-} 
-.mincards{ animation: animationCards 0.8s forwards 0s linear; }  /* Transforms */ /* Animation */
-
-.navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
-
-.titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
-
-.footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
-
-
-/* Login Pag */
-.login {    
-    width: 450px;
-}
-
-.cardlogin {
-    border-radius: 10px;
-    box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
-}
-
-.headerlogin {
-    border-radius: 10px 10px 0px 0px;
-}
-
-.TitleLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.buttonlogin {
-    color: white;
-    border-radius: 10px;
-}
-
-.gridientdark {
-    background-image: linear-gradient(to right, #585858,gray,#585858); 
-}
-
-.form-elegant .font-weight-bold {
-    font-size: 0.8rem; 
-}
-
-.form-elegant .z-depth-1a {
-    box-shadow:0 0 1em rgba(0,0,0,0.6);
- }
     
-.form-elegant .z-depth-1-half, .form-elegant .btn:hover {
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    .buttonpesquisar {
+        background: none;
+        border: none;
+    }
+
+    .titlepagprimario {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 35px;
+        color: black;
+        box-shadow: 0 1px 5px #585858;
+    }
+
+    p.titlepagprimario{
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    section.cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .cardinicial {
+        width: 300px;
+        height: 450px;
+        border: 2px solid gray;
+        overflow: hidden;
+        border-radius: 30px; 
+        transition: 0.4s linear all;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .cardinicialbody {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .cardinicial:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .EntrarUser {
+        font-family: 'Courier New', Courier, monospace;
+        border: none;
+        background: none;
+        color: gray;
+        font-size: 30px;
+    }
+
+    .RealizarConsulta {
+        font-family: 'Courier New', Courier, monospace;
+        border: none;
+        background: none;
+        color: gray;
+        font-size: 30px;
+    }
+
+    .rodapeinicial {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .textfooterprimario {
+        text-align: center;
+        margin: 0;
+    }
+
+    .EntrarAdmin {
+        border: none;
+        background: none;
+        color: white;
+        font-size: 15px;
+    }
+
+    .EntrarAdmin:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        padding: 1px;
+    }
+
+    .footerinicial {
+        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;   
+    }
+
+    @keyframes Card1LeftToRight{ 
+        0%{ 
+            transform: translateX(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(-50px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+
+    @keyframes Card2RightToLeft{ 
+        0%{ 
+            transform: translateX(200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(50px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+
+    @keyframes SociaisLeftToRight{ 
+        0%{ 
+            transform: translateX(-50px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(-40px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(-30px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+
+    @keyframes EntrarRightToLeft{ 
+        0%{ 
+            transform: translateX(50px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(40px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(30px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+
+    @keyframes TitlePriTopToBottom{ 
+        0%{ 
+            transform: translateY(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(-50px); 
+            opacity: 0.8;
+            box-shadow: 0px 1px 0px #585858;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 1px 0px #585858;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 2px 5px #585858;
+        }  
+    } 
+
+    @keyframes FooterPriBottomToTop{ 
+        0%{ 
+            transform: translateY(200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(50px); 
+            opacity: 0.8;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+        }  
+    } 
+
+    .card1  { animation: Card1LeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
+
+    .card2 { animation: Card2RightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
+
+    .list-unstyled { animation: SociaisLeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
+
+    .EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
+
+    .textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
+
+    .titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
+
+
+    /* Pag Secundaria Admin e User */
+    .secondpag {
+        display: grid;
+        grid-template-rows: 12fr;
+    }
+
+    .cardsecundario {
+        width: 350px;
+        height: 180px;
+        border: 2px solid gray;
+        overflow: hidden;
+        border-radius: 10px; 
+        transition: 0.4s linear all;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .cardsecundario:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .cardsecundariouser {
+        width: 350px;
+        height: 180px;
+        border: 2px solid gray;
+        overflow: hidden;
+        border-radius: 30px; 
+        transition: 0.4s linear all;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .cardsecundariouser:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    section.mincards {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 50px;
+    }
+
+    section.conteudototal {
+        display: grid;
+        grid-template-rows: 3fr 9fr 1fr;
+    }
+
+    .iconcarduser {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+    }
+
+    p.titlepagsecundario {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 35px;
+        color: black;
+    }
+
+    p.infosistema {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15px;
+        color: white;
+    }
+    div p.titlepagsecundario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p.titlepagsecundario {
+        padding: 50px;   
+    }
+
+    .navvertical {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .imguser {
+        margin-top: 20px;
+        height: 200px;
+        width: 200px;
+        background-color: #585858;
+        border-radius: 100px;
+        opacity: 0.4;
+    }
+
+    ul.uluser {
+        padding-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    li.infouser {
+        background-color: #585858;
+        padding: 10px 30px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    li.nomeuser {
+        color: white;
+        background-color: #585858;
+        padding: 10px 30px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        border-radius: 10px;
+        margin-bottom: 80px;
+    }
+
+    .SairUser {
+        color: white;
+        border: none;
+        background: none;
+        font-size: 20px;
+    }
+
+    .SairUser:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        padding: 8px;
+        background-color: #585858;
+    }
+
+    .footersucundario {
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 2fr 4fr;
+        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+    }
+
+    .options {
+        background: none;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        color: black;
+    }
+
+    .cardoptionsadmin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @keyframes NavLeftToRight{ 
+        0%{ 
+            transform: translateX(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(-50px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+
+    @keyframes TitleSecTopToBottom{ 
+        0%{ 
+            transform: translateY(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(-50px); 
+            opacity: 0.8;
+            box-shadow: 0px 1px 0px #585858;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 1px 0px #585858;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 2px 5px #585858;
+        }  
+    } 
+
+    @keyframes FooterSecBottomToTop{ 
+        0%{ 
+            transform: translateY(200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(50px); 
+            opacity: 0.8;
+            box-shadow: 0px 1px 0px #585858;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 1px 0px #585858;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 2px 5px #585858;
+        }  
+    } 
+
+    .navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
+
+    .titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
+
+    .footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
+
+
+    /* Login Pag */
+    .login {    
+        width: 450px;
+    }
+
+    .cardlogin {
+        border-radius: 10px;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
+    }
+
+    .headerlogin {
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .TitleLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .buttonlogin {
+        color: white;
+        border-radius: 10px;
+    }
+
+    .gridientdark {
+        background-image: linear-gradient(to right, #585858,gray,#585858); 
+    }
+
+    .form-elegant .font-weight-bold {
+        font-size: 0.8rem; 
+    }
+
+    .form-elegant .z-depth-1a {
+        box-shadow:0 0 1em rgba(0,0,0,0.6);
+     }
+        
+    .form-elegant .z-depth-1-half, .form-elegant .btn:hover {
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .modal-dialog .modal-content {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .buttonpesquisar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
-.modal-dialog .modal-content {
-    background-color: transparent;
-    box-shadow: none;
+@media (min-width: 1000px) {
+    .formulariobusca {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    .buttonpesquisar {
+        background: none;
+        border: none;
+    }
+
+    .titlepagprimario {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 35px;
+        color: black;
+        box-shadow: 0 1px 5px #585858;
+    }
+
+    p.titlepagprimario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    section.cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .cardinicial {
+        width: 300px;
+        height: 450px;
+        border: 2px solid gray;
+        overflow: hidden;
+        border-radius: 30px; 
+        transition: 0.4s linear all;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .cardinicialbody {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .cardinicial:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .EntrarUser {
+        font-family: 'Courier New', Courier, monospace;
+        border: none;
+        background: none;
+        color: gray;
+        font-size: 30px;
+    }
+
+    .RealizarConsulta {
+        font-family: 'Courier New', Courier, monospace;
+        border: none;
+        background: none;
+        color: gray;
+        font-size: 30px;
+    }
+
+    .rodapeinicial {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .textfooterprimario {
+        text-align: center;
+        margin: 0;
+    }
+
+    .EntrarAdmin {
+        border: none;
+        background: none;
+        color: white;
+        font-size: 15px;
+    }
+
+    .EntrarAdmin:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        padding: 1px;
+    }
+
+    .footerinicial {
+        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+    }
+    
+    @keyframes Card1LeftToRight{ 
+        0%{ 
+            transform: translateX(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(-50px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+    
+    @keyframes Card2RightToLeft{ 
+        0%{ 
+            transform: translateX(200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(50px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+    
+    @keyframes SociaisLeftToRight{ 
+        0%{ 
+            transform: translateX(-50px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(-40px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(-30px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+    
+    @keyframes EntrarRightToLeft{ 
+        0%{ 
+            transform: translateX(50px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(40px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(30px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+    
+    @keyframes TitlePriTopToBottom{ 
+        0%{ 
+            transform: translateY(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(-50px); 
+            opacity: 0.8;
+            box-shadow: 0px 1px 0px #585858;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 1px 0px #585858;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 2px 5px #585858;
+        }  
+    } 
+    
+    @keyframes FooterPriBottomToTop{ 
+        0%{ 
+            transform: translateY(200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(50px); 
+            opacity: 0.8;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+        }  
+    } 
+    
+    .card1  { animation: Card1LeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
+    
+    .card2 { animation: Card2RightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
+    
+    .list-unstyled { animation: SociaisLeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
+    
+    .EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
+    
+    .textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
+    
+    .titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
+    
+    
+    /* Pag Secundaria */
+    .secondpag {
+        display: grid;
+        grid-template-rows: 12fr;
+    }
+    
+    .cardsecundariouser {
+        width: 280px;
+        height: 160px;
+        border: 2px solid gray;
+        overflow: hidden;
+        border-radius: 10px; 
+        transition: 0.4s linear all;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+    
+    .cardsecundarioadmin {
+        width: 240px;
+        height: 120px;
+        border: 2px solid gray;
+        overflow: hidden;
+        border-radius: 10px; 
+        transition: 0.4s linear all;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+
+    .cardsecundariouser:hover,.cardsecundario:hover,.cardsecundarioadmin:hover {
+        transform: scale(1.05,1.05);
+        transition: 0.5s linear all;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+    
+    section.mincards.user {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px;
+        padding: 10px;
+    }
+    
+    section.mincards.admin {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 5px;
+        padding: 5px;
+        margin-top: 20px;
+    }
+
+    section.conteudototal.userconteudo {
+        display: grid;
+        grid-template-rows: 3fr 9fr;
+    }
+    
+    section.conteudototal.adminconteudo {
+        display: grid;
+        grid-template-rows: 2fr 10fr;
+    }
+
+    .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+    }
+    
+    p.titlepagsecundario {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 35px;
+        color: black;
+    }
+    
+    p.infosistema {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 15px;
+        color: white;
+    }
+    
+    section.userconteudo p.titlepagsecundario{
+        padding-top: 40px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    section.adminconteudo p.titlepagsecundario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .navvertical {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    .imguser {
+        margin-top: 20px;
+        height: 160px;
+        width: 160px;
+        background-color: #585858;
+        border-radius: 100px;
+        opacity: 0.4;
+    }
+
+    ul.uluser {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    li.infouser {
+        background-color: #585858;
+        padding: 5px 15px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        border-radius: 10px;
+        margin-bottom: 30px;
+    }
+
+    li.nomeuser {
+        color: white;
+        background-color: #585858;
+        padding: 5px 15px;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+
+    .SairUser {
+        color: white;
+        border: none;
+        background: none;
+        font-size: 15px;
+    }
+
+    .SairUser:hover {
+        transform: scale(1.00,1.00);
+        transition: 0.1s linear all;
+        border-radius: 10px;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        padding: 4px;
+        background-color: #585858;
+    }
+    
+    .footersucundario {
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 1fr 2fr;
+        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+    }
+    
+    .options {
+        background: none;
+        border: none;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 20px;
+        color: black;
+    }
+    
+    .cardsoptions,.cardoptionsadmin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    @keyframes NavLeftToRight{ 
+        0%{ 
+            transform: translateX(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateX(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateX(-50px); 
+            opacity: 0.8;
+        } 
+        100%{ 
+            transform: translateX(0px);
+            opacity: 1;
+        } 
+    } 
+    
+    @keyframes TitleSecTopToBottom{ 
+        0%{ 
+            transform: translateY(-200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(-100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(-50px); 
+            opacity: 0.8;
+            box-shadow: 0px 1px 0px #585858;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 1px 0px #585858;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 2px 5px #585858;
+        }  
+    } 
+    
+    @keyframes FooterSecBottomToTop{ 
+        0%{ 
+            transform: translateY(200px); 
+            opacity: 0.1;
+        } 
+        30%{ 
+            transform: translateY(100px);
+            opacity: 0.4; 
+        } 
+        70%{ 
+            transform: translateY(50px); 
+            opacity: 0.8;
+            box-shadow: 0px 1px 0px #585858;
+        } 
+        99%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 1px 0px #585858;
+        }
+        100%{ 
+            transform: translateY(0px);
+            opacity: 1;
+            box-shadow: 0px 2px 5px #585858;
+        }  
+    } 
+    
+    .navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
+    
+    .titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
+    
+    .footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
+    
+    
+    /* Login Pag */
+    .login {    
+        width: 450px;
+    }
+    
+    .cardlogin {
+        border-radius: 10px;
+        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
+    }
+    
+    .headerlogin {
+        border-radius: 10px 10px 0px 0px;
+    }
+    
+    .TitleLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .buttonlogin {
+        color: white;
+        border-radius: 10px;
+    }
+    
+    .gridientdark {
+        background-image: linear-gradient(to right, #585858,gray,#585858); 
+    }
+    
+    .form-elegant .font-weight-bold {
+        font-size: 0.8rem; 
+    }
+    
+    .form-elegant .z-depth-1a {
+        box-shadow:0 0 1em rgba(0,0,0,0.6);
+     }
+        
+    .form-elegant .z-depth-1-half, .form-elegant .btn:hover {
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    }
+    
+    .modal-dialog .modal-content {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    
+    .buttonpesquisar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
-.buttonpesquisar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+#reagentesfrombd {
+    color: black;
 }
