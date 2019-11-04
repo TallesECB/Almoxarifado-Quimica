@@ -2,7 +2,7 @@
 	require_once('conecta.php');
 	 function inserirReagente($conexao,$array){
        try {
-            $query = $conexao->prepare("insert into reagente (nomereag, fornecedor, quant) values (?, ?, ?)");
+            $query = $conexao->prepare("insert into reagente (nomereag, quantreag, reagentefornecedor, reagentecategoria, validadereag) values (?, ?, ?, ?, ?)");
             $result = $query->execute($array);
             return $result;
         } catch(PDOException $e) {
@@ -26,7 +26,18 @@
       }  
     }
 
-     function acharReagente($conexao,$array){
+    function atualizarReagente($conexao, $array) {
+       try {
+            $query = $conexao->prepare("update reagente set nomereag= ?, quantreag= ? where nomereag = ?");
+            $result = $query->execute($array);   
+            return $result;
+        }catch(PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+        }
+
+    }
+
+    function acharReagente($conexao,$array){
         try {
         $query = $conexao->prepare("select * from reagente where nomereag= ?");
         if($query->execute($array)){
@@ -41,17 +52,6 @@
       }  
     }
 
-    function atualizarReagente($conexao, $array) {
-       try {
-            $query = $conexao->prepare("update reagente set nomereag= ?, fornecedor= ?, quant = ? where nomereag = ?");
-            $result = $query->execute($array);   
-            return $result;
-        }catch(PDOException $e) {
-            echo 'Error: ' . $e->getMessage();
-        }
-
-    }
-
     function excluirReagente($conexao, $array){
         try {
             $query = $conexao->prepare("delete from reagente where nomereag = ?");
@@ -62,7 +62,5 @@
         }
 
     }
-
-
 
 ?>

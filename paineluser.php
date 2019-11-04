@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <?php 
+            session_start();
+        ?>
          <section class="secondpag">
             <nav class="navvertical elegant-color-dark">
                 <div class="imguser">
@@ -22,14 +25,16 @@
                 </div>
 
                 <ul class="uluser">
-                    <li class="infouser nomeuser">Bem Vindo @User</li>
-                    <li class="infouser">Informações do User</li>
-                    <li class="infouser">Informações do User</li>
-                    <li class="infouser">Informações do User</li>
-                    <li class="infouser">Informações do User</li>
+                    <li class="infouser nomeuser"><?php echo($_SESSION['nomeuser'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['profissaouser'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['numerouser'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['enderecouser'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['emailuser'])?></li>
                 </ul>
 
-                <button type="submit" class="SairUser">Sair</button>
+                <form action="logout.php">
+                    <button type="submit" class="SairUser">Sair</button>
+                </form>
             </nav>
             <section class="conteudototal userconteudo">
                 <div>

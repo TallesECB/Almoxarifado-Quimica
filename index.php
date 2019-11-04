@@ -127,26 +127,26 @@
                                 <!--Header-->
                             
                                 <div class="card-body mx-4">
-                            		<form class="formlogin" name="form">
+                            		<form class="formlogin" action="login.php" name="form" id='formulario' method="post" onsubmit="valida_sessao(this)">
 	                                    <!--Body-->
 	                                    <div class="md-form">
-	                                        <input type="text" id="Form-email3" name="email" class="form-control">
+	                                        <input type="text" id="Form-email3" name="emailuser" class="form-control">
 	                                        <label for="Form-email3">Your email</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
-	                                        <input type="password" id="Form-pass3" name="password" class="form-control">
+	                                        <input type="password" id="Form-pass3" name="senhauser" class="form-control">
 	                                        <label for="Form-pass3">Your password</label>
 	                                    </div>
-	     
-	                                
+                                        
+                                        <div id='texto'></div>
 	                                    <!--Grid row-->
 	                                    <div class="row d-flex align-items-center mb-4">
 	                                
 	                                        <!--Grid column-->
 	                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
 	                                            <div class="text-center">
-	                                                <button type="button" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+	                                                <button type="submit" name='envia' value="Enviar" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
 	                                            </div>
 	                                        </div>
 	                                        <!--Grid column-->
@@ -263,15 +263,15 @@
                                 <!--Header-->
                             
                                 <div class="card-body mx-4">
-                            		<form class="formlogin" name="formadmin">
+                            		<form class="formlogin" name="formadmin" action="loginadmin.php" method="post">
 	                                    <!--Body-->
 	                                    <div class="md-form">
-	                                        <input type="text" id="Form-email3" name="email" class="form-control">
+	                                        <input type="text" id="Form-email3" name="emailadmin" class="form-control">
 	                                        <label for="Form-email3">Your email</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
-	                                        <input type="password" id="Form-pass3" name="password" class="form-control">
+	                                        <input type="password" id="Form-pass3" name="senhaadmin" class="form-control">
 	                                        <label for="Form-pass3">Your password</label>
 	                                    </div>
 	     
@@ -282,7 +282,7 @@
 	                                        <!--Grid column-->
 	                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
 	                                            <div class="text-center">
-	                                                <button type="button" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+	                                                <button type="submit" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
 	                                            </div>
 	                                        </div>
 	                                        <!--Grid column-->

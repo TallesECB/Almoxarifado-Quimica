@@ -1,6 +1,6 @@
 <?php
    try{
-    $aux = 'mysql:host=localhost;dbname=dsw;';
+    $aux = 'mysql:host=localhost;dbname=quimica;';
     //abre a conexão com o Banco via PDO
     $conexao = new PDO($aux,'root','',
                 array(
