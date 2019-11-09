@@ -6,13 +6,15 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Projeto Quimica</title>
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
         <!-- Bootstrap core CSS -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
-         <!-- Style CSS Local -->
-        <link rel="stylesheet" href="css/style.css">
+        <link href="css/mdb.min.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="css/style.css" rel="stylesheet">
+        <!-- Style CSS Local -->
+        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <main id="siteinicial">
@@ -127,15 +129,15 @@
                                 <!--Header-->
                             
                                 <div class="card-body mx-4">
-                            		<form class="formlogin" action="login.php" name="form" id='formulario' method="post" onsubmit="valida_sessao(this)">
+                            		<form class="formlogin" name="acesso" id='formulario' method="post" onsubmit="valida_sessao(this)">
 	                                    <!--Body-->
 	                                    <div class="md-form">
-	                                        <input type="text" id="Form-email3" name="emailuser" class="form-control">
+	                                        <input type="text" id="Form-email3" name="email" class="form-control">
 	                                        <label for="Form-email3">Your email</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
-	                                        <input type="password" id="Form-pass3" name="senhauser" class="form-control">
+	                                        <input type="password" id="Form-pass3" name="senha" class="form-control">
 	                                        <label for="Form-pass3">Your password</label>
 	                                    </div>
                                         
@@ -146,7 +148,7 @@
 	                                        <!--Grid column-->
 	                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
 	                                            <div class="text-center">
-	                                                <button type="submit" name='envia' value="Enviar" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+	                                                <button type="submit" name="botao" value="Enviar" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
 	                                            </div>
 	                                        </div>
 	                                        <!--Grid column-->
@@ -154,7 +156,7 @@
 	                                        <!--Grid column-->
 	                                        <div class="col-md-7">
 	                                                <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? 
-	                                                <a href="#" class="dark-grey-text ml-1 font-weight-bold"> Sign up</a>
+	                                                <a href="#" class="dark-grey-text ml-1 font-weight-bold"> Sign-Up </a>
 	                                            </p>
 	                                        </div>
 	                                        <!--Grid column-->
@@ -178,27 +180,27 @@
         <!--Modal: modalPushConsulta-->
         <div class="modal fade" id="modalPushConsulta" tabindex="-1" role="dialog" aria-labelledby="ModalLabelConsulta"
         aria-hidden="true">
-            <div class="modal-dialog modal-notify modal-info" role="document">
+            <div class="modal-dialog modal-dialogconsulta modal-notify modal-info" role="document">
                 <!--Content-->
                 <div class="modal-content">
-                    <section class="displaylogin">
-                        <section class="form-elegant login">
+                    <section class="displayconsulta">
+                        <section class="form-elegant consulta">
 
                             <!--Form with header-->
-                            <div class="card cardlogin">
+                            <div class="card cardconsulta">
                             
                                 <!--Header-->
-                                <div class="header pt-3 gridientdark headerlogin">
+                                <div class="header pt-3 gridientdark headerconsulta">
                             
-                                    <div class="TitleLogin">
+                                    <div class="TitleConsulta">
                                         <h3 class="white-text mb-3 mt-3"><strong>Realizar Consulta</strong></h3>
                                     </div>
 
                                 </div>
                                 <!--Header-->
                             
-                                <div class="card-body mx-4">
-                                        <div class="input-group md-form">
+                                <div class="card-body">
+                                        <div class="input-group md-form formbuscarxd">
                                             <form method="get" onsubmit="buscarReagente()" name="buscar" class="formulariobusca">
                                                 <input type="text" id="Form-search2" class="form-control formbuscar" name="nomeReagente">
                                                 <label for="Form-search2">Search</label>
@@ -212,8 +214,7 @@
                                 
                                     <!--Grid row-->
                                     <div class="row d-flex align-items-center justify-content-center mb-4" id="resultado">
-                                
-                                        
+                                    
                                 
                                     </div>
                                 <!--Grid row-->
@@ -266,13 +267,13 @@
                             		<form class="formlogin" name="formadmin" action="loginadmin.php" method="post">
 	                                    <!--Body-->
 	                                    <div class="md-form">
-	                                        <input type="text" id="Form-email3" name="emailadmin" class="form-control">
-	                                        <label for="Form-email3">Your email</label>
+	                                        <input type="text" id="Form-email4" name="emailadmin" class="form-control">
+	                                        <label for="Form-email4">Your email</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
-	                                        <input type="password" id="Form-pass3" name="senhaadmin" class="form-control">
-	                                        <label for="Form-pass3">Your password</label>
+	                                        <input type="password" id="Form-pass4" name="senhaadmin" class="form-control">
+	                                        <label for="Form-pass4">Your password</label>
 	                                    </div>
 	     
 	                                
@@ -311,17 +312,16 @@
         </div>
         <!--Modal: modalPushLoginADMIN-->
 
+        <!-- SCRIPTS -->
         <!-- JQuery -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/mdb/jquery-3.4.1.min.js"></script>
         <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <script type="text/javascript" src="js/mdb/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mdb/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
-        <!-- Main JavaScript Local -->
+        <script type="text/javascript" src="js/mdb/mdb.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="js/funcoes.js"></script>
     </body>
 </html>

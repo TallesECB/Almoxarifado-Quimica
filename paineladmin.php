@@ -6,13 +6,15 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Projeto Quimica</title>
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
         <!-- Bootstrap core CSS -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/exemplo td 3 3-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+        <link href="css/mdb.min.css" rel="stylesheet">
+        <!-- Your custom styles (optional) -->
+        <link href="css/style.css" rel="stylesheet">
         <!-- Style CSS Local -->
-        <link rel="stylesheet" href="css/style.css"> 
+        <link rel="stylesheet" href="css/main.css">
         </head>
     <body>
         <?php 
@@ -27,11 +29,11 @@
                 </a>
 
                 <ul class="uluser">
-                    <li class="infouser nomeuser"><?php echo($_SESSION['nomeadmin'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['profissaoadmin'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['numeroadmin'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['enderecoadmin'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['emailadmin'])?></li>
+                    <li class="infouser nomeuser"><!--<?php echo($_SESSION['nomeadmin'])?>--></li>
+                    <li class="infouser"><!--<?php echo($_SESSION['profissaoadmin'])?>--></li>
+                    <li class="infouser"><!--<?php echo($_SESSION['numeroadmin'])?>--></li>
+                    <li class="infouser"><!--<?php echo($_SESSION['enderecoadmin'])?>--></li>
+                    <li class="infouser"><!--<?php echo($_SESSION['emailadmin'])?>--></li>
                 </ul>
                 <form action="logout.php">
                     <button type="submit" class="SairUser">Sair</button>
@@ -46,27 +48,31 @@
 
 
 
-                <section class="inserirreagente">
-                
+                <section class="inserirreagente my-custom-scrollbar">
+
                     <!-- form include reagente -->
                     <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirReagente()" name="inserir" id="insereForm">
-                        
-                        <p class="h4 mb-4" id="resultado">Inserir Reagente</p>
+                        <div class="btnaddreagente pb-5">
+                            <p class="h4 mt-2" id="resultado">Inserir Reagente</p>
+                            <button type="button" onclick="reagenteNaoCadastrado()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Reagente Não Cadastrado ?</button>
+                        </div>
+        
+                        <!-- Subject -->
+                        <label>Reagente</label>
+                        <select name="reagentenome" id="reag" class="browser-default custom-select mb-4">
+                        </select>
 
-                        <!-- Name -->
-                        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Nome do Reagente" name="nomereag">
+                        <div id="reagentenaocadastrado">
+
+                        </div>
 
                         <input type="number" class="form-control mb-4" placeholder="Quantidade" name="quantreag">
-                        <input type="number" class="form-control mb-4" placeholder="Validade" name="validadereag">
+                        <input type="date" class="form-control mb-4" placeholder="Validade" name="validadereag">
 
                         <!-- Subject -->
                         <label>Fornecedor</label>
                         <select name="reagentefornecedor" id="reagfornec" class="browser-default custom-select mb-4">
                         </select>
-                        
-
-                        <label>Categoria</label>
-                        <select name="reagentecategoria" id="reagcateg" class="browser-default custom-select mb-4"></select>
 
                         <!-- Send button -->
                         <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
@@ -76,6 +82,28 @@
                 </section>
 
 
+                <section class="inserirreagentenew my-custom-scrollbar">
+
+                    <!-- form include reagente -->
+                    <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirReagenteNovo()" name="inserirnew" id="insereForm">
+                        <p class="h4 mb-5 mt-4" id="resultadoreag">Inserir Reagente</p>
+        
+                        <input type="text" class="form-control mb-4" placeholder="Nome Usual" name="nomeusual">
+                        <input type="text" class="form-control mb-4" placeholder="Nome Iupac" name="nomeiupac">
+                        <input type="text" class="form-control mb-4" placeholder="Formula" name="formulareag">
+                        <label>Categoria</label>
+                        <select name="classificacaoreag" id="reagcateg" class="browser-default custom-select mb-5">
+                            <option value="null">-----</option>
+                            <option value="Organico">Organico</option>
+                            <option value="Inorganico">Inorganico</option>
+                        </select>
+                        <!-- Send button -->
+                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
+
+                    </form>
+            
+                </section>
+
 
 
 
@@ -83,19 +111,20 @@
                     <div id="resultadoalterar" class="text-center">
 
                     </div>
-                    <div class="tabelalistagemreagentes">
+                    <div class="tabelalistagemreagentes p-2">
 
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-                            <table class="table table-bordered table-striped" id="dtHorizontalVerticalExample"  cellspacing="0" width="100%">
+                            <table class="table table-bordered table-striped table-sm" id="dtHorizontalExample" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Nome do Reagente</th>
-                                        <th scope="col">Fornecedor</th>
+                                        <th scope="col">Nome Usual</th>
+                                        <th scope="col">Nome Iupac</th>
+                                        <th scope="col">Formula</th>
                                         <th scope="col">Categoria</th>
                                         <th scope="col">Validade</th>
                                         <th scope="col">Quantidade</th>
+                                        <th scope="col">Fornecedor</th>
                                     </tr>
                                 </thead>
                                 <tbody id="listarreagente">
@@ -148,17 +177,18 @@
 
 
                 <section id="atualizarreagentes">
-                    <div class="tabelalistagemreagentesalterar">
+                    <div class="tabelalistagemreagentesalterar p-2">
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
 
-                            <table class="table table-bordered table-striped" id="dtHorizontalVerticalExample2"  cellspacing="0" width="100%">
+                            <table class="table table-bordered table-striped" id="dtHorizontalVerticalExample2" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Nome do Reagente</th>
-                                        <th scope="col">Fornecedor</th>
+                                    <th scope="col">Nome Usual</th>
+                                        <th scope="col">Nome Iupac</th>
+                                        <th scope="col">Formula</th>
                                         <th scope="col">Categoria</th>
                                         <th scope="col">Validade</th>
+                                        <th scope="col">Fornecedor</th>
                                         <th scope="col">Quantidade Atual de Estoque</th>
                                     </tr>
                                 </thead>
@@ -208,7 +238,7 @@
 
 
 
-                <section id="pesquisarreagente">
+                <section id="pesquisarreagente" class="p-2 my-custom-scrollbar">
                     <form method="get" onsubmit="pesquisarReagente()" name="buscar" class="formulariobusca">
                         <div class="input-group md-form form-sm form-2 pl-0">
                             <input class="form-control my-0 py-1 dark-border" type="text" placeholder="Search"  name="nomeReagente" aria-label="Search">
@@ -223,12 +253,13 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Nome do Reagente</th>
-                                    <th scope="col">Fornecedor</th>
-                                    <th scope="col">Categoria</th>
-                                    <th scope="col">Validade</th>
-                                    <th scope="col">Quantidade</th>
+                                    <th scope="col">Nome Usual</th>
+                                        <th scope="col">Nome Iupac</th>
+                                        <th scope="col">Formula</th>
+                                        <th scope="col">Categoria</th>
+                                        <th scope="col">Validade</th>
+                                        <th scope="col">Quantidade</th>
+                                        <th scope="col">Fornecedor</th>
                                 </tr>
                             </thead>
                             <tbody id="reagentefrompesquisa">
@@ -290,7 +321,7 @@
                     </div>
                     <div class="card cardsecundarioadmin">
                         <div class="card-body cardoptionsadmin">
-                            <button type="submit" class="options" onclick="optionDisplayPesquisarReagente()">Pesquisar Reagente</button>
+                            <button type="submit" class="options" onclick="optionDisplayPesquisarReagente()">Pesquisar Reagentes</button>
                         </div>
                     </div>
                      <div class="card cardsecundarioadmin">
@@ -333,15 +364,16 @@
 
          </section> 
 
+        <!-- SCRIPTS -->
         <!-- JQuery -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/mdb/jquery-3.4.1.min.js"></script>
         <!-- Bootstrap tooltips -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <script type="text/javascript" src="js/mdb/popper.min.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/exemplo td 3 3-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/mdb/bootstrap.min.js"></script>
         <!-- MDB core JavaScript -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/js/mdb.min.js"></script>
-        <!-- Main JavaScript Local -->
+        <script type="text/javascript" src="js/mdb/mdb.min.js"></script>
+        <script src="js/main.js"></script>
         <script src="js/funcoes.js"></script>
     </body>
 </html>
