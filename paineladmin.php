@@ -13,8 +13,6 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
-        <!-- Style CSS Local -->
-        <link rel="stylesheet" href="css/main.css">
         </head>
     <body>
         <?php 
@@ -357,8 +355,7 @@
                 </section>
 
                 <footer class="footersucundario">
-                    <span></span>
-                    <span><p class="infosistema">Informações do Sistema</p></span>
+                    <span class="infosistema">Informações do Sistema</span>
                 </footer>
             </section>
 

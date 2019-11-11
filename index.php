@@ -13,8 +13,6 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
-        <!-- Style CSS Local -->
-        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <main id="siteinicial">

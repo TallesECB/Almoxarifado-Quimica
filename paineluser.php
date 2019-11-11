@@ -13,8 +13,6 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
-        <!-- Style CSS Local -->
-        <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
         <?php 
@@ -27,11 +25,11 @@
                 </div>
 
                 <ul class="uluser">
-                    <li class="infouser nomeuser"><?php echo($_SESSION['nomeuser'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['profissaouser'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['numerouser'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['enderecouser'])?></li>
-                    <li class="infouser"><?php echo($_SESSION['emailuser'])?></li>
+                    <li class="infouser nomeuser"><!-- <?php echo($_SESSION['nomeuser'])?> --></li>
+                    <li class="infouser"><!-- <?php echo($_SESSION['profissaouser'])?> --></li>
+                    <li class="infouser"><!-- <?php echo($_SESSION['numerouser'])?> --></li>
+                    <li class="infouser"><!-- <?php echo($_SESSION['enderecouser'])?> --></li>
+                    <li class="infouser"><!-- <?php echo($_SESSION['emailuser'])?> --></li>
                 </ul>
 
                 <form action="logout.php">
@@ -77,8 +75,7 @@
                 </section>
 
                 <footer class="footersucundario">
-                    <span></span>
-                    <span><p class="infosistema">Informações do Sistema</p></span>
+                    <span class="infosistema">Informações do Sistema</span>
                 </footer>
             </section>
 
