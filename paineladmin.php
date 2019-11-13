@@ -19,7 +19,7 @@
             session_start();
         ?>
          <section class="secondpag">
-            <nav class="navvertical elegant-color-dark">
+            <nav class="navvertical menu-vertical">
                 <a href="paineladmin.php"> 
                     <div class="imguser">
                         <img src="" alt="">
@@ -43,14 +43,12 @@
                     <p class="titlepagsecundario">Almoxarifado Quimica Administrativo</p>
                 </div>
 
-
-
-
                 <section class="inserirreagente my-custom-scrollbar">
 
                     <!-- form include reagente -->
                     <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirReagente()" name="inserir" id="insereForm">
                         <div class="btnaddreagente pb-5">
+                            <button type="button" onclick="reagenteAlterarCadastro()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Alterar Reagentes Cadastrados ?</button>
                             <p class="h4 mt-2" id="resultado">Inserir Reagente</p>
                             <button type="button" onclick="reagenteNaoCadastrado()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Reagente Não Cadastrado ?</button>
                         </div>
@@ -79,34 +77,18 @@
 
                 </section>
 
-
-                <section class="inserirreagentenew my-custom-scrollbar">
-
-                    <!-- form include reagente -->
-                    <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirReagenteNovo()" name="inserirnew" id="insereForm">
-                        <p class="h4 mb-5 mt-4" id="resultadoreag">Inserir Reagente</p>
-        
-                        <input type="text" class="form-control mb-4" placeholder="Nome Usual" name="nomeusual">
-                        <input type="text" class="form-control mb-4" placeholder="Nome Iupac" name="nomeiupac">
-                        <input type="text" class="form-control mb-4" placeholder="Formula" name="formulareag">
-                        <label>Categoria</label>
-                        <select name="classificacaoreag" id="reagcateg" class="browser-default custom-select mb-5">
-                            <option value="null">-----</option>
-                            <option value="Organico">Organico</option>
-                            <option value="Inorganico">Inorganico</option>
-                        </select>
-                        <!-- Send button -->
-                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
-
-                    </form>
-            
-                </section>
-
-
-
-
+                <!-- section de listagem dos reagentes da tabela reagente fornecedor -->
                 <section class="listagemreagentes">
                     <div id="resultadoalterar" class="text-center">
+
+                    </div>
+                    <div id="resultadoalterarcd" class="text-center">
+
+                    </div>
+                    <div id="resultadoexcluir" class="text-center">
+
+                    </div>
+                    <div id="resultadoexcluirreag" class="text-center">
 
                     </div>
                     <div class="tabelalistagemreagentes p-2">
@@ -171,9 +153,7 @@
                 </section>
 
 
-
-
-
+                <!-- section para atualizar a quantidade dos reagentes da tabela reagente fornecedor -->
                 <section id="atualizarreagentes">
                     <div class="tabelalistagemreagentesalterar p-2">
                         <div class="table-wrapper-scroll-y my-custom-scrollbar">
@@ -235,7 +215,7 @@
                 </section>
 
 
-
+                <!-- section para pesquisar um reagente da tabela reagente fornecedor printando os dados dele -->
                 <section id="pesquisarreagente" class="p-2 my-custom-scrollbar">
                     <form method="get" onsubmit="pesquisarReagente()" name="buscar" class="formulariobusca">
                         <div class="input-group md-form form-sm form-2 pl-0">
@@ -303,8 +283,106 @@
 
                 </section>
 
+                <!-- section onde insere reagentes novos na tabela reagentes -->
+                <section class="inserirreagentenew my-custom-scrollbar">
+
+                    <!-- form include reagente -->
+                    <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirReagenteNovo()" name="inserirnew" id="insereForm">
+                        <p class="h4 mb-5 mt-4" id="resultadoreag">Inserir Reagente</p>
+        
+                        <input type="text" class="form-control mb-4" placeholder="Nome Usual" name="nomeusual">
+                        <input type="text" class="form-control mb-4" placeholder="Nome Iupac" name="nomeiupac">
+                        <input type="text" class="form-control mb-4" placeholder="Formula" name="formulareag">
+                        <label>Categoria</label>
+                        <select name="classificacaoreag" id="reagcateg" class="browser-default custom-select mb-5">
+                            <option value="null">-----</option>
+                            <option value="Organico">Organico</option>
+                            <option value="Inorganico">Inorganico</option>
+                        </select>
+                        <!-- Send button -->
+                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
+
+                    </form>
+            
+                </section>
+
+                <!-- pesquisa de reagentes da tabela reagentes para alterar ou excluir e visualizar os dados do pesquisado -->
+                <section id="alterarreagentecadastrado" class="p-2 my-custom-scrollbar">
+                    <form method="get" onsubmit="pesquisarReagenteCD()" name="buscarcd" class="formulariobusca">
+                        <div class="input-group md-form form-sm form-2 pl-0">
+                            <input class="form-control my-0 py-1 dark-border" type="text" placeholder="Search"  name="nomeReagenteCD" aria-label="Search">
+                            <div class="input-group-append">  
+                                <span class="input-group-text dark lighten-3" id="basic-text1"><button type="submit" name="pesquisar" class="buttonpesquisar"> <i class="fas fa-search text-grey" aria-hidden="true"></i></button></span>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="tabelalistagemreagentecd">
+
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome Usual</th>
+                                        <th scope="col">Nome Iupac</th>
+                                        <th scope="col">Formula</th>
+                                        <th scope="col">Categoria</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reagentecdpesquisa">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>exemplo td 1 1</td>
+                                    <td>exemplo td 1 2</td>
+                                    <td>@exemplo td 1 3</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>exemplo td 2 1</td>
+                                    <td>exemplo td 2 2</td>
+                                    <td>@exemplo td 2 3</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>exemplo td 3 1</td>
+                                    <td>exemplo td 3 2</td>
+                                    <td>@exemplo td 3 3</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>exemplo td 4 1</td>
+                                    <td>exemplo td 4 2</td>
+                                    <td>@exemplo td 4 3</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>exemplo td 5 1</td>
+                                    <td>exemplo td 5 2</td>
+                                    <td>@exemplo td 5 3</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>exemplo td 6 1</td>
+                                    <td>exemplo td 6 2</td>
+                                    <td>@exemplo td 6 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </section>
 
 
+                <!-- section que monta o formulario de alterar os dados do reagente da tabela reagentes -->
+                <section id="atualizarreagentescadastrado">
+                    <div class="tabelalistagemreagentesalterar p-2">
+                        
+                        <div id="reagenteatualizarcd">
+                            
+                        </div>
+    
+
+                    </div>
+                </section>
 
                 <section class="mincards admin">
                     <div class="card cardsecundarioadmin">
@@ -354,7 +432,7 @@
                     </div>                     
                 </section>
 
-                <footer class="footersucundario">
+                <footer class="footersecundario">
                     <span class="infosistema">Informações do Sistema</span>
                 </footer>
             </section>

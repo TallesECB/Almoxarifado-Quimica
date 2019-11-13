@@ -33,7 +33,7 @@ CREATE TABLE `administrador` (
   `LOGIN_ADMIN` varchar(10) NOT NULL,
   `SENHA_ADMIN` varchar(10) NOT NULL,
   `NOME_ADMIN` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `fornecedor` (
   `ID_FORNECEDOR` int(11) NOT NULL,
   `NOME_FORNECEDOR` varchar(50) NOT NULL,
   `CIDADE_FORNECEDOR` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `fornecedor`
@@ -71,7 +71,7 @@ CREATE TABLE `fornecedor_reagente` (
   `VALIDADE` date NOT NULL,
   `DATA_ENTRADA` date NOT NULL,
   `QNTD_ESTOQUE` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `fornecedor_reagente`
@@ -101,7 +101,8 @@ CREATE TABLE `reagentes` (
   `NOME_IUPAC` varchar(100) NOT NULL,
   `FORMULA` varchar(50) DEFAULT NULL,
   `CLASSIFICACAO` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci SET utf8 COLLATE utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 --
 -- Extraindo dados da tabela `reagentes`
 --
@@ -126,7 +127,7 @@ CREATE TABLE `usuario` (
   `LOGIN_USUARIO` varchar(10) NOT NULL,
   `SENHA_USUARIO` varchar(10) NOT NULL,
   `NOME_USUARIO` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tabelas despejadas

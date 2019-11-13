@@ -1,3 +1,6 @@
+<?php 
+  session_start(); 
+?>  
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -13,22 +16,38 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     </head>
     <body>
         <main id="siteinicial">
             <header>
-                <p class="titlepagprimario">Almoxarifado Quimica</p>
+                <p class="titlepagprimario">On-Lab <img src="img/onlab.png" width="90px"></p>
+
             </header>
-            
+
+             <div> 
+                <?php 
+                     if(isset($_SESSION['msg'])){?>                    
+                         <div class="alert alert-danger" role="alert" style="text-align: center">
+                             <?php  echo $_SESSION['msg']; 
+                            session_destroy(); 
+                        ?>  
+                        </div>
+
+                    <?php }
+                    
+                    ?> 
+             </div>
             <section class="cards">
                 <span class="complete"></span>
                 <div class="card1">
-                    <div class="card cardinicial" id="cardpushlogin" data-toggle="modal" data-target="#modalPushLogin">
+                    <div class="card cardinicial" id="" data-toggle="modal" data-target="#modalPushLogin">
                         <div class="card-body cardinicialbody">
+
 
                             <i class="far fa-user fa-5x"></i>
 
-                            <button type="submit" class="EntrarUser" >Entrar</button>
+                            <button type="submit" class="EntrarUser">Entrar</button>
                         </div>
                     </div>
                 </div>
@@ -47,7 +66,7 @@
 
             <!-- Footer -->
 
-            <footer class="page-footer font-small elegant-color pt-4 footerinicial">
+            <footer class="footer-social-medias">
 
                 <!-- Footer Elements -->
                 <div class="container">
@@ -87,8 +106,8 @@
                 <!-- Footer Elements -->
             
                 <!-- Copyright -->
-                <div class="footer-copyright elegant-color-dark py-3 footerprimario">
-                    <p class="textfooterprimario"> © 2019 Copyright: Talles & Julie TSI|3</p>
+                <div class="">
+                    <p class="textfooterprimario"> On-Lab© 2019 Copyright: Talles Balardin & Julie Santiago TSI|3</p>
                 </div> 
                 <!-- Copyright -->
             
@@ -113,55 +132,45 @@
                             
                                     <div class="TitleLogin">
                                         <h3 class="white-text mb-3 mt-3"><strong>Logar</strong></h3>
+
                                     </div>
 
-                                    <div class="row mt-2 mb-3 d-flex justify-content-center">
-                                        <!--Facebook-->
-                                        <a class="fa-lg p-2 m-2 fb-ic"><i class="fab fa-facebook-f white-text fa-lg"> </i></a>
-                                        <!--Twitter-->
-                                        <a class="fa-lg p-2 m-2 tw-ic"><i class="fab fa-twitter white-text fa-lg"> </i></a>
-                                        <!--Google +-->
-                                        <a class="fa-lg p-2 m-2 gplus-ic"><i class="fab fa-google-plus-g white-text fa-lg"> </i></a>
-                                    </div>
+                                    
                                 </div>
                                 <!--Header-->
                             
                                 <div class="card-body mx-4">
-                            		<form class="formlogin" name="acesso" id='formulario' method="post" onsubmit="valida_sessao(this)">
+
+                            		<form class="formlogin" name="acesso" id='formulario' action="logica_usuario/valida_login_user.php" method="POST" > 
 	                                    <!--Body-->
 	                                    <div class="md-form">
-	                                        <input type="text" id="Form-email3" name="email" class="form-control">
-	                                        <label for="Form-email3">Your email</label>
+	                                        <input type="text" id="Form-email3" name="login" class="form-control">
+	                                        <label for="Form-email3">Login</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
 	                                        <input type="password" id="Form-pass3" name="senha" class="form-control">
-	                                        <label for="Form-pass3">Your password</label>
+	                                        <label for="Form-pass3">Senha</label>
 	                                    </div>
                                         
                                         <div id='texto'></div>
 	                                    <!--Grid row-->
 	                                    <div class="row d-flex align-items-center mb-4">
-	                                
+	                                <!--Retirei os links para rede social - Não precisamos! --> 
 	                                        <!--Grid column-->
-	                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
+	                                        <div class="col-md-1 col-md-5 d-flex align-items-start"> 
 	                                            <div class="text-center">
-	                                                <button type="submit" name="botao" value="Enviar" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+	                                                <button  type="submit" name="entrar" value="Enviar" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Entrar</button>
 	                                            </div>
+
 	                                        </div>
 	                                        <!--Grid column-->
-	                                
-	                                        <!--Grid column-->
-	                                        <div class="col-md-7">
-	                                                <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? 
-	                                                <a href="#" class="dark-grey-text ml-1 font-weight-bold"> Sign-Up </a>
-	                                            </p>
-	                                        </div>
-	                                        <!--Grid column-->
+	                            
                                 	
                                     	</div>
                                 		<!--Grid row-->
                                 	</form>
+
                                 </div>
                             
                             </div>
@@ -262,16 +271,16 @@
                                 <!--Header-->
                             
                                 <div class="card-body mx-4">
-                            		<form class="formlogin" name="formadmin" action="loginadmin.php" method="post">
+                            		<form class="formlogin" name="formadmin" action="logica_admin/valida_login_admin.php" method="POST">
 	                                    <!--Body-->
 	                                    <div class="md-form">
-	                                        <input type="text" id="Form-email4" name="emailadmin" class="form-control">
-	                                        <label for="Form-email4">Your email</label>
+	                                        <input type="text" id="Form-email4" name="loginadmin" class="form-control">
+	                                        <label for="Form-email4">Login</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
 	                                        <input type="password" id="Form-pass4" name="senhaadmin" class="form-control">
-	                                        <label for="Form-pass4">Your password</label>
+	                                        <label for="Form-pass4">Senha</label>
 	                                    </div>
 	     
 	                                
@@ -281,18 +290,12 @@
 	                                        <!--Grid column-->
 	                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
 	                                            <div class="text-center">
-	                                                <button type="submit" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Log in</button>
+	                                                <button type="submit" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin" name="enviar">Entrar como admin</button>
 	                                            </div>
 	                                        </div>
 	                                        <!--Grid column-->
 	                                
-	                                        <!--Grid column-->
-	                                        <div class="col-md-7">
-	                                                <p class="font-small grey-text d-flex justify-content-end mt-3">Don't have an account? 
-	                                                <a href="#" class="dark-grey-text ml-1 font-weight-bold"> Sign up</a>
-	                                            </p>
-	                                        </div>
-	                                        <!--Grid column-->
+	
                                 	
                                     	</div>
                                 		<!--Grid row-->

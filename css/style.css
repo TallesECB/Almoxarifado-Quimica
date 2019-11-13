@@ -25,10 +25,9 @@ li {
     }
 
     .titlepagprimario {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Helvetica', Courier, monospace;
         font-size: 35px;
         color: black;
-        box-shadow: 0 1px 5px #585858;
     }
 
     p.titlepagprimario{
@@ -39,21 +38,19 @@ li {
         padding-bottom: 15px;
     }
 
-    section.cards {
+    section.cards { /*Área da página onde ficam os cards de login e busca*/ 
         display: flex;
         justify-content: space-around;
         align-items: center;
         padding-bottom: 20px;
     }
 
-    .cardinicial {
+    .cardinicial { /*CARDS*/ 
         width: 300px;
         height: 450px;
-        border: 2px solid gray;
         overflow: hidden;
-        border-radius: 30px; 
+       /*Retirei o border-radius*/
         transition: 0.4s linear all;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
     }
 
     .cardinicialbody {
@@ -66,11 +63,10 @@ li {
     .cardinicial:hover {
         transform: scale(1.05,1.05);
         transition: 0.5s linear all;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
     }
 
     .EntrarUser {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Helvetica', monospace;
         border: none;
         background: none;
         color: gray;
@@ -78,7 +74,7 @@ li {
     }
 
     .RealizarConsulta {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'Helvetica', Courier, monospace;
         border: none;
         background: none;
         color: gray;
@@ -105,12 +101,11 @@ li {
     .EntrarAdmin:hover {
         transform: scale(1.05,1.05);
         transition: 0.5s linear all;
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
         padding: 1px;
     }
 
     .footerinicial {
-        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+        background-color: linear-gradient(to right, black,#585858,#585858,black); 
     }
 
     main {
@@ -209,17 +204,16 @@ li {
         70%{ 
             transform: translateY(-50px); 
             opacity: 0.8;
-            box-shadow: 0px 1px 0px #585858;
+            
         } 
         99%{ 
             transform: translateY(0px);
             opacity: 1;
-            box-shadow: 0px 1px 0px #585858;
-        }
+        }    
         100%{ 
             transform: translateY(0px);
             opacity: 1;
-            box-shadow: 0px 2px 5px #585858;
+            
         }  
     } 
     
@@ -277,7 +271,7 @@ li {
         overflow: hidden;
         border-radius: 10px; 
         transition: 0.4s linear all;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        
     }
     
     .cardsecundarioadmin {
@@ -287,13 +281,13 @@ li {
         overflow: hidden;
         border-radius: 10px; 
         transition: 0.4s linear all;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+       
     }
 
     .cardsecundariouser:hover,.cardsecundario:hover,.cardsecundarioadmin:hover {
         transform: scale(1.05,1.05);
         transition: 0.5s linear all;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        
     }
     
     section.mincards.user {
@@ -330,7 +324,6 @@ li {
     p.titlepagsecundario {
         font-family: 'Courier New', Courier, monospace;
         font-size: 35px;
-        padding-bottom: 20px;
         color: black;
     }
     
@@ -341,14 +334,14 @@ li {
     }
     
     section.userconteudo p.titlepagsecundario{
-        padding-top: 40px;
+        padding-top: 30px;
         display: flex;
         justify-content: center;
         align-content: center;
     }
 
     section.adminconteudo p.titlepagsecundario{
-        padding-top: 30px;
+        padding-top: 20px;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -412,13 +405,12 @@ li {
         background-color: #585858;
     }
     
-    .footersucundario {
+    .footersecundario {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 80px;
+        height: 60px;
         color: white;
-        background-image: linear-gradient(to right, black,#585858,#585858,black); 
     }
     
     .options {
@@ -635,7 +627,7 @@ li {
         overflow: hidden;
         border-radius: 30px; 
         transition: 0.4s linear all;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+       
     }
 
     .cardinicialbody {
@@ -687,7 +679,7 @@ li {
     .EntrarAdmin:hover {
         transform: scale(1.05,1.05);
         transition: 0.5s linear all;
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        
         padding: 1px;
     }
 
@@ -854,7 +846,7 @@ li {
         overflow: hidden;
         border-radius: 10px; 
         transition: 0.4s linear all;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        
     }
     
     .cardsecundarioadmin {
@@ -864,13 +856,13 @@ li {
         overflow: hidden;
         border-radius: 10px; 
         transition: 0.4s linear all;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+        
     }
 
     .cardsecundariouser:hover,.cardsecundario:hover,.cardsecundarioadmin:hover {
         transform: scale(1.05,1.05);
         transition: 0.5s linear all;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+       
     }
     
     section.mincards.user {
@@ -878,7 +870,7 @@ li {
         justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
-        padding: 20px;
+        padding: 30px;
     }
     
     section.mincards.admin {
@@ -886,12 +878,11 @@ li {
         justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
-        padding: 50px;
     }
 
     section.conteudototal.userconteudo {
         display: grid;
-        grid-template-rows: 3fr 9fr;
+        grid-template-rows: 2.5fr 10.5fr;
     }
     
     section.conteudototal.adminconteudo {
@@ -917,7 +908,7 @@ li {
     }
     
     section.userconteudo p.titlepagsecundario{
-        padding-top: 40px;
+        padding-top: 30px;
         display: flex;
         justify-content: center;
         align-content: center;
@@ -992,9 +983,9 @@ li {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 80px;
+        height: 70px;
         color: white;
-        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+         
     }
     
     .options {
@@ -1141,8 +1132,8 @@ li {
         border-radius: 10px;
     }
     
-    .gridientdark {
-        background-image: linear-gradient(to right, #585858,gray,#585858); 
+    .gridientdark { /*Cores do modal de login - Alterado*/ 
+        background-image: linear-gradient(to right, #48D1CC,#20B2AA); 
     }
     
     .form-elegant .font-weight-bold {
@@ -1235,6 +1226,11 @@ table.dataTable thead .sorting_desc_disabled:before {
     justify-content: center;
 }
 
+.tabelalistagemreagentescd {
+    display: flex;
+    justify-content: center;
+}
+
 tbody td,th {
     text-align: center;
 }
@@ -1252,4 +1248,26 @@ tbody td,th {
 
 .inserirreagentenew {
     display: none;
+}
+
+#alterarreagentecadastrado {
+    display: none;
+}
+
+#atualizarreagentescadastrado {
+    display: none;
+}
+
+/*============================Alterações==============================*/ 
+.footer-social-medias {
+    background-color: #008B8B;
+    padding: 10px;
+}
+
+.menu-vertical {
+    background-color: #48D1CC;
+}
+
+.footersecundario {
+    background-color: #008B8B;
 }

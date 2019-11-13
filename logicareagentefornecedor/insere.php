@@ -7,12 +7,13 @@ require_once('funcoes.php');
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
 $array = [];
-$array = [$obj->nomeusual, $obj->nomeiupac, $obj->formula, $obj->classificacao];
+$array = [$obj->reagentenome, $obj->reagentefornecedor, $obj->validadereag, $obj->quantreag];
 
-$resultado = inserirReagenteNovo($conexao, $array);
+$resultado = inserirReagente($conexao, $array);
+
 
 if($resultado) {
-	echo "Inserido com Sucesso na Tabela Reagentes";
+	echo "Inserido com Sucesso na Tabela Reagente Fornecedor";
 } else {
 	echo "Erro ao Inserir";
 }

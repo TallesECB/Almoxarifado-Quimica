@@ -1,3 +1,6 @@
+<?php 
+    
+?> 
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -15,21 +18,20 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <?php 
-            session_start();
-        ?>
+        
          <section class="secondpag">
-            <nav class="navvertical elegant-color-dark">
+            <nav class="menu-vertical navvertical">
                 <div class="imguser">
                     <img src="" alt="">
                 </div>
 
                 <ul class="uluser">
-                    <li class="infouser nomeuser"><!-- <?php echo($_SESSION['nomeuser'])?> --></li>
-                    <li class="infouser"><!-- <?php echo($_SESSION['profissaouser'])?> --></li>
-                    <li class="infouser"><!-- <?php echo($_SESSION['numerouser'])?> --></li>
-                    <li class="infouser"><!-- <?php echo($_SESSION['enderecouser'])?> --></li>
-                    <li class="infouser"><!-- <?php echo($_SESSION['emailuser'])?> --></li>
+                    <li class="infouser nomeuser"><?php echo($_SESSION['nome'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['profissao'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['idade'])?></li>
+                    <!--
+                    <li class="infouser"><?php echo($_SESSION['enderecouser'])?></li>
+                    <li class="infouser"><?php echo($_SESSION['emailuser'])?></li> -->
                 </ul>
 
                 <form action="logout.php">
@@ -74,7 +76,7 @@
                     </div>                    
                 </section>
 
-                <footer class="footersucundario">
+                <footer class="footersecundario">
                     <span class="infosistema">Informações do Sistema</span>
                 </footer>
             </section>
