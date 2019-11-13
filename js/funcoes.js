@@ -2,15 +2,23 @@
 /* variavel que printa o resultado de quando insere um novo reagente fornecedor*/
 const resultado = document.getElementById("resultado");
 
+/* variavel que printa o resultado de quando exclui um reagente fornecedor*/
+const resultadoexcluir = document.getElementById("resultadoexcluir");
+
+/* variavel que printa o resultado de quando exclui um reagente*/
+const resultadoexcluirreag = document.getElementById("resultadoexcluirreag");
+
 /* variavel que printa o resultado de quando insere um novo reagente*/
 const resultadoreag = document.getElementById("resultadoreag");
 
 /* formulario de atualizacao do reagente */
 const formEdit = document.getElementById('atualizaReagente');
 
-/* variavel que printa o resultado de quando altera um reagente */
+/* variavel que printa o resultado de quando altera um reagente fornecedor */
 const resultadoalterar = document.getElementById('resultadoalterar');
 
+/* variavel que printa o resultado de quando altera um reagente */
+const resultadoalterarreag = document.getElementById('resultadoalterarcd');
 
 /* function simples de inserir raegente fornecedor joga ele para um construtor, para ficar mais organizado */
 function inserirReagente() {
@@ -21,7 +29,7 @@ function inserirReagente() {
   let quantreag = inserir.quantreag.value;
   
   var reagente = new Reagente(reagentenome, reagentefornecedor, validadereag, quantreag); 
-  var url = './logicareagente/insere.php';
+  var url = './logicareagentefornecedor/insere.php';
   fetch(url, {
     method: "POST",
     body: JSON.stringify(reagente)
@@ -35,46 +43,11 @@ function inserirReagente() {
 }
 
 
-/* function da pagina de inserir reagente, quando o reagente não esta cadastrado chama ela
-e ela da display none na pagina de inserir reagente fornecedor
-e da display block na pagina de inserir reagente
-*/
-function reagenteNaoCadastrado() {
-  $('.inserirreagente').hide();
-  $('.inserirreagentenew').show();
-}
-
-
-
-/* function simples de inserir novo reagente, joga ele para um construtor, para ficar mais organizado */
-function inserirReagenteNovo() {
-  resultadoreag.innerHTML = '';
-  let nomeiupac = inserirnew.nomeiupac.value;
-  let nomeusual = inserirnew.nomeusual.value;
-  let formula = inserirnew.formulareag.value;
-  let classificacao = inserirnew.classificacaoreag.value;
-  
-  var reagente = new ReagenteNew(nomeusual, nomeiupac, formula, classificacao); 
-  var url = './logicareagente/inserereagente.php';
-  fetch(url, {
-    method: "POST",
-    body: JSON.stringify(reagente)
-  })
-  .then(response => response.text())
-  .then(function result (data) {
-    resultadoreag.innerHTML = data;
-  })
-  .catch(error => console.error('Erro ao tentar acessar o php:', error));
-    event.preventDefault();
-}
-
-
-
 /* function de buscar reagente na tela inicial do site, sem estar logado */
 function buscarReagente() {
   var nomereag = buscar.nomeReagente.value;
   document.getElementById('resultado').innerHTML = '';
-  fetch(`./logicareagente/pesquisa.php?NOME_USUAL=${nomereag}`, {
+  fetch(`./logicareagentefornecedor/pesquisa.php?NOME_USUAL=${nomereag}`, {
     method: 'GET',
   }) 
     .then(response => {
@@ -128,8 +101,6 @@ function buscarReagente() {
 }
 
 
-
-
 /* 
 function de pesquisar reagente pelo nome, que printa o reagente que possua o
 nomereag = ao informado no input no formulario de pesquisa
@@ -139,7 +110,7 @@ com os botoes de excluir e editar (com os parametros para executar a funcao)
 function pesquisarReagente() {
   var nomereag = buscar.nomeReagente.value;
   let listarreag = document.getElementById('reagentefrompesquisa');
-  fetch(`./logicareagente/pesquisa.php?NOME_USUAL=${nomereag}`, {
+  fetch(`./logicareagentefornecedor/pesquisa.php?NOME_USUAL=${nomereag}`, {
     method: 'GET',
   })
     .then(response => {
@@ -178,13 +149,10 @@ function pesquisarReagente() {
     event.preventDefault(); 
 }
 
-
-
-
 /* function de listagem de todos os reagentes com os botoes para executar a funcao de editar ou excluir */
 function listarReagente() {
   let listarreag = document.getElementById('listarreagente');
-  fetch(`./logicareagente/listar.php`, {
+  fetch(`./logicareagentefornecedor/listar.php`, {
     method: 'GET',
   }) 
     .then(response => {
@@ -223,8 +191,6 @@ function listarReagente() {
 }
 
 
-
-
 /* 
 function que puxa o reagente fornecedor para jogar ele pro formulario, pegando ele de acordo com o 
 'idreagente e o idfornecedor' do botao de editar, printado junto ao reagente na funcao de listagem
@@ -233,7 +199,7 @@ function alterarReagente(idreagente,idfornecedor) {
   let ID_REAGENTE = idreagente;
   let ID_FORNECEDOR = idfornecedor;
   let listarreagalterar = document.getElementById('reagentefrompesquisaalterar');
-  fetch(`./logicareagente/busca.php?ID_FORNECEDOR=${ID_FORNECEDOR}&ID_REAGENTE=${ID_REAGENTE}`, {
+  fetch(`./logicareagentefornecedor/busca.php?ID_FORNECEDOR=${ID_FORNECEDOR}&ID_REAGENTE=${ID_REAGENTE}`, {
     method: 'GET',  
   })
   .then(response => response.json())
@@ -253,7 +219,7 @@ function alterarReagente(idreagente,idfornecedor) {
             table += `<td>${reagente.VALIDADE}</td>`
             table += `<td> ${reagente.NOME_FORNECEDOR}</td>`
           table += `<td>
-            <form method="post" onsubmit="atualizarReagente()" name="atualizar" id="atualizaReagente">	
+            <form method="post" onsubmit="atualizarReagente()" name="atualizar" id="atualizaReagente">  
               <div class="def-number-input number-input safari_only">
                   <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                   <input type="hidden" name="idreag" value="${reagente.ID_REAGENTE}">
@@ -275,8 +241,6 @@ function alterarReagente(idreagente,idfornecedor) {
   event.preventDefault();
 }
 
-
-
 /* 
 function que coleta os dados do formulario de alteracao do reagente 
 onde apenas atualiza a quantidade do reagente, para quando alguem fizer alguma retirada
@@ -292,7 +256,7 @@ function atualizarReagente() {
   console.log(idfornec);
   var reagenteAtualizar = new ReagenteATT(quantreag, idreag, idfornec);
 
-  fetch('./logicareagente/altera.php', {
+  fetch('./logicareagentefornecedor/altera.php', {
     method: 'PUT',
     body: JSON.stringify(reagenteAtualizar),
     header: new Headers()
@@ -311,7 +275,6 @@ function atualizarReagente() {
   event.preventDefault();
 }
 
-
 /* 
 exclui reagente que exclui atraves do 'nomereag' do botao que vai junto do reagente
 na funcao listarReagente passando o nomereag do botao como parametro pro fetch executar
@@ -325,14 +288,14 @@ function excluirReagente(idreag,idfornec) {
     var reagente = new Object()
     reagente.idreag = reag;
     reagente.idfornec = fornecreag;
-    fetch('./logicareagente/deleta.php', {
+    fetch('./logicareagentefornecedor/deleta.php', {
       method: 'DELETE',
       header: new Headers(),
       body: JSON.stringify(reagente)
     })
     .then(response => response.text())
     .then(dado => {
-      resultado.innerHTML = dado;
+      resultadoexcluir.innerHTML = dado;
     })
     .catch(error => console.error(error));
   }
@@ -340,7 +303,170 @@ function excluirReagente(idreag,idfornec) {
   $('.listagemreagentes').hide();
   listarReagente();
   $('#pesquisarreagente').hide();
-  $('.mincards').show();
+  listarReagente();
+  $('.listagemreagentes').show();
+}
+
+
+
+
+
+
+
+
+/* function simples de inserir novo reagente, joga ele para um construtor, para ficar mais organizado */
+function inserirReagenteNovo() {
+  resultadoreag.innerHTML = '';
+  let nomeiupac = inserirnew.nomeiupac.value;
+  let nomeusual = inserirnew.nomeusual.value;
+  let formula = inserirnew.formulareag.value;
+  let classificacao = inserirnew.classificacaoreag.value;
+  
+  var reagente = new ReagenteNew(nomeusual, nomeiupac, formula, classificacao); 
+  var url = './logicareagentefornecedor/inserereagente.php';
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(reagente)
+  })
+  .then(response => response.text())
+  .then(function result (data) {
+    resultadoreag.innerHTML = data;
+  })
+  .catch(error => console.error('Erro ao tentar acessar o php:', error));
+    event.preventDefault();
+}
+
+function alterarReagenteCD(idreagente) {
+  let ID_REAGENTE = idreagente;
+  let listarreagalterarcd = document.getElementById('reagenteatualizarcd');
+  fetch(`./logicareagente/buscareagente.php?ID_REAGENTE=${ID_REAGENTE}`, {
+    method: 'GET',  
+  })
+  .then(response => response.json())
+  .then(reagente => {
+    if(!reagente.hasOwnProperty("status")) {
+      $('#alterarreagentecadastrado').hide();
+      $('.tabelalistagemreagentecd').hide();
+      $('#atualizarreagentescadastrado').show();
+      let form = "";
+          form += `
+            <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="atualizarReagenteCD()" name="atualizarcd" id="atualizaReagente">`
+            form += `
+              <p class="h4 mb-5 mt-4" id="resultadoreag">Alterar Reagente</p>
+                <input type="hidden" name="idreag" value="${reagente.ID_REAGENTE}">
+                <input type="text" class="form-control mb-4" name="nomeusual" value="${reagente.NOME_USUAL}">
+                <input type="text" class="form-control mb-4" name="nomeiupac" value="${reagente.NOME_IUPAC}">
+                <input type="text" class="form-control mb-4" name="formula" value="${reagente.FORMULA}">
+                <label>Categoria</label>
+                <select name="classificacaoreag" id="reagcateg" class="browser-default custom-select mb-5">
+                    <option value="null">-----</option>
+                    <option value="Organico">Organico</option>
+                    <option value="Inorganico">Inorganico</option>
+                </select>
+              <input type="submit" name="updateReagente" value="atualizar" class="btn btn-dark btn-block">`
+           form += '</form>'
+          listarreagalterarcd.innerHTML = form;
+          resultadoalterarreag.innerHTML = '';
+    } else {
+      resultadoalterarreag.innerHTML = reagente.status;
+    } 
+  })
+
+  event.preventDefault();
+}
+
+
+function atualizarReagenteCD() {
+  let idreag = atualizarcd.idreag.value;
+  let nomeusual = atualizarcd.nomeusual.value;
+  let nomeiupac = atualizarcd.nomeiupac.value;
+  let formula = atualizarcd.formula.value;
+  let classificacao = atualizarcd.classificacaoreag.value;
+
+  var reagenteAtualizar = new ReagenteATTCD(nomeusual, nomeiupac, formula, classificacao, idreag);
+
+  fetch('./logicareagente/alterareagente.php', {
+    method: 'PUT',
+    body: JSON.stringify(reagenteAtualizar),
+    header: new Headers()
+  })
+  .then(response => response.text())
+  .then(resposta => {
+    resultadoalterarreag.innerHTML = resposta;
+  })
+  .catch(error => console.error(error));
+  listarReagente();
+  $('#atualizarreagentescadastrado').hide();
+  listarReagente();
+  $('.listagemreagentes').show();
+
+
+  event.preventDefault();
+}
+
+
+function pesquisarReagenteCD() {
+  var nomereag = buscarcd.nomeReagenteCD.value;
+  let listarreag = document.getElementById('reagentecdpesquisa');
+  fetch(`./logicareagente/pesquisareagente.php?NOME_USUAL=${nomereag}`, {
+    method: 'GET',
+  })
+    .then(response => {
+      
+        return response.json();
+ 
+    }) 
+    .then(function result (data) {
+        if(!data.hasOwnProperty("status")) {
+          let table = "";
+          objJSON = data;
+          for (let i in objJSON) {
+            table += '<tr>'
+              table += `<th scope="row">${objJSON[i].NOME_USUAL}</th>`
+                table += `<td>${objJSON[i].NOME_IUPAC}</td>`
+                table += `<td>${objJSON[i].FORMULA}</td>`
+                table += `<td>${objJSON[i].CLASSIFICACAO}</td>`
+                table += `<td><form onsubmit="excluirReagenteCD('${objJSON[i].ID_REAGENTE}')" name="excluir"><button type="submit" name="deletar"class="btn btn-flat btn-sm">Deletar<button></form></td>`;
+                table += `<td><form method="get" onsubmit="alterarReagenteCD('${objJSON[i].ID_REAGENTE}')" name="alterar"><button type="submit" name="alterar" class="btn btn-flat btn-sm">Alterar<button></form></td>`;
+            table += '</tr>';
+            listarreag.innerHTML = table;
+          };
+            listarreag.innerHTML = table;
+          } else {
+            listarreag.innerHTML = data.status;
+          }       
+     })
+    .catch(error => {
+      console.log(error);
+    });
+    $('.tabelalistagemreagentecd').show();
+    event.preventDefault(); 
+}
+
+function excluirReagenteCD(idreag) {
+  var reag = idreag;
+  let confirmar = window.confirm("Deseja excluir realmente?");
+  if(confirmar) {
+    var reagente = new Object()
+    reagente.idreag = reag;
+    fetch('./logicareagente/deletareagente.php', {
+      method: 'DELETE',
+      header: new Headers(),
+      body: JSON.stringify(reagente)
+    })
+    .then(response => response.text())
+    .then(dado => {
+      resultadoexcluirreag.innerHTML = dado;
+    })
+    .catch(error => console.error(error));
+  }
+  event.preventDefault();
+  $('.listagemreagentes').hide();
+  $('#alterarreagentecadastrado').hide();
+  listarReagente();
+  $('.tabelalistagemreagentecd').hide();
+  listarReagente();
+  $('.listagemreagentes').show();
 }
 
 
@@ -353,7 +479,7 @@ var Reagente = function(reagentenome, reagentefornecedor, validadereag, quantrea
   this.validadereag = validadereag;
 } 
 
-/* construtor para organizacao da funcao de inclusao de reagente novo*/
+/* construtor para organizacao da funcao de inclusao de reagente */
 var ReagenteNew = function(nomeusual, nomeiupac, formula, classificacao) {
   this.nomeusual = nomeusual;
   this.nomeiupac = nomeiupac;
@@ -361,13 +487,21 @@ var ReagenteNew = function(nomeusual, nomeiupac, formula, classificacao) {
   this.formula = formula;
 } 
 
-/* construtor para organizacao da funcao de atualização de reagente */
+/* construtor para organizacao da funcao de atualização de reagente fornecedor */
 var ReagenteATT = function(quantreag, idreag, idfornec) {
   this.idfornec = idfornec;
   this.idreag = idreag;
   this.quantreag = quantreag;
 } 
 
+/* construtor para organizacao da funcao de alterar um reagente */
+var ReagenteATTCD = function(nomeusual, nomeiupac, formula, classificacao, idreag) {
+  this.nomeusual = nomeusual;
+  this.nomeiupac = nomeiupac;
+  this.formula = formula;
+  this.classificacao = classificacao;
+  this.idreag = idreag;
+} 
 
 
 /*START functions para montar o select de fornecedor na opção de incluir novo reagente START*/
@@ -450,7 +584,7 @@ function montaselectReagentes(dados,idDestino){
 function optionDisplayIncluirReagente () {
   $('.mincards').hide();
   $('.inserirreagente').show();
-  carregaFornecedores();
+  carregaFornecedores(); 
   carregaReagentes();
 }
 
@@ -465,5 +599,21 @@ function optionDisplayPesquisarReagente () {
   $('.tabelalistagemreagentespesquisar').hide();
   $('#pesquisarreagente').show();
 }
+
+/* function da pagina de inserir reagente, quando o reagente não esta cadastrado chama ela
+e ela da display none na pagina de inserir reagente fornecedor
+e da display block na pagina de inserir reagente
+*/
+function reagenteNaoCadastrado() {
+  $('.inserirreagente').hide();
+  $('.inserirreagentenew').show();
+}
+
+function reagenteAlterarCadastro() {
+  $('.inserirreagente').hide();
+  $('.tabelalistagemreagentecd').hide();
+  $('#alterarreagentecadastrado').show();
+}
+
 /*END functions de manipulação de display dos options END*/
 
