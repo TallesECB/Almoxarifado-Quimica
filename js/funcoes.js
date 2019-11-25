@@ -3,10 +3,10 @@
 const resultado = document.getElementById("resultado");
 
 /* variavel que printa o resultado de quando exclui um reagente fornecedor*/
-const resultadoexcluir = document.getElementById("resultadoexcluir");
+const resultadoexcluir = document.getElementById("resultadomanipulacoes");
 
 /* variavel que printa o resultado de quando exclui um reagente*/
-const resultadoexcluirreag = document.getElementById("resultadoexcluirreag");
+const resultadoexcluirreag = document.getElementById("resultadomanipulacoes");
 
 /* variavel que printa o resultado de quando insere um novo reagente*/
 const resultadoreag = document.getElementById("resultadoreag");
@@ -15,14 +15,15 @@ const resultadoreag = document.getElementById("resultadoreag");
 const formEdit = document.getElementById('atualizaReagente');
 
 /* variavel que printa o resultado de quando altera um reagente fornecedor */
-const resultadoalterar = document.getElementById('resultadoalterar');
+const resultadoalterar = document.getElementById('resultadomanipulacoes');
 
 /* variavel que printa o resultado de quando altera um reagente */
-const resultadoalterarreag = document.getElementById('resultadoalterarcd');
+const resultadoalterarreag = document.getElementById('resultadomanipulacoes');
+
 
 /* function simples de inserir raegente fornecedor joga ele para um construtor, para ficar mais organizado */
 function inserirReagente() {
-  resultado.innerHTML = '';
+  resultado.innerHTML = ''; 
   let reagentefornecedor = inserir.reagentefornecedor.value;
   let reagentenome = inserir.reagentenome.value;
   let validadereag = inserir.validadereag.value;
@@ -99,8 +100,6 @@ function buscarReagente() {
     });
     event.preventDefault();  
 }
-
-
 /* 
 function de pesquisar reagente pelo nome, que printa o reagente que possua o
 nomereag = ao informado no input no formulario de pesquisa
@@ -155,10 +154,8 @@ function listarReagente() {
   fetch(`./logicareagentefornecedor/listar.php`, {
     method: 'GET',
   }) 
-    .then(response => {
-      
+    .then(response => {      
         return response.json();
- 
     }) 
     .then(function result (data) {
         if(!data.hasOwnProperty("status")) {
@@ -307,13 +304,6 @@ function excluirReagente(idreag,idfornec) {
   $('.listagemreagentes').show();
 }
 
-
-
-
-
-
-
-
 /* function simples de inserir novo reagente, joga ele para um construtor, para ficar mais organizado */
 function inserirReagenteNovo() {
   resultadoreag.innerHTML = '';
@@ -323,7 +313,7 @@ function inserirReagenteNovo() {
   let classificacao = inserirnew.classificacaoreag.value;
   
   var reagente = new ReagenteNew(nomeusual, nomeiupac, formula, classificacao); 
-  var url = './logicareagentefornecedor/inserereagente.php';
+  var url = './logicareagente/inserereagente.php';
   fetch(url, {
     method: "POST",
     body: JSON.stringify(reagente)
@@ -350,9 +340,9 @@ function alterarReagenteCD(idreagente) {
       $('#atualizarreagentescadastrado').show();
       let form = "";
           form += `
-            <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="atualizarReagenteCD()" name="atualizarcd" id="atualizaReagente">`
-            form += `
-              <p class="h4 mb-5 mt-4" id="resultadoreag">Alterar Reagente</p>
+            <form class="text-center p-2" method="post" onsubmit="atualizarReagenteCD()" name="atualizarcd" id="atualizaReagente">`
+              form += `
+                <p class="h4 mb-5" id="resultadoreag">Alterar Reagente</p>  
                 <input type="hidden" name="idreag" value="${reagente.ID_REAGENTE}">
                 <input type="text" class="form-control mb-4" name="nomeusual" value="${reagente.NOME_USUAL}">
                 <input type="text" class="form-control mb-4" name="nomeiupac" value="${reagente.NOME_IUPAC}">
@@ -507,7 +497,7 @@ var ReagenteATTCD = function(nomeusual, nomeiupac, formula, classificacao, idrea
 /*START functions para montar o select de fornecedor na opção de incluir novo reagente START*/
 function carregaFornecedores(){
   let request = new XMLHttpRequest();
-  request.open('get', './logicareagente/lista_fornecedores.php');
+  request.open('get', './logicareagentefornecedor/lista_fornecedores.php');
   request.send();
 
   request.onreadystatechange = function() {
@@ -540,12 +530,10 @@ function montaselectFornecedores(dados,idDestino){
 }
 /*END functions para montar o select de fornecedor na opção de incluir novo reagente END*/
 
-
-
 /*START functions para montar o select de reagente na opção de incluir novo reagente START*/
 function carregaReagentes(){
   let request = new XMLHttpRequest();
-  request.open('get', './logicareagente/lista_reagentes.php');
+  request.open('get', './logicareagentefornecedor/lista_reagentes.php');
   request.send();
 
   request.onreadystatechange = function() {
@@ -564,7 +552,7 @@ function montaselectReagentes(dados,idDestino){
   let option = document.createElement("option");
   select.innerHTML= '';
   option.innerText =  "-----";
-  option.value = '0';
+  option.value = '0'; /*Opção vazia*/ 
   select.appendChild(option);
   objJSON = JSON.parse(dados);
 
@@ -578,14 +566,13 @@ function montaselectReagentes(dados,idDestino){
 }
 /*END functions para montar o select de reagente na opção de incluir novo reagente END*/
 
-
-
 /*START functions de manipulação de display dos options START*/
 function optionDisplayIncluirReagente () {
   $('.mincards').hide();
   $('.inserirreagente').show();
   carregaFornecedores(); 
   carregaReagentes();
+
 }
 
 function optionDisplayListarReagente () {
@@ -615,5 +602,143 @@ function reagenteAlterarCadastro() {
   $('#alterarreagentecadastrado').show();
 }
 
-/*END functions de manipulação de display dos options END*/
+/*==================================================Contas de usuário===================================================*/ 
+function confereEmail(){
+  
+}
+function confirmaSenha() {
+  let mensagem = document.getElementById('erro_senha'); 
+  
+   if(inserirnewConta.novaSenha.value != inserirnewConta.senhaConfirm.value){
+     
+      document.getElementById('password').style.backgroundColor = "#F5A9A9"; 
+      document.getElementById('passwordconfirm').style.backgroundColor = "#F5A9A9"; 
 
+      
+      mensagem.innerHTML = 'Senhas não correspondem'; 
+      document.getElementById("criaconta_enviar").disabled = true; 
+
+   }
+   else {
+       if(document.getElementById('password').value.length >1){ //Campo não está vazio 
+           document.getElementById('password').style.backgroundColor = "#ACFA58"; 
+           document.getElementById('passwordconfirm').style.backgroundColor = "#ACFA58"; 
+           mensagem.innerHTML = ''; 
+           document.getElementById("criaconta_enviar").disabled = false; 
+     }
+   }
+   
+}
+
+function optionDisplayIncluirConta(){
+  event.preventDefault(); 
+
+  $('.mincards').hide(); 
+  $('.inserirConta').show(); /*Formulário*/ 
+}
+
+function inserirNovaConta(){
+  event.preventDefault(); 
+  
+   var conta = new Object()
+     conta.email = criaConta.novoEmailUser.value; 
+     conta.senha = criaConta.novaSenha.value; 
+     conta.idade = criaConta.idade.value; 
+     conta.nome = criaConta.nome.value; 
+     
+  //console.log (conta); 
+
+  var url = './logica_usuario/insere.php'; 
+                                 
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify (conta),  
+    
+})
+.then(response => {
+    return response.text();
+}).then(data => {
+    console.log(data)
+})
+.catch(error => {
+    console.log(`Erro:${error}`)
+});
+  
+}
+
+function optionDisplayListarConta(){
+  $('.mincards').hide(); 
+  listarConta(); 
+  $('#listarConta').show(); 
+}
+/*======================================Listar contas========================================*/ 
+function listarConta(){
+  let contas = document.getElementById('listarConta'); 
+  
+  const URL  = 'http://localhost/Quimica_initial_project/logica_usuario/lista.php'; 
+
+  fetch(URL,{mode: 'no-cors'}) //É necessário usar o cors? 
+   
+    .then(response => {
+      return response.json();
+    }).then(data => {
+        
+        if (data) {
+          
+          let tamanho = data.length; 
+          let tabela = '<table class="table" id="dtHorizontalVerticalExample"  cellspacing="4" width="50%">'
+          tabela += `<tr>`
+          tabela += '<thead>'
+          tabela +=    '<tr>'
+          tabela +=        '<th scope="col">ID do usuário: </th>'
+          tabela +=        '<th scope="col">Nome: </th>'
+          tabela +=        '<th scope="col">Login: </th>'
+          tabela +=        '<th scope="col">Senha: </th>'
+          tabela +=        '<th scope="col">E-mail: </th>'
+          tabela +=     '</tr>'
+          tabela +=   '</thead>'
+          tabela +=  '<tbody>'
+
+          for (let i=0; i<tamanho; i++){
+            tabela += `<tr>`
+            tabela += `<td> ${data[i].ID_USUARIO}</td>`
+            tabela += `<td> ${data[i].NOME_USUARIO}</td>`
+            tabela += `<td> ${data[i].LOGIN_USUARIO}</td>`
+            tabela += `<td> ${data[i].SENHA_USUARIO}</td>`
+            tabela += `<td> ${data[i].EMAIL_USUARIO}</td>`
+            tabela += `<td><form onsubmit="excluiUsuario('${data[i].ID_USUARIO}')" name="excluir_conta" method="GET"><button type="onsubmit" class="btn btn-secondary">Excluir</button></form>`;
+            tabela += `<td><form><button type="onsubmit" class="btn btn-secondary">Alterar</button></form></td>`;
+            tabela += `</tr>`
+          }
+          tabela += '</table>'
+          contas.innerHTML = tabela; 
+        }
+    })
+    .catch(error => {
+        console.log(`Não foi possível listar os resultados:\n\n${error.message}`)
+    });
+}
+/*=======================================Excluir Conta========================================*/ 
+function excluiUsuario(id){
+  let confirmacao =  window.confirm('Deseja mesmo excluir?'); 
+  if (confirmacao==true){
+        let id_usuario = id; 
+        /*console.log (id_usuario); Retorna como string*/ 
+        fetch('./logicareagente/deleta_usuario.php', {
+          method: 'DELETE',
+          header: new Headers(),
+          body: JSON.stringify(id_usuario)
+        })
+        .then(response => response.text())
+        .then(dado => {
+          resultadoexcluirreag.innerHTML = dado;
+        })
+        .catch(error => console.error(error));
+      
+      event.preventDefault();
+  }
+}
+/*================================================================================================================*/
+function botaoRecarregar(){
+  location.reload(); 
+}
