@@ -14,9 +14,9 @@ $array = [$obj->idfornec, $obj->idreag];
 $resultado = excluirReagente($conexao, $array);
 
 if($resultado == 2) {
-	echo "Reagente excluido da Tabela Reagente_Fornecedor e Da Tabela Reagentes";
+	echo "Excluido RF e R";
 } else if($resultado == 1) {
-	echo "Reagente excluido da Tabela Reagente_Fornecedor";
+	echo "Excluido RF";
 	} else {
 		echo "Erro ao deletar o Reagente, tente novamente";
 	}

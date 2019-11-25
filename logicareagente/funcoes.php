@@ -5,7 +5,7 @@
         try {
             $query = $conexao->prepare("insert into reagentes (NOME_USUAL, NOME_IUPAC, FORMULA, CLASSIFICACAO) values (?, ?, ?, ?)");
             $result = $query->execute($array); 
- 
+             
             return $result;
         } catch(PDOException $e) {
             echo 'Error: ' . $e->getMessage();
@@ -34,6 +34,8 @@
         try {
             $query = $conexao->prepare("update reagentes set NOME_USUAL= ?, NOME_IUPAC= ?, FORMULA= ?, CLASSIFICACAO= ? where ID_REAGENTE= ?");
             $result = $query->execute($array); 
+            var_dump ($conexao); 
+            die; 
 
             return $result;
         } catch(PDOException $e) {
@@ -56,7 +58,7 @@
             echo 'Error: ' . $e->getMessage();
       }  
     }
-
+    
     function excluirReagenteCD($conexao, $array){
         try {
             $query = $conexao->prepare("delete from reagentes where ID_REAGENTE= ?");

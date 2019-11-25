@@ -20,6 +20,8 @@ if(isset($_POST['enviar'])){
       $_SESSION['logado'] = true;
       $_SESSION['id'] = $administrador['ID_ADMIN'];
       $_SESSION['nome'] = $administrador['NOME_ADMIN'];
+      $_SESSION['telefone'] = $administrador['telefone_admin']; /*Está em minúsculas mesmo*/ 
+
       header('location: ../paineladmin.php'); 
  
   }

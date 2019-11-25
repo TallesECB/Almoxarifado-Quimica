@@ -16,37 +16,46 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="shortcut icon" href="favicon.ico">
     </head>
     <body>
         <main id="siteinicial">
             <header>
                 <p class="titlepagprimario">On-Lab <img src="img/onlab.png" width="90px"></p>
-
             </header>
 
              <div> 
                 <?php 
                      if(isset($_SESSION['msg'])){?>                    
                          <div class="alert alert-danger" role="alert" style="text-align: center">
-                             <?php  echo $_SESSION['msg']; 
-                            session_destroy(); 
-                        ?>  
+                            <?php  echo $_SESSION['msg']; 
+                                session_destroy(); 
+                            ?>
                         </div>
 
                     <?php }
                     
                     ?> 
+                    
+                <?php 
+                    if(isset($message)){
+                ?>                    
+                        <div class="alert alert-danger" role="alert" style="text-align: center">
+                            <?php  
+                                echo $message; 
+                            ?>
+                        </div>
+
+                <?php 
+                    }
+                ?> 
              </div>
             <section class="cards">
                 <span class="complete"></span>
                 <div class="card1">
-                    <div class="card cardinicial" id="" data-toggle="modal" data-target="#modalPushLogin">
+                    <div class="card cardinicial" id="cardpushlogin" data-toggle="modal" data-target="#modalPushLogin">
                         <div class="card-body cardinicialbody">
-
-
-                            <i class="far fa-user fa-5x"></i>
-
+                           <img src="img/icone_usuario.png"> <!--ícone do usuário--> 
                             <button type="submit" class="EntrarUser">Entrar</button>
                         </div>
                     </div>
@@ -54,8 +63,7 @@
                 <div class="card2">
                     <div class="card cardinicial">
                         <div class="card-body cardinicialbody" id="cardpushconsulta" data-toggle="modal" data-target="#modalPushConsulta">
-        
-                            <i class="fas fa-search fa-5x"></i>
+                            <img src="img/procurar.png"> 
         
                             <button type="submit" class="RealizarConsulta">Realizar Consulta</button>
                         </div>
@@ -144,11 +152,13 @@
                             		<form class="formlogin" name="acesso" id='formulario' action="logica_usuario/valida_login_user.php" method="POST" > 
 	                                    <!--Body-->
 	                                    <div class="md-form">
+                                            <i class="fa fa-user prefix grey-text"></i>
 	                                        <input type="text" id="Form-email3" name="login" class="form-control">
 	                                        <label for="Form-email3">Login</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
+                                            <i class="fa fa-lock prefix grey-text"></i>
 	                                        <input type="password" id="Form-pass3" name="senha" class="form-control">
 	                                        <label for="Form-pass3">Senha</label>
 	                                    </div>
@@ -165,8 +175,10 @@
 
 	                                        </div>
 	                                        <!--Grid column-->
-	                            
-                                	
+                                            <div class="col-md-7">
+                                                <p class="font-small grey-text d-flex justify-content-end mt-1">Recuperar Senha<a href="enviaremail.php"
+                                                class="dark-grey-text ml-2 font-weight-bold" data-toggle="modal" data-target="#modalPushSendEmail" data-dismiss="modal">Clique Aqui</a></p>
+                                            </div>
                                     	</div>
                                 		<!--Grid row-->
                                 	</form>
@@ -207,7 +219,7 @@
                                 <!--Header-->
                             
                                 <div class="card-body">
-                                        <div class="input-group md-form formbuscarxd">
+                                        <div class="input-group md-form centralizarformbuscar">
                                             <form method="get" onsubmit="buscarReagente()" name="buscar" class="formulariobusca">
                                                 <input type="text" id="Form-search2" class="form-control formbuscar" name="nomeReagente">
                                                 <label for="Form-search2">Search</label>
@@ -238,7 +250,79 @@
         </div>
         <!--Modal: modalPushConsulta-->
 
+        <!--Modal: modalPushSendEmail-->
+        <div class="modal fade" id="modalPushSendEmail" tabindex="-1" role="dialog" aria-labelledby="ModalLabelSendEmail"
+        aria-hidden="true">
+            <div class="modal-dialog modal-dialogsendemail modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <section class="displaySendEmail">
+                        <section class="form-elegant consulta">
 
+                            <!--Form with header-->
+                            <div class="card cardsendemail">
+                            
+                                <!--Header-->
+                                <div class="header pt-3 gridientdark headersendemail">
+                            
+                                    <div class="Titlesendemail">
+                                        <h3 class="white-text mb-3 mt-3"><strong>Recuperar Senha</strong></h3>
+
+                                    </div>
+
+                                    
+                                </div>
+                                <!--Header-->
+                            
+                                <div class="card-body mx-4">
+
+                            		<form class="formsendemail" action="enviaremail.php" method="post" name="frm_contato"> 
+	                                    <!--Body-->
+	                                    <div class="md-form pb-1 pb-md-3">
+	                                        <input type="text" id="Form-email44" name="nome" class="form-control">
+	                                        <label for="Form-email44">Nome Do Destinatário</label>
+	                                    </div>
+	                                
+	                                    <div class="md-form pb-1 pb-md-3">
+	                                        <input type="text" id="Form-email5" name="email" class="form-control">
+	                                        <label for="Form-email5">Email Do Destinatário</label>
+                                        </div>
+                                        
+                                        <div class="md-form pb-1 pb-md-3">
+	                                        <input type="text" id="Form-email6" name="email_resposta" class="form-control">
+	                                        <label for="Form-email6">Email para resposta de contato</label>
+                                        </div>
+                                        
+                                        <div class="md-form pb-1 pb-md-3">
+                                            <textarea id="msgfromemail" name="mensagem" class="md-textarea form-control" rows="3"></textarea>
+                                            <label for="msgfromemail">Envie uma Mensagem</label>
+                                        </div>
+	                                    <!--Grid row-->
+	                                    <div class="row d-flex align-items-center mb-4">
+	                                        <!--Grid column-->
+	                                        <div class="col-md-1 col-md-5 d-flex align-items-start"> 
+	                                            <div class="text-center">
+	                                                <button  type="submit" name="enviar" value="ENVIAR" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin">Enviar Email</button>
+	                                            </div>
+
+	                                        </div>
+	                                        
+                                    	</div>
+                                		<!--Grid row-->
+                                	</form>
+
+                                </div>
+                            
+                            </div>
+                            <!--/Form with header-->
+                        
+                        </section>
+                    </section>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!--Modal: modalPushSendEmail-->
 
         <!--Modal: modalPushLoginAdmin-->
         <div class="modal fade" id="modalPushLoginAdmin" tabindex="-1" role="dialog" aria-labelledby="ModalLabelLoginAdmin"
@@ -274,11 +358,13 @@
                             		<form class="formlogin" name="formadmin" action="logica_admin/valida_login_admin.php" method="POST">
 	                                    <!--Body-->
 	                                    <div class="md-form">
+                                            <i class="fa fa-user prefix grey-text"></i>
 	                                        <input type="text" id="Form-email4" name="loginadmin" class="form-control">
 	                                        <label for="Form-email4">Login</label>
 	                                    </div>
 	                                
 	                                    <div class="md-form pb-1 pb-md-3">
+                                            <i class="fa fa-lock prefix grey-text"></i>
 	                                        <input type="password" id="Form-pass4" name="senhaadmin" class="form-control">
 	                                        <label for="Form-pass4">Senha</label>
 	                                    </div>
@@ -290,7 +376,7 @@
 	                                        <!--Grid column-->
 	                                        <div class="col-md-1 col-md-5 d-flex align-items-start">
 	                                            <div class="text-center">
-	                                                <button type="submit" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin" name="enviar">Entrar como admin</button>
+	                                                <button type="submit" class="btn gridientdark btn-block btn-rounded z-depth-1a buttonlogin" name="enviar">Entrar</button>
 	                                            </div>
 	                                        </div>
 	                                        <!--Grid column-->
@@ -312,6 +398,10 @@
             </div>
         </div>
         <!--Modal: modalPushLoginADMIN-->
+
+        <a href="https://api.whatsapp.com/send?l=pt&amp;phone=5541999999">
+            <img src="https://i.imgur.com/ryESuZ5.png" style="height:80px; position:fixed; bottom: 25px; right: 25px;
+             z-index:99999;" data-selector="img"></a>
 
         <!-- SCRIPTS -->
         <!-- JQuery -->

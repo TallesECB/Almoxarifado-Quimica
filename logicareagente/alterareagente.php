@@ -16,7 +16,7 @@ $resultado = atualizarReagenteCD($conexao, $array);
 
 
 if($resultado) {
-	echo "Reagente Alterado";
+	echo "Alterado";
 } else {
 	echo "Ocorrou um erro ao alterar o Reagente";
 }

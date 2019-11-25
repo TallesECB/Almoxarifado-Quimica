@@ -11,46 +11,40 @@ li {
     list-style: none;
 }
 
-@media (max-width: 2000px) {
-   .formulariobusca {
+/* ############################################################### */
+/* ################### RESPONSIVIDADE Celular #################### */
+/* ############################################################### */
+
+@media (max-width: 699px) {
+    .formulariobusca {
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center;
-    }
-    
-    .buttonpesquisar {
-        background: none;
-        border: none;
     }
 
     .titlepagprimario {
-        font-family: 'Helvetica', Courier, monospace;
-        font-size: 35px;
-        color: black;
-    }
-
-    p.titlepagprimario{
-        padding-top: 30px;
         display: flex;
         justify-content: center;
         align-content: center;
-        padding-bottom: 15px;
     }
 
-    section.cards { /*Área da página onde ficam os cards de login e busca*/ 
+    p.titlepagprimario{
+        padding-top: 5px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    section.cards {
         display: flex;
         justify-content: space-around;
-        align-items: center;
-        padding-bottom: 20px;
+        align-items: flex-start;
     }
 
-    .cardinicial { /*CARDS*/ 
-        width: 300px;
-        height: 450px;
-        overflow: hidden;
-       /*Retirei o border-radius*/
-        transition: 0.4s linear all;
+    .cardinicial { 
+        width: 30vh;
+        height: 50vh;
     }
 
     .cardinicialbody {
@@ -58,27 +52,6 @@ li {
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
-    }
-
-    .cardinicial:hover {
-        transform: scale(1.05,1.05);
-        transition: 0.5s linear all;
-    }
-
-    .EntrarUser {
-        font-family: 'Helvetica', monospace;
-        border: none;
-        background: none;
-        color: gray;
-        font-size: 30px;
-    }
-
-    .RealizarConsulta {
-        font-family: 'Helvetica', Courier, monospace;
-        border: none;
-        background: none;
-        color: gray;
-        font-size: 30px;
     }
 
     .rodapeinicial {
@@ -91,21 +64,225 @@ li {
         margin: 0;
     }
 
-    .EntrarAdmin {
-        border: none;
-        background: none;
-        color: white;
-        font-size: 15px;
-    }
-
     .EntrarAdmin:hover {
-        transform: scale(1.05,1.05);
-        transition: 0.5s linear all;
         padding: 1px;
     }
 
-    .footerinicial {
-        background-color: linear-gradient(to right, black,#585858,#585858,black); 
+    main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    /* Consulta Pag */
+    .modalPushConsulta {
+        width: 80vw;
+    }
+
+    .TitleConsulta{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* SendEmail Pag */
+    .modalPushSendEmail {
+        width: 80vw;
+    }
+
+    .Titlesendemail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Login Pag */
+    .modalPushLogin {    
+        width: 80vw;
+    }
+    
+    .TitleLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .buttonpesquisar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
+        padding: 25px !important;
+    }
+    
+    .cardsecundariouser {
+        width: 25vw;
+        height: 25vh;
+    }
+   
+    .cardsecundarioadmin {
+        width: 25vw;
+        height: 25vh;
+    }
+   
+   section.mincards.user {
+       display: flex;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       padding: 20px;  
+   }
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
+    section.conteudototal.adminconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    section.userconteudo p.titlepagsecundario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+ 
+    section.adminconteudo p.titlepagsecundario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .navvertical {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    
+    .imguser {
+        margin-top: 20px;
+        height: 160px;
+        width: 160px;
+    }
+ 
+    ul.uluser {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+ 
+    .inform { 
+        padding: 8px;
+        margin: 3px; 
+        width: 200px;
+    }
+
+    li.nomeuser {
+        width: 20vw;
+        padding: 5px 15px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+ 
+    .SairUser:hover {
+        padding: 4px;
+    }
+    
+    .footersecundario {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+    }
+    
+    .cardsoptions,.cardoptionsadmin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/* ############################################################### */
+/* ################## RESPONSIVIDADE Table/PC #################### */
+/* ############################################################### */
+
+@media (min-width: 700px){
+    .formulariobusca {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .titlepagprimario {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    p.titlepagprimario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    section.cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+    .cardinicial { 
+        width: 50vh;
+        height: 70vh;
+    }
+
+    .cardinicialbody {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .rodapeinicial {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .textfooterprimario {
+        text-align: center;
+        margin: 0;
+    }
+
+    .EntrarAdmin:hover {
+        padding: 1px;
     }
 
     main {
@@ -116,254 +293,80 @@ li {
         flex-direction: column;
     }
     
-    @keyframes Card1LeftToRight{ 
-        0%{ 
-            transform: translateX(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(-50px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes Card2RightToLeft{ 
-        0%{ 
-            transform: translateX(200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(50px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes SociaisLeftToRight{ 
-        0%{ 
-            transform: translateX(-50px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(-40px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(-30px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes EntrarRightToLeft{ 
-        0%{ 
-            transform: translateX(50px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(40px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(30px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes TitlePriTopToBottom{ 
-        0%{ 
-            transform: translateY(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(-50px); 
-            opacity: 0.8;
-            
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-        }    
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            
-        }  
-    } 
-    
-    @keyframes FooterPriBottomToTop{ 
-        0%{ 
-            transform: translateY(200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(50px); 
-            opacity: 0.8;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-        }  
-    } 
-    
-    .card1  { animation: Card1LeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .card2 { animation: Card2RightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .list-unstyled { animation: SociaisLeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
-    
-    .titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
-    
-    
     /* Pag Secundaria */
-
     .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
         padding: 25px !important;
     }
-
-    .secondpag {
-        display: grid;
-        grid-template-rows: 12fr;
-    }
     
     .cardsecundariouser {
-        width: 360px;
-        height: 180px;
-        border: 2px solid gray;
-        overflow: hidden;
-        border-radius: 10px; 
-        transition: 0.4s linear all;
-        
+        width: 18vw;
+        height: 18vh;
     }
-    
+   
     .cardsecundarioadmin {
-        width: 340px;
-        height: 180px;
-        border: 2px solid gray;
-        overflow: hidden;
-        border-radius: 10px; 
-        transition: 0.4s linear all;
-       
+        width: 18vw;
+        height: 18vh;
     }
-
-    .cardsecundariouser:hover,.cardsecundario:hover,.cardsecundarioadmin:hover {
-        transform: scale(1.05,1.05);
-        transition: 0.5s linear all;
-        
-    }
-    
-    section.mincards.user {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        padding: 20px;
-    }
-    
-    section.mincards.admin {
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        padding: 50px;
-    }
-
-    section.conteudototal.userconteudo {
+   
+   .secondpag {
         display: grid;
-        grid-template-rows: 3fr 9fr;
+        grid-template-columns: 3fr 9fr; 
     }
-    
+
+   section.mincards.user {
+       display: flex;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       padding: 20px;  
+   }
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
     section.conteudototal.adminconteudo {
-        display: grid;
-        grid-template-rows: 2fr 10fr;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
     }
 
-    .secondpag {
-        display: grid;
-        grid-template-columns: 3fr 9fr;
-    }
-    
-    p.titlepagsecundario {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 35px;
-        color: black;
-    }
-    
-    p.infosistema {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 15px;
-        color: white;
-    }
-    
     section.userconteudo p.titlepagsecundario{
         padding-top: 30px;
         display: flex;
         justify-content: center;
         align-content: center;
     }
-
+ 
     section.adminconteudo p.titlepagsecundario{
-        padding-top: 20px;
+        padding-top: 30px;
         display: flex;
         justify-content: center;
         align-content: center;
     }
-    
+ 
     .navvertical {
         display: flex;
         align-items: center;
         justify-content: flex-start;
         flex-direction: column;
-        height: 100vh;
     }
     
     .imguser {
         margin-top: 20px;
         height: 160px;
         width: 160px;
-        background-color: #585858;
-        border-radius: 100px;
-        opacity: 0.4;
     }
-
+ 
     ul.uluser {
         padding-top: 30px;
         display: flex;
@@ -371,38 +374,21 @@ li {
         align-items: center;
         flex-direction: column;
     }
-
-    li.infouser {
-        background-color: #585858;
-        padding: 5px 15px;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-        border-radius: 10px;
-        margin-bottom: 30px;
+ 
+    .inform { 
+        padding: 8px;
+        margin: 3px; 
+        width: 200px;
     }
-
+ 
     li.nomeuser {
-        color: white;
-        background-color: #585858;
         padding: 5px 15px;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
         border-radius: 10px;
         margin-bottom: 50px;
     }
-
-    .SairUser {
-        color: white;
-        border: none;
-        background: none;
-        font-size: 15px;
-    }
-
+ 
     .SairUser:hover {
-        transform: scale(1.00,1.00);
-        transition: 0.1s linear all;
-        border-radius: 10px;
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
         padding: 4px;
-        background-color: #585858;
     }
     
     .footersecundario {
@@ -410,15 +396,6 @@ li {
         justify-content: center;
         align-items: center;
         height: 60px;
-        color: white;
-    }
-    
-    .options {
-        background: none;
-        border: none;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 20px;
-        color: black;
     }
     
     .cardsoptions,.cardoptionsadmin {
@@ -426,84 +403,6 @@ li {
         justify-content: center;
         align-items: center;
     }
-    
-    @keyframes NavLeftToRight{ 
-        0%{ 
-            transform: translateX(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(-50px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes TitleSecTopToBottom{ 
-        0%{ 
-            transform: translateY(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(-50px); 
-            opacity: 0.8;
-            box-shadow: 0px 1px 0px #585858;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 1px 0px #585858;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 2px 5px #585858;
-        }  
-    } 
-    
-    @keyframes FooterSecBottomToTop{ 
-        0%{ 
-            transform: translateY(200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(50px); 
-            opacity: 0.8;
-            box-shadow: 0px 1px 0px #585858;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 1px 0px #585858;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 2px 5px #585858;
-        }  
-    } 
-    
-    .navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
-    
-    .titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
-    
-    .footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
-    
     
     /* Consulta Pag */
     .modal-dialogconsulta {
@@ -513,17 +412,9 @@ li {
         align-content: center;
         padding-left: 10px;
     }
-
-    .cardconsulta {
-        border-radius: 10px;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
-    }
-
-    .headerconsulta {
-        border-radius: 10px 10px 0px 0px;
-    }
-    .formbuscarxd{
-        margin-left: 230px;
+    
+    .centralizarformbuscar{
+        margin-left: 33%;
     }
 
     .TitleConsulta{
@@ -532,50 +423,30 @@ li {
         align-items: center;
     }
 
+    /* SendEmail Pag */
+    .modal-dialogsendemail {
+        max-width: 750px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-left: 10px;
+    }
+
+    .Titlesendemail{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     /* Login Pag */
-    .login {    
+    .modalPushLogin,.modalPushLoginAdmin {    
         width: 450px;
-    }
-    
-    .cardlogin {
-        border-radius: 10px;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
-    }
-    
-    .headerlogin {
-        border-radius: 10px 10px 0px 0px;
     }
     
     .TitleLogin {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    
-    .buttonlogin {
-        color: white;
-        border-radius: 10px;
-    }
-    
-    .gridientdark {
-        background-image: linear-gradient(to right, #585858,gray,#585858); 
-    }
-    
-    .form-elegant .font-weight-bold {
-        font-size: 0.8rem; 
-    }
-    
-    .form-elegant .z-depth-1a {
-        box-shadow:0 0 1em rgba(0,0,0,0.6);
-     }
-        
-    .form-elegant .z-depth-1-half, .form-elegant .btn:hover {
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-    }
-    
-    .modal-dialog .modal-content {
-        background-color: transparent;
-        box-shadow: none;
     }
     
     .buttonpesquisar {
@@ -585,24 +456,26 @@ li {
     }
 }
 
-@media (max-width: 1400px) {
+
+
+/* ############################################################### */
+/* ############################################################### */
+/* ############################################################### */
+
+@media (min-width: 1150px) {
     .formulariobusca {
         display: flex;
         justify-content: center;
         align-items: center;
         align-content: center;
     }
-    
-    .buttonpesquisar {
-        background: none;
-        border: none;
-    }
 
     .titlepagprimario {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 35px;
-        color: black;
-        box-shadow: 0 1px 5px #585858;
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
     }
 
     p.titlepagprimario{
@@ -620,14 +493,9 @@ li {
         padding-bottom: 20px;
     }
 
-    .cardinicial {
-        width: 300px;
-        height: 450px;
-        border: 2px solid gray;
-        overflow: hidden;
-        border-radius: 30px; 
-        transition: 0.4s linear all;
-       
+    .cardinicial { 
+        width: 45vh;
+        height: 60vh;
     }
 
     .cardinicialbody {
@@ -635,28 +503,6 @@ li {
         justify-content: space-around;
         align-items: center;
         flex-direction: column;
-    }
-
-    .cardinicial:hover {
-        transform: scale(1.05,1.05);
-        transition: 0.5s linear all;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-    }
-
-    .EntrarUser {
-        font-family: 'Courier New', Courier, monospace;
-        border: none;
-        background: none;
-        color: gray;
-        font-size: 30px;
-    }
-
-    .RealizarConsulta {
-        font-family: 'Courier New', Courier, monospace;
-        border: none;
-        background: none;
-        color: gray;
-        font-size: 30px;
     }
 
     .rodapeinicial {
@@ -669,22 +515,868 @@ li {
         margin: 0;
     }
 
-    .EntrarAdmin {
-        border: none;
-        background: none;
-        color: white;
-        font-size: 15px;
-    }
-
     .EntrarAdmin:hover {
-        transform: scale(1.05,1.05);
-        transition: 0.5s linear all;
-        
         padding: 1px;
     }
 
-    .footerinicial {
-        background-image: linear-gradient(to right, black,#585858,#585858,black); 
+    main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+   
+   /* Pag Secundaria */
+
+   .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
+       padding: 25px !important;
+   }
+
+   .cardsecundariouser {
+        width: 20vw;
+        height: 25vh;
+    }
+   
+    .cardsecundarioadmin {
+        width: 18vw;
+        height: 18vh;
+    }
+   
+   .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr; 
+    }
+
+   section.mincards.user {
+       display: flex;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       padding: 20px;  
+   }
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
+    section.conteudototal.adminconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+   section.userconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   section.adminconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   .navvertical {
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       flex-direction: column;
+   }
+   
+   .imguser {
+       margin-top: 20px;
+       height: 160px;
+       width: 160px;
+   }
+
+   ul.uluser {
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .inform { 
+       padding: 8px;
+       margin: 3px; 
+       width: 200px;
+   }
+
+   li.nomeuser {
+       padding: 5px 15px;
+       border-radius: 10px;
+       margin-bottom: 50px;
+   }
+
+   .SairUser {
+       border: none;
+       background: none;
+       font-size: 15px;
+   }
+
+   .SairUser:hover {
+       padding: 4px;
+   }
+   
+   .footersecundario {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 60px;
+   }
+
+   .cardsoptions,.cardoptionsadmin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   /* Consulta Pag */
+   .modal-dialogconsulta {
+       max-width: 750px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-left: 10px;
+   }
+
+
+   .TitleConsulta{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+
+   /* Login Pag */
+   .modalPushLogin,.modalPushLoginAdmin {    
+       width: 450px;
+   }
+   
+   .TitleLogin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .buttonpesquisar {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+}
+
+
+/* ############################################################### */
+/* ############################################################### */
+/* ############################################################### */
+
+@media (min-width: 1200px) {
+    .formulariobusca {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .titlepagprimario {
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    p.titlepagprimario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    section.cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .cardinicial { 
+        width: 45vh;
+        height: 60vh;
+    }
+
+    .cardinicialbody {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .rodapeinicial {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .textfooterprimario {
+        text-align: center;
+        margin: 0;
+    }
+
+    .EntrarAdmin:hover {
+        padding: 1px;
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+   
+   /* Pag Secundaria */
+
+   .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
+       padding: 25px !important;
+   }
+
+   .cardsecundariouser {
+        width: 20vw;
+        height: 25vh;
+    }
+   
+    .cardsecundarioadmin {
+        width: 18vw;
+        height: 18vh;
+    }
+   
+   .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr; 
+    }
+
+   section.mincards.user {
+       display: flex;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       padding: 20px;  
+   }
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
+    section.conteudototal.adminconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+   section.userconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   section.adminconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   .navvertical {
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       flex-direction: column;
+   }
+   
+   .imguser {
+       margin-top: 20px;
+       height: 160px;
+       width: 160px;
+   }
+
+   ul.uluser {
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .inform { 
+       padding: 8px;
+       margin: 3px; 
+       width: 200px;
+   }
+
+   li.nomeuser {
+       padding: 5px 15px;
+       border-radius: 10px;
+       margin-bottom: 50px;
+   }
+
+   .SairUser:hover {
+       padding: 4px;
+   }
+   
+   .footersecundario {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 60px;
+   }
+   
+   .cardsoptions,.cardoptionsadmin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   /* Consulta Pag */
+   .modal-dialogconsulta {
+       max-width: 750px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-left: 10px;
+   }
+
+
+   .TitleConsulta{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+
+   /* Login Pag */
+   .modalPushLogin,.modalPushLoginAdmin {    
+       width: 450px;
+   }
+   
+   .TitleLogin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .modal-dialog .modal-content {
+       background-color: transparent;
+       box-shadow: none;
+   }
+   
+   .buttonpesquisar {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+}
+
+
+
+/* ############################################################### */
+/* ############################################################### */
+/* ############################################################### */
+
+
+@media (min-width: 1300px) {
+    .formulariobusca {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+   p.titlepagprimario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-bottom: 15px;
+   }
+
+   section.cards { /*Área da página onde ficam os cards de login e busca*/ 
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       padding-bottom: 20px;
+   }
+
+   .cardinicial { /*CARDS*/ 
+        width: 45vh;
+        height: 60vh;
+   }
+
+   .cardinicialbody {
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .rodapeinicial {
+       display: flex;
+       justify-content: space-between;
+   }
+
+   .textfooterprimario {
+       text-align: center;
+       margin: 0;
+   }
+
+   .EntrarAdmin:hover {
+       padding: 1px;
+   }
+
+   main {
+       width: 100vw;
+       height: 100vh;
+       display: flex;
+       justify-content: space-between;
+       flex-direction: column;
+   }
+   
+   
+   /* Pag Secundaria */
+
+   .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
+       padding: 25px !important;
+   }
+   
+   .cardsecundariouser {
+        width: 20vw;
+        height: 25vh;
+   }
+   
+    .cardsecundarioadmin {
+        width: 18vw;
+        height: 18vh;
+    }
+   
+   .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr; 
+    }
+
+   section.mincards.user {
+       display: flex;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       padding: 20px;  
+   }
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
+    section.conteudototal.adminconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+   section.userconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   section.adminconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   .navvertical {
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       flex-direction: column;
+       height: 100vh;
+   }
+   
+   .imguser {
+       margin-top: 20px;
+       height: 160px;
+       width: 160px;
+   }
+
+   ul.uluser {
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .inform {  
+       padding: 8px;
+       margin: 3px; 
+       width: 200px;
+   }
+
+   li.nomeuser {
+       padding: 5px 15px;
+       border-radius: 10px;
+       margin-bottom: 50px;
+   }
+
+   .SairUser:hover {
+       padding: 4px;
+   }
+   
+   .footersecundario {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 60px;
+   }
+   
+   .cardsoptions,.cardoptionsadmin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   /* Consulta Pag */
+   .modal-dialogconsulta {
+       max-width: 750px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-left: 10px;
+   }
+
+   .TitleConsulta{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+
+   /* Login Pag */
+   .modalPushLogin,.modalPushLoginAdmin {    
+       width: 450px;
+   }
+   
+   .TitleLogin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .modal-dialog .modal-content {
+       background-color: transparent;
+       box-shadow: none;
+   }
+   
+   .buttonpesquisar {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+}
+
+/* ############################################################### */
+/* ############################################################### */
+/* ############################################################### */
+
+
+
+@media (min-width: 1450px) {    
+    .formulariobusca {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+   p.titlepagprimario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-bottom: 15px;
+   }
+
+   section.cards { /*Área da página onde ficam os cards de login e busca*/ 
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       padding-bottom: 20px;
+   }
+
+   .cardinicial { /*CARDS*/ 
+        width: 45vh;
+        height: 60vh;
+   }
+
+   .cardinicialbody {
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .rodapeinicial {
+       display: flex;
+       justify-content: space-between;
+   }
+
+   .textfooterprimario {
+       text-align: center;
+       margin: 0;
+   }
+
+   .EntrarAdmin:hover {
+       padding: 1px;
+   }
+
+   main {
+       width: 100vw;
+       height: 100vh;
+       display: flex;
+       justify-content: space-between;
+       flex-direction: column;
+   }
+
+    /* Pag Secundaria */
+
+   .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
+       padding: 25px !important;
+   }
+
+   .cardsecundariouser {
+        width: 20vw;
+        height: 25vh;
+   }
+   
+    .cardsecundarioadmin {
+        width: 18vw;
+        height: 18vh;
+    }
+   
+   .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr; 
+    }
+
+   section.mincards.user {
+       display: flex;
+       justify-content: space-around;
+       align-items: flex-start;
+       flex-wrap: wrap;
+       padding: 20px;  
+   }
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
+    section.conteudototal.adminconteudo {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+   section.userconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   section.adminconteudo p.titlepagsecundario{
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+   }
+
+   .navvertical {
+       display: flex;
+       align-items: center;
+       justify-content: flex-start;
+       flex-direction: column;
+   }
+   
+   .imguser {
+       margin-top: 20px;
+       height: 160px;
+       width: 160px;
+   }
+
+   ul.uluser {
+       padding-top: 30px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .inform {
+       padding: 8px;
+       margin: 3px; 
+       width: 200px;
+   }
+
+   li.nomeuser {
+       padding: 5px 15px;
+       border-radius: 10px;
+       margin-bottom: 50px;
+   }
+
+   .SairUser:hover {
+       padding: 4px;
+   }
+   
+   .footersecundario {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       height: 60px;
+   }
+   
+   .cardsoptions,.cardoptionsadmin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+      
+   /* Consulta Pag */
+   .modal-dialogconsulta {
+       max-width: 750px;
+       display: flex;
+       justify-content: center;
+       align-content: center;
+       padding-left: 10px;
+    }
+   
+
+   .TitleConsulta{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+
+   /* Login Pag */
+   .modalPushLogin,.modalPushLoginAdmin {    
+       width: 450px;
+   }
+   
+   .TitleLogin {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .buttonpesquisar {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+}
+
+
+/* ############################################################### */
+/* ############################################################### */
+/* ############################################################### */
+
+@media (min-width: 1600px) {
+    .formulariobusca {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         align-content: center;
+     }
+
+    p.titlepagprimario{
+        padding-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        padding-bottom: 15px;
+    }
+
+    section.cards { /*Área da página onde ficam os cards de login e busca*/ 
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding-bottom: 20px;
+    }
+
+    .cardinicial { /*CARDS*/ 
+        width: 45vh;
+        height: 60vh;
+    }
+
+    .cardinicialbody {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .rodapeinicial {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .textfooterprimario {
+        text-align: center;
+        margin: 0;
+    }
+
+    .EntrarAdmin:hover {
+        padding: 1px;
     }
 
     main {
@@ -695,216 +1387,52 @@ li {
         flex-direction: column;
     }
     
-    @keyframes Card1LeftToRight{ 
-        0%{ 
-            transform: translateX(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(-50px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes Card2RightToLeft{ 
-        0%{ 
-            transform: translateX(200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(50px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes SociaisLeftToRight{ 
-        0%{ 
-            transform: translateX(-50px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(-40px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(-30px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes EntrarRightToLeft{ 
-        0%{ 
-            transform: translateX(50px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(40px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(30px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes TitlePriTopToBottom{ 
-        0%{ 
-            transform: translateY(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(-50px); 
-            opacity: 0.8;
-            box-shadow: 0px 1px 0px #585858;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 1px 0px #585858;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 2px 5px #585858;
-        }  
-    } 
-    
-    @keyframes FooterPriBottomToTop{ 
-        0%{ 
-            transform: translateY(200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(50px); 
-            opacity: 0.8;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-        }  
-    } 
-    
-    .card1  { animation: Card1LeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .card2 { animation: Card2RightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .list-unstyled { animation: SociaisLeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
-    
-    .textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
-    
-    .titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
-    
-    
     /* Pag Secundaria */
-    .secondpag {
-        display: grid;
-        grid-template-rows: 12fr;
-    }
-    
-    .cardsecundariouser {
-        width: 280px;
-        height: 160px;
-        border: 2px solid gray;
-        overflow: hidden;
-        border-radius: 10px; 
-        transition: 0.4s linear all;
-        
-    }
-    
-    .cardsecundarioadmin {
-        width: 240px;
-        height: 120px;
-        border: 2px solid gray;
-        overflow: hidden;
-        border-radius: 10px; 
-        transition: 0.4s linear all;
-        
+
+    .tabelalistagemreagentes,.tabelalistagemreagentesalterar,#insereForm,#pesquisarreagente {
+        padding: 25px !important;
     }
 
-    .cardsecundariouser:hover,.cardsecundario:hover,.cardsecundarioadmin:hover {
-        transform: scale(1.05,1.05);
-        transition: 0.5s linear all;
-       
+    .cardsecundariouser {
+        width: 20vw;
+        height: 25vh;
     }
-    
+   
+    .cardsecundarioadmin {
+        width: 18vw;
+        height: 18vh;
+    }
+   
+    .secondpag {
+        display: grid;
+        grid-template-columns: 3fr 9fr; 
+    }
+
     section.mincards.user {
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
         flex-wrap: wrap;
-        padding: 30px;
+        padding: 20px;  
     }
-    
-    section.mincards.admin {
+   
+   section.mincards.admin {
+       display: flex;
+       justify-content: space-around;
+       flex-wrap: wrap;
+       padding: 25px;
+   }
+
+   section.conteudototal.userconteudo {
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-
-    section.conteudototal.userconteudo {
-        display: grid;
-        grid-template-rows: 2.5fr 10.5fr;
-    }
-    
+        justify-content: space-between;
+        flex-direction: column;
+   }
+   
     section.conteudototal.adminconteudo {
-        display: grid;
-        grid-template-rows: 2fr 10fr;
-    }
-
-    .secondpag {
-        display: grid;
-        grid-template-columns: 3fr 9fr;
-    }
-    
-    p.titlepagsecundario {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 35px;
-        color: black;
-    }
-    
-    p.infosistema {
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 15px;
-        color: white;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
     }
     
     section.userconteudo p.titlepagsecundario{
@@ -920,7 +1448,7 @@ li {
         justify-content: center;
         align-content: center;
     }
-    
+
     .navvertical {
         display: flex;
         align-items: center;
@@ -933,9 +1461,6 @@ li {
         margin-top: 20px;
         height: 160px;
         width: 160px;
-        background-color: #585858;
-        border-radius: 100px;
-        opacity: 0.4;
     }
 
     ul.uluser {
@@ -946,54 +1471,27 @@ li {
         flex-direction: column;
     }
 
-    li.infouser {
-        background-color: #585858;
-        padding: 5px 15px;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-        border-radius: 10px;
-        margin-bottom: 30px;
+    .inform { /*Alterada*/ 
+        padding: 8px;
+        margin: 3px; 
+        width: 200px;
     }
 
     li.nomeuser {
-        color: white;
-        background-color: #585858;
         padding: 5px 15px;
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
         border-radius: 10px;
         margin-bottom: 50px;
     }
 
-    .SairUser {
-        color: white;
-        border: none;
-        background: none;
-        font-size: 15px;
-    }
-
     .SairUser:hover {
-        transform: scale(1.00,1.00);
-        transition: 0.1s linear all;
-        border-radius: 10px;
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
         padding: 4px;
-        background-color: #585858;
     }
     
-    .footersucundario {
+    .footersecundario {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 70px;
-        color: white;
-         
-    }
-    
-    .options {
-        background: none;
-        border: none;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 20px;
-        color: black;
+        height: 60px;
     }
     
     .cardsoptions,.cardoptionsadmin {
@@ -1001,84 +1499,6 @@ li {
         justify-content: center;
         align-items: center;
     }
-    
-    @keyframes NavLeftToRight{ 
-        0%{ 
-            transform: translateX(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateX(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateX(-50px); 
-            opacity: 0.8;
-        } 
-        100%{ 
-            transform: translateX(0px);
-            opacity: 1;
-        } 
-    } 
-    
-    @keyframes TitleSecTopToBottom{ 
-        0%{ 
-            transform: translateY(-200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(-100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(-50px); 
-            opacity: 0.8;
-            box-shadow: 0px 1px 0px #585858;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 1px 0px #585858;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 2px 5px #585858;
-        }  
-    } 
-    
-    @keyframes FooterSecBottomToTop{ 
-        0%{ 
-            transform: translateY(200px); 
-            opacity: 0.1;
-        } 
-        30%{ 
-            transform: translateY(100px);
-            opacity: 0.4; 
-        } 
-        70%{ 
-            transform: translateY(50px); 
-            opacity: 0.8;
-            box-shadow: 0px 1px 0px #585858;
-        } 
-        99%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 1px 0px #585858;
-        }
-        100%{ 
-            transform: translateY(0px);
-            opacity: 1;
-            box-shadow: 0px 2px 5px #585858;
-        }  
-    } 
-    
-    .navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
-    
-    .titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
-    
-    .footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
-    
     
     /* Consulta Pag */
     .modal-dialogconsulta {
@@ -1088,18 +1508,7 @@ li {
         align-content: center;
         padding-left: 10px;
     }
-
-    .cardconsulta {
-        border-radius: 10px;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
-    }
-
-    .headerconsulta {
-        border-radius: 10px 10px 0px 0px;
-    }
-    .formbuscarxd{
-        margin-left: 230px;
-    }
+    
 
     .TitleConsulta{
         display: flex;
@@ -1108,17 +1517,8 @@ li {
     }
 
     /* Login Pag */
-    .login {    
+    .modalPushLogin,.modalPushLoginAdmin {    
         width: 450px;
-    }
-    
-    .cardlogin {
-        border-radius: 10px;
-        box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
-    }
-    
-    .headerlogin {
-        border-radius: 10px 10px 0px 0px;
     }
     
     .TitleLogin {
@@ -1127,37 +1527,194 @@ li {
         align-items: center;
     }
     
-    .buttonlogin {
-        color: white;
-        border-radius: 10px;
-    }
-    
-    .gridientdark { /*Cores do modal de login - Alterado*/ 
-        background-image: linear-gradient(to right, #48D1CC,#20B2AA); 
-    }
-    
-    .form-elegant .font-weight-bold {
-        font-size: 0.8rem; 
-    }
-    
-    .form-elegant .z-depth-1a {
-        box-shadow:0 0 1em rgba(0,0,0,0.6);
-     }
-        
-    .form-elegant .z-depth-1-half, .form-elegant .btn:hover {
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
-    }
-    
-    .modal-dialog .modal-content {
-        background-color: transparent;
-        box-shadow: none;
-    }
-    
     .buttonpesquisar {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+}
+
+
+/* ############################################################### */
+/* ######################### ESTILIZAÇÕES ######################## */
+/* ############################################################### */
+
+
+/* FIRST PAGE */
+.buttonpesquisar {
+    background: none;
+    border: none;
+}
+
+.titlepagprimario {
+    font-family: Helvetica;
+    color: #008b8b; 
+    font-size: 50px;
+}    
+
+.cardinicial { /*CARDS*/ 
+    border: 2px solid #1abb8b;
+    overflow: hidden;
+    border-radius: 30px;
+    transition: 0.4s linear all;
+}
+
+.cardinicial:hover {
+    transform: scale(1.05,1.05);
+    transition: 0.5s linear all;
+}
+
+.EntrarUser {
+    font-family:  'Helvetica'; 
+    border: none;
+    background: none;
+    color: gray;
+    font-size: 30px;
+}
+
+.RealizarConsulta {
+    font-family: 'Helvetica'; 
+    border: none;
+    background: none;
+    color: gray;
+    font-size: 30px;
+}
+
+.EntrarAdmin {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 15px;
+}
+
+.EntrarAdmin:hover {
+    transform: scale(1.05,1.05);
+    transition: 0.5s linear all;
+}
+
+.footerinicial {
+    background-color: linear-gradient(to right, black,#585858,#585858,black); 
+}
+
+.cardsecundariouser {
+    border: 1px solid #008b8b; 
+    overflow: hidden;
+    border-radius: 10px; 
+    transition: 0.4s linear all;
+}
+
+.cardsecundarioadmin {
+    border: 2px solid #008b8b; 
+    overflow: hidden;
+    border-radius: 10px; 
+    transition: 0.4s linear all;
+}
+
+.cardsecundariouser:hover,.cardsecundario:hover,.cardsecundarioadmin:hover {
+    transform: scale(1.05,1.05);
+    transition: 0.5s linear all;
+}
+
+/* SECOND PAG */
+p.titlepagsecundario {
+    font-family: Helvetica; 
+    font-size: 35px;
+}
+
+p.infosistema {
+    font-family: Helvetica; 
+    font-size: 15px;
+    color: white;
+}
+
+.imguser {
+    background-color: #585858;
+    border-radius: 100px;
+    opacity: 0.4;
+}
+
+.inform { 
+    background-color: white; 
+    color: black; 
+    border-radius: 8px;
+    border: solid 2px #008b8b; 
+}
+
+li.nomeuser {
+    color: white;
+}
+
+.SairUser {
+    color: white;
+    border: none;
+    background: none;
+    font-size: 15px;
+}
+
+.SairUser:hover {
+    transform: scale(1.00,1.00);
+    transition: 0.1s linear all;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+    background-color: #585858;
+}
+
+.footersecundario {
+    color: white;
+}
+
+.options {
+    background: none;
+    border: none;
+    font-family: Helvetica; 
+    font-size: 20px;
+    color: #008B8B;
+}
+
+/* PAG CONSULTA */
+.cardconsulta {
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
+}
+
+.headerconsulta {
+    border-radius: 10px 10px 0px 0px;
+}
+
+/* PAG LOGIN */
+.cardlogin {
+    border-radius: 10px;
+    box-shadow: inset 0 0 1px rgba(0,0,0,0.6), 0 0 10em rgba(0,0,0,0.6);
+}
+
+.headerlogin {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.buttonlogin {
+    color: white;
+    border-radius: 10px;
+}
+
+.gridientdark { 
+    background-image: linear-gradient(to right, #48D1CC,#20B2AA); 
+}
+
+.form-elegant .font-weight-bold {
+    font-size: 0.8rem; 
+}
+
+.form-elegant .z-depth-1a {
+    box-shadow:0 0 1em rgba(0,0,0,0.6);
+}
+    
+.form-elegant .z-depth-1-half, .form-elegant .btn:hover {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.6), 0 0 1em rgba(0,0,0,0.6);
+}
+
+.modal-dialog .modal-content {
+    background-color: transparent;
+    box-shadow: none;
 }
 
 #reagentesfrombd {
@@ -1197,17 +1754,9 @@ table.dataTable thead .sorting_desc_disabled:before {
     bottom: .5em;
 }
 
-.my-custom-scrollbar {
-    position: relative;
-    height: 70vh;
-    width: 155vh;
-    overflow: auto;
-}
-
 .table-wrapper-scroll-y {
     display: block;
 }
-
 
 ::-webkit-scrollbar {
     width: 10px;
@@ -1257,8 +1806,17 @@ tbody td,th {
 #atualizarreagentescadastrado {
     display: none;
 }
+#inserirConta{
+    display: none;
+}
 
-/*============================Alterações==============================*/ 
+#listarConta {
+    display: none;
+}
+#mostra_loader{
+    display: none;
+}
+
 .footer-social-medias {
     background-color: #008B8B;
     padding: 10px;
@@ -1270,4 +1828,277 @@ tbody td,th {
 
 .footersecundario {
     background-color: #008B8B;
+}
+
+.botao-centralizado {
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+p {
+    margin: 0 !important;
+}
+
+
+
+/*########################## ANIMAÇÕES #################################*/
+
+@keyframes NavLeftToRight{ 
+    0%{ 
+        transform: translateX(-200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateX(-100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateX(-50px); 
+        opacity: 0.8;
+    } 
+    100%{ 
+        transform: translateX(0px);
+        opacity: 1;
+    } 
+} 
+
+@keyframes TitleSecTopToBottom{ 
+    0%{ 
+        transform: translateY(-200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateY(-100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateY(-50px); 
+        opacity: 0.8;
+        box-shadow: 0px 1px 0px #585858;
+    } 
+    99%{ 
+        transform: translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 1px 0px #585858;
+    }
+    100%{ 
+        transform: translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 2px 5px #585858;
+    }  
+} 
+
+@keyframes FooterSecBottomToTop{ 
+    0%{ 
+        transform: translateY(200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateY(100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateY(50px); 
+        opacity: 0.8;
+        box-shadow: 0px 1px 0px #585858;
+    } 
+    99%{ 
+        transform: translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 1px 0px #585858;
+    }
+    100%{ 
+        transform: translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 2px 5px #585858;
+    }  
+} 
+
+.navvertical{ animation: NavLeftToRight 1s forwards 0s linear; }   /* Transition */
+
+.titlepagsecundario { animation: TitleSecTopToBottom 1.1s forwards 0s linear;  }   /* Transition */
+
+.footersucundario { animation: FooterSecBottomToTop 1.1s forwards 0s linear;  }   /* Transition */
+
+
+@keyframes Card1LeftToRight{ 
+    0%{ 
+        transform: translateX(-200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateX(-100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateX(-50px); 
+        opacity: 0.8;
+    } 
+    100%{ 
+        transform: translateX(0px);
+        opacity: 1;
+    } 
+} 
+
+@keyframes Card2RightToLeft{ 
+    0%{ 
+        transform: translateX(200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateX(100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateX(50px); 
+        opacity: 0.8;
+    } 
+    100%{ 
+        transform: translateX(0px);
+        opacity: 1;
+    } 
+} 
+
+@keyframes SociaisLeftToRight{ 
+    0%{ 
+        transform: translateX(-50px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateX(-40px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateX(-30px); 
+        opacity: 0.8;
+    } 
+    100%{ 
+        transform: translateX(0px);
+        opacity: 1;
+    } 
+} 
+
+@keyframes EntrarRightToLeft{ 
+    0%{ 
+        transform: translateX(50px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateX(40px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateX(30px); 
+        opacity: 0.8;
+    } 
+    100%{ 
+        transform: translateX(0px);
+        opacity: 1;
+    } 
+} 
+
+@keyframes TitlePriTopToBottom{ 
+    0%{ 
+        transform: translateY(-200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateY(-100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateY(-50px); 
+        opacity: 0.8;
+        box-shadow: 0px 1px 0px #585858;
+    } 
+    99%{ 
+        transform: translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 1px 0px #585858;
+    }
+    100%{ 
+        transform: translateY(0px);
+        opacity: 1;
+        box-shadow: 0px 2px 5px #585858;
+    }  
+} 
+
+@keyframes FooterPriBottomToTop{ 
+    0%{ 
+        transform: translateY(200px); 
+        opacity: 0.1;
+    } 
+    30%{ 
+        transform: translateY(100px);
+        opacity: 0.4; 
+    } 
+    70%{ 
+        transform: translateY(50px); 
+        opacity: 0.8;
+    } 
+    99%{ 
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100%{ 
+        transform: translateY(0px);
+        opacity: 1;
+    }  
+} 
+
+.card1  { animation: Card1LeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
+
+.card2 { animation: Card2RightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
+
+.list-unstyled { animation: SociaisLeftToRight 0.9s forwards 0s linear; }  /* Transforms */ 
+
+.EntrarAdmin { animation: EntrarRightToLeft 0.9s forwards 0s linear; }  /* Transforms */ 
+
+.textfooterprimario { animation: FooterPriBottomToTop 1s forwards 0s linear;  }   /* Transition */
+
+.titlepagprimario { animation: TitlePriTopToBottom 1s forwards 0s linear;  }   /* Transition */
+
+
+
+/*####################### SCROLLBAR CUSTOM ############################*/
+.forminclude.my-custom-scrollbar {
+    height: 60vh;
+    overflow: auto;
+}
+
+.formincludereagente.my-custom-scrollbar {
+    position: relative;
+    height: 60vh;
+    width: 155vh;
+    overflow: auto;
+}
+
+.atualizarreagentescadastrado.my-custom-scrollbar {
+    position: relative;
+    height: 50vh;
+    width: 155vh;
+    overflow: auto;
+}
+
+.alterareagentenewcd.my-custom-scrollbar {
+    position: relative;
+    height: 60vh;
+    max-width: 155vh;
+    overflow: auto;
+}
+
+.tabelalistagemreagentes.my-custom-scrollbar {
+    position: relative;
+    height: 60vh;
+    max-width: 155vh;
+    overflow: auto;
+}
+
+.tabelalistagemreagentespesquisar.my-custom-scrollbar {
+    position: relative;
+    height: 40vh;
+    max-width: 155vh;
+    overflow: auto;   
 }

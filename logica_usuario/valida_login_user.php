@@ -15,9 +15,11 @@ if(isset($_POST['entrar'])){
   if($usuario){ 
       $_SESSION['logado'] = true;
       $_SESSION['id'] = $usuario['ID_USER'];
-      $_SESSION['nome'] = $usuario['NOME_USER'];
+      $_SESSION['nome'] = $usuario['NOME_USUARIO'];
       $_SESSION['profissao'] = $usuario['PROFISSAO_USUARIO']; 
       $_SESSION['idade'] = $usuario['IDADE_USUARIO']; 
+      $_SESSION['email'] = $usuario['EMAIL_USUARIO']; 
+      $_SESSION['endereco'] = $usuario['END_USUARIO']; 
 
       header('location: ../paineluser.php'); 
  

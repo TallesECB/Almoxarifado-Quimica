@@ -15,7 +15,7 @@ $resultado = excluirReagenteCD($conexao, $array);
 
 
 if($resultado) {
-	echo "Reagente excluido da Tabela Reagentes";
+	echo "Excluido R";
 } else {
 	echo "Erro ao deletar o Reagente, tente novamente";
 }

@@ -9,6 +9,7 @@
                 )
             );
     //echo("Conexão realizada com sucesso!<br>");
+    
     }
 catch(PDOException $ex){
     //em caso de erro mostra a mensagem
