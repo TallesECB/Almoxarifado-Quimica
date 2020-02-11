@@ -11,7 +11,7 @@ const resultadoexcluirreag = document.getElementById("resultadomanipulacoes");
 /* variavel que printa o resultado de quando insere um novo reagente*/
 const resultadoreag = document.getElementById("resultadoreag");
 
-/* formulario de atualizacao do reagente */
+/* formulario de atualizacao do reagente */ 
 const formEdit = document.getElementById('atualizaReagente');
 
 /* variavel que printa o resultado de quando altera um reagente fornecedor */
@@ -20,6 +20,15 @@ const resultadoalterar = document.getElementById('resultadomanipulacoes');
 /* variavel que printa o resultado de quando altera um reagente */
 const resultadoalterarreag = document.getElementById('resultadomanipulacoes');
 
+/*variável que exibe o resultado de excluir conta*/ 
+const resultadoExcluiConta = document.getElementById('resultadoExcluiConta'); 
+
+/*Variável que contém os dados da SESSION do usuário*/ 
+const resposta = document.getElementById('nome_user');
+
+const respostainserirconta = document.getElementById('retornoinserirconta');
+
+var dadosusuarios = "";
 
 /* function simples de inserir raegente fornecedor joga ele para um construtor, para ficar mais organizado */
 function inserirReagente() {
@@ -57,6 +66,7 @@ function buscarReagente() {
     }) 
     .then(function result (data) {
         if(!data.hasOwnProperty("status")) {
+          let hoje = new Date(); 
           objJSON = data; 
           let table = ' <table class="table table-bordered table-striped" id="dtHorizontalVerticalExample"  cellspacing="0" width="50%">'
           table += '<thead>'
@@ -120,6 +130,8 @@ function pesquisarReagente() {
     .then(function result (data) {
         if(!data.hasOwnProperty("status")) {
           let table = "";
+          let hoje = new Date(); 
+          //console.log (hoje)
           objJSON = data;
           for (let i in objJSON) {
             table += '<tr>'
@@ -129,10 +141,16 @@ function pesquisarReagente() {
                 table += `<td>${objJSON[i].CLASSIFICACAO}</td>`
                 
                 table += `<td>${objJSON[i].VALIDADE}</td>`
-                table += `<td>${objJSON[i].QNTD_ESTOQUE}</td>`
+                if (objJSON[i].QNTD_ESTOQUE < 10){
+                  table += `<td class="alert alert-danger">${objJSON[i].QNTD_ESTOQUE}</td>`
+                }
+                else {
+                  table += `<td>${objJSON[i].QNTD_ESTOQUE}</td>`
+                }
+               
                 table += `<td>${objJSON[i].NOME_FORNECEDOR}</td>`
-                table += `<td><form onsubmit="excluirReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="excluir"><button type="submit" name="deletar"class="btn btn-flat btn-sm">Deletar<button></form></td>`;
-                table += `<td><form method="get" onsubmit="alterarReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="alterar"><button type="submit" name="alterar" class="btn btn-flat btn-sm">Alterar<button></form></td>`;
+                table += `<td><form onsubmit="excluirReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="excluir"><button type="submit" name="deletar"class="btn btn-secondary">Deletar<button></form></td>`;
+                table += `<td><form method="get" onsubmit="alterarReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="alterar"><button type="submit" name="alterar" class="btn btn-secondary">Alterar<button></form></td>`;
             table += '</tr>';
             listarreag.innerHTML = table;
           };
@@ -169,10 +187,15 @@ function listarReagente() {
                 table += `<td>${objJSON[i].CLASSIFICACAO}</td>`
                 
                 table += `<td>${objJSON[i].VALIDADE}</td>`
-                table += `<td>${objJSON[i].QNTD_ESTOQUE}</td>`
+                if (objJSON[i].QNTD_ESTOQUE < 10){
+                  table += `<td class="alert alert-danger">${objJSON[i].QNTD_ESTOQUE}</td>`
+                }
+                else {
+                  table += `<td>${objJSON[i].QNTD_ESTOQUE}</td>`
+                }
                 table += `<td>${objJSON[i].NOME_FORNECEDOR}</td>`
-                table += `<td><form onsubmit="excluirReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="excluir"><button type="submit" name="deletar"class="btn btn-flat btn-sm">Deletar<button></form></td>`;
-                table += `<td><form method="get" onsubmit="alterarReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="alterar"><button type="submit" name="alterar" class="btn btn-flat btn-sm">Alterar<button></form></td>`;
+                table += `<td><form onsubmit="excluirReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="excluir"><button type="submit" name="deletar"class="btn btn-secondary">Deletar<button></form></td>`;
+                table += `<td><form method="get" onsubmit="alterarReagente('${objJSON[i].ID_REAGENTE}','${objJSON[i].ID_FORNECEDOR}')" name="alterar"><button type="submit" name="alterar" class="btn btn-secondary">Alterar<button></form></td>`;
             table += '</tr>';
             listarreag.innerHTML = table;
           };
@@ -304,7 +327,7 @@ function excluirReagente(idreag,idfornec) {
   $('.listagemreagentes').show();
 }
 
-/* function simples de inserir novo reagente, joga ele para um construtor, para ficar mais organizado */
+/* ===================== ========================================== ================================= */
 function inserirReagenteNovo() {
   resultadoreag.innerHTML = '';
   let nomeiupac = inserirnew.nomeiupac.value;
@@ -340,7 +363,7 @@ function alterarReagenteCD(idreagente) {
       $('#atualizarreagentescadastrado').show();
       let form = "";
           form += `
-            <form class="text-center p-2" method="post" onsubmit="atualizarReagenteCD()" name="atualizarcd" id="atualizaReagente">`
+            <form class="text-center p-2 formalterarcdreagente my-custom-scrollbar" method="post" onsubmit="atualizarReagenteCD()" name="atualizarcd" id="atualizaReagente">`
               form += `
                 <p class="h4 mb-5" id="resultadoreag">Alterar Reagente</p>  
                 <input type="hidden" name="idreag" value="${reagente.ID_REAGENTE}">
@@ -602,6 +625,37 @@ function reagenteAlterarCadastro() {
   $('#alterarreagentecadastrado').show();
 }
 
+
+function contatoForm(event){
+    event.preventDefault()
+    const nome = document.querySelector(".nomesend").value;
+    const emailres = document.querySelector(".emailressend").value;
+    const conteudo = document.querySelector(".mensagemsend").value;
+
+    let obj = {nome, emailres, conteudo}
+    fetch('./enviaremail.php', {
+        method: 'POST',
+        body: JSON.stringify(obj)
+    }).then((response) => {
+        return response.json()
+    }).then(data => {
+        if (data.success == true) {
+            // document.querySelector("#email").value = ' ';
+            // document.querySelector("#email").reset();
+            alert("Email Enviado Com Sucesso")
+            window.location = "index.php";
+        }else{
+            alert("Falha No Envio! Tente Novamente!! ")
+        }
+
+    }).catch(error => {
+        console.log(`Erro ao conectar:\n\n${error.message}`)
+    });
+
+    
+
+}
+
 /*==================================================Contas de usuário===================================================*/ 
 function confereEmail(){
   
@@ -639,37 +693,50 @@ function optionDisplayIncluirConta(){
 
 function inserirNovaConta(){
   event.preventDefault(); 
-  
-   var conta = new Object()
-     conta.email = criaConta.novoEmailUser.value; 
-     conta.senha = criaConta.novaSenha.value; 
-     conta.idade = criaConta.idade.value; 
-     conta.nome = criaConta.nome.value; 
-     
-  //console.log (conta); 
+     let email = document.getElementById('email_user').value; 
+     let senha = document.getElementById('passwordconfirm').value; 
+     let nome = document.getElementById('nome_user').value; 
+     let idade = document.getElementById('idade_user').value; 
+     let imagem  = document.getElementById('imagem_conta').files[0]; /*Forma de captar o file*/  
 
-  var url = './logica_usuario/insere.php'; 
+     var objeto = {
+       email,
+        senha, 
+        nome, 
+        idade, 
+        imagem
+      } /*Criando o objeto*/ 
+  
+    const formulario = new FormData(); 
+ 
+    Object.entries(objeto).map(([key, value]) => { //Colocando o objeto dentro do FormData 
+      formulario.append(key, value); 
+    }); 
+     
+ var url = './logica_usuario/insere.php'; 
                                  
   fetch(url, {
-    method: 'POST',
-    body: JSON.stringify (conta),  
-    
-})
-.then(response => {
-    return response.text();
-}).then(data => {
-    console.log(data)
-})
-.catch(error => {
-    console.log(`Erro:${error}`)
-});
-  
+    method: "POST",
+    body: formulario      
+  })
+  .then(response => response.text())
+  .then(data => {
+    respostainserirconta.innerHTML = data;
+  })
+  .catch(error => console.error('Erro ao tentar acessar o php:', error));
+    event.preventDefault();
 }
 
 function optionDisplayListarConta(){
   $('.mincards').hide(); 
   listarConta(); 
   $('#listarConta').show(); 
+} 
+
+function mostraEdita(id) {
+  $('.mincards').hide(); 
+  $('#form_edita').show(); 
+  event.preventDefault(); 
 }
 /*======================================Listar contas========================================*/ 
 function listarConta(){
@@ -682,61 +749,109 @@ function listarConta(){
     .then(response => {
       return response.json();
     }).then(data => {
-        
         if (data) {
-          
-          let tamanho = data.length; 
-          let tabela = '<table class="table" id="dtHorizontalVerticalExample"  cellspacing="4" width="50%">'
-          tabela += `<tr>`
-          tabela += '<thead>'
-          tabela +=    '<tr>'
-          tabela +=        '<th scope="col">ID do usuário: </th>'
-          tabela +=        '<th scope="col">Nome: </th>'
-          tabela +=        '<th scope="col">Login: </th>'
-          tabela +=        '<th scope="col">Senha: </th>'
-          tabela +=        '<th scope="col">E-mail: </th>'
-          tabela +=     '</tr>'
-          tabela +=   '</thead>'
-          tabela +=  '<tbody>'
+          console.log(data)
+                let tamanho = data.length;
+                let tabela = '<table class="table" id="dtHorizontalVerticalExample"  cellspacing="4" width="50%">'
+                tabela += `<tr>`
+                tabela += '<thead>'
+                tabela +=    '<tr>'
+                tabela +=        '<th scope="col">Foto: </th>'
+                tabela +=        '<th scope="col">ID do usuário: </th>'
+                tabela +=        '<th scope="col">Nome: </th>'
+                tabela +=        '<th scope="col">Idade: </th>'
+                tabela +=        '<th scope="col">Senha: </th>'
+                tabela +=        '<th scope="col">E-mail: </th>'
+                tabela +=     '</tr>'
+                tabela +=   '</thead>'
+                tabela +=  '<tbody>'
 
-          for (let i=0; i<tamanho; i++){
-            tabela += `<tr>`
-            tabela += `<td> ${data[i].ID_USUARIO}</td>`
-            tabela += `<td> ${data[i].NOME_USUARIO}</td>`
-            tabela += `<td> ${data[i].LOGIN_USUARIO}</td>`
-            tabela += `<td> ${data[i].SENHA_USUARIO}</td>`
-            tabela += `<td> ${data[i].EMAIL_USUARIO}</td>`
-            tabela += `<td><form onsubmit="excluiUsuario('${data[i].ID_USUARIO}')" name="excluir_conta" method="GET"><button type="onsubmit" class="btn btn-secondary">Excluir</button></form>`;
-            tabela += `<td><form><button type="onsubmit" class="btn btn-secondary">Alterar</button></form></td>`;
-            tabela += `</tr>`
-          }
-          tabela += '</table>'
-          contas.innerHTML = tabela; 
+                for (let i=0; i<tamanho; i++){
+                  tabela += `<tr>`
+                  tabela += `<td> <img src="img/${data[i].IMG_USER}" style="width: 60px; height: 60px;" > </td>`
+                  tabela += `<td> ${data[i].ID_USUARIO}</td>`
+                  tabela += `<td> ${data[i].NOME_USUARIO}</td>`
+                  tabela += `<td> ${data[i].IDADE_USUARIO}</td>`
+                  tabela += `<td> ${data[i].SENHA_USUARIO}</td>`
+                  tabela += `<td> ${data[i].EMAIL_USUARIO}</td>`
+                  tabela += `<td><form onsubmit="excluiUsuario('${data[i].ID_USUARIO}')" name="excluir_conta" method="GET"><button type="submit" class="btn btn-secondary">Excluir</button></form>`;
+                  tabela += `<td><form onsubmit="mostraEdita"('${data[i].ID_USUARIO}')" name="edita_conta" method="GET"><button type="submit" class="btn btn-secondary">Alterar</button></form></td>`;
+                  tabela += `</tr>`
+                }
+                tabela += '</table>'
+                contas.innerHTML = tabela; 
         }
     })
     .catch(error => {
         console.log(`Não foi possível listar os resultados:\n\n${error.message}`)
     });
 }
+
 /*=======================================Excluir Conta========================================*/ 
+
 function excluiUsuario(id){
+  resultadoExcluiConta.innerHTML = ''; 
   let confirmacao =  window.confirm('Deseja mesmo excluir?'); 
   if (confirmacao==true){
         let id_usuario = id; 
         /*console.log (id_usuario); Retorna como string*/ 
-        fetch('./logicareagente/deleta_usuario.php', {
+        fetch('./logica_usuario/deleta_usuario.php', {
           method: 'DELETE',
           header: new Headers(),
           body: JSON.stringify(id_usuario)
         })
         .then(response => response.text())
-        .then(dado => {
-          resultadoexcluirreag.innerHTML = dado;
+        .then(dado => { 
+          console.log(dado); 
+          resultadoExcluiConta.innerHTML = dado; 
+          //console.log (resultadoExcluiConta);
         })
         .catch(error => console.error(error));
       
       event.preventDefault();
   }
+}
+/*==============================================LOGIN USER===========================================*/ 
+$("#botao-enviar").click(function(){
+  
+  var data = $("#form_user").serialize();
+    
+  $.ajax({
+    type : 'POST',
+    url  : './logica_usuario/login_usuario.php',
+    data : data,
+    dataType: 'json',
+    beforeSend: function()
+    {	
+      $("#botao-enviar").html('Validando ...');
+    },
+    success :  function(response){	
+        if(response.codigo == 1){	  
+          dadosusuarios = response.usuario;
+          pegardados(dadosusuarios);
+          window.location.href = "./paineluser.php";
+        }
+        else{			
+          alert ('Não foi possível realizar o login!'); 
+      }
+      
+    }
+    
+  });
+
+  event.preventDefault(); 
+});
+
+function pegardados (dadosusuarios) {
+  let dados = dadosusuarios;
+  return dados;
+}
+
+function preencherusuarios () {
+  let dadosdouser = pegardados(dadosusuarios);
+  //alert(dadosdouser);
+  event.preventDefault();
+  // let li = document.getElementById('id_user').innerHTML = usuario.id;
 }
 /*================================================================================================================*/
 function botaoRecarregar(){
