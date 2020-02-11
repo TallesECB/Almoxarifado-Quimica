@@ -1,99 +1,64 @@
 <?php
-
 //identificação para a chamada da classe
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;	
+use PHPMailer\PHPMailer\Exception;  
 
-if (isset($_POST['enviar'])) 
-{
-	
+require_once('PHPMailer/src/PHPMailer.php');
+require_once('PHPMailer/src/Exception.php');
+require_once('PHPMailer/src/SMTP.php');    
 
-// Inclui os arquivos PHPMailer.php e Exception.php e SMTP.php localizados na pasta PHPMailer/src
+$json = file_get_contents('php://input');
+$data = json_decode($json);
 
-require "PHPMailer/src/PHPMailer.php";
-require "PHPMailer/src/Exception.php";
-require "PHPMailer/src/SMTP.php";
+$nome        = $data->nome;    
+$email     = "teduardo13@Hotmail.com";
+$emailres    = $data->emailres;     
+$conteudo    = $data->conteudo;
 
- 
+$mail = new PHPMailer();
+$mail->SetLanguage("br");
+$mail->IsSMTP();
+$mail->isHTML(true);
+$mail->SMTPDebug = 0; //exibe erros e mensagens, 0 não exibe nada
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = "tls";
 
-// resgatando os dados passados pelo form
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 587;
+$mail->Username = "animalsivet@gmail.com";
+$mail->Password = "@1234567j";
+$mail->CharSet = "utf-8";
 
-$nome = $_POST['nome'];
-
-$email = $_POST['email'];
-
-$mensagem = $_POST['mensagem'];
-
-$email_resposta = $_POST['email_resposta'];
-
-// instanciando a classe
-    $mail = new PHPMailer();  
-	
-//  opçao de idioma, setado como br	
-    $mail->SetLanguage("br"); 
-
-// habilitando SMTP	
-    $mail->IsSMTP(); 
-
-// enviando como HTML
-    $mail->IsHTML(true); 
-	
-// Pode ser: 0 = não exibe erros, 1 = exibe erros e mensagens, 2 = apenas mensagens	
-    $mail->SMTPDebug = 0;  
-	
-// habilitando autenticação	
-    $mail->SMTPAuth = true;  
-	
-// habilitando tranferêcia segura (obrigatório)	
-    $mail->SMTPSecure = 'tls'; 
-
-
-// Configurações para utilização do SMTP do Gmail  
-
-    $mail->Host = 'smtp.gmail.com';
-
-    $mail->Port = 587; // Porta de envio de e-mails do Gmail
-
-    $mail->Username = 'dawexemplo2014@gmail.com';
-
-    $mail->Password = 'senha52014';
-
-    $mail->CharSet = "utf-8";
-
-// Remetente da mensagem
-
-    $mail->SetFrom('dawexemplo2014@gmail.com');
-	
+$mail->From = "animalsivet@gmail.com"; //remetente
+$mail->FromName = "OnLab";
 // Endereço de destino do email
-    $mail->AddAddress($email); 
-	
+$mail->AddAddress($email); 
+
 // Endereço para resposta
-	
-	$mail->addReplyTo($email_resposta);
+
+$mail->addReplyTo($emailres);
 
 // Assunto e Corpo do email
 
-    $mail->Subject = "Teste de SMTP";
+$mail->Subject = "Teste de SMTP";
 
-    $mail->Body = $mensagem . "<br> E-mail SMTP enviado com sucesso para " . $email . " Enviado por: ".$email_resposta ;
+$mail->Body = $conteudo . "<br> E-mail SMTP enviado com sucesso para " . $email . " Enviado por: ".$emailres ;
 
-// Enviando o email
+// var_dump($mail);
 
-    if(!$mail->Send())
-
-    {
-
-        $message = "PhpMailer Gmail status: " . $mail->ErrorInfo;
-
-    } else {
-
-        $message = "E-mail SMTP enviado com sucesso para " . $email . " Enviado por: ".$email_resposta ;
-
-
- }
-
- header('Location: index.php');
+$vetore = array();
+if(!$mail->Send()){
+    // $message = $mail->ErrorInfo;
+    // echo(json_encode(['success' => false, 'message' => $message]));
+    $vetore['success']=false;
+    echo json_encode($vetore); 
+} else {
+    // echo(json_encode(['success' => true, 'message' => 'Seu contato foi enviado com sucesso!']));
+    $vetore['success']=true;
+    echo json_encode($vetore); 
 }
-?>
 
+// else echo(json_encode(['success' => false, 'message' => 'Erro ao enviar sua mensagem, tente novamente!']));
+
+?>

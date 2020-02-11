@@ -1,10 +1,13 @@
+<?php
+    include ('validador.php'); 
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Projeto Quimica</title>
+        <title>OnLab- Painel do usuário</title>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
         <!-- Bootstrap core CSS -->
@@ -13,11 +16,12 @@
         <link href="css/mdb.min.css" rel="stylesheet">
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
-        </head>
-    <body>
-        <?php 
-            session_start();
-        ?>
+        <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-96x96.png">
+    </head>
+
+    <body onload = "preencherusuarios()">
+
+        
          <section class="secondpag">
             <nav class="navvertical menu-vertical">
                 <a href="paineluser.php"> 
@@ -25,20 +29,20 @@
                         <img src="" alt="">
                     </div>
                 </a>
-
-                <ul class="uluser">
-                    <li class="inform"><?php echo($_SESSION['nome'])?></li>
-                    <li class="inform"><?php echo($_SESSION['telefone'])?></li>
+<!--======================================== Informações do usuário SESSION ===================================-->
+                <ul class="uluser" id="ulusuario">
+                    <li class="inform" id="id_user"></li>
                 </ul>
+                
                 <form action="logout.php">
                     <button type="submit" class="SairUser">Sair</button>
                 </form>
                 
             </nav>
             <section class="conteudototal userconteudo">
-                <div>
-                    <p class="titlepagsecundario">On-Lab <img src="img/onlab.png" width="90px"></p>
-                </div>
+                <span>
+                    <p class="titlepagsecundario">OnLab <img src="img/icons/molecula.png"></p>
+                </span>
 
                 <section class="inserirreagente">
 
@@ -47,9 +51,9 @@
                         <!--===================================== REAGENTE========================= -->
                     <form class="text-center pl-5 pr-5 forminclude my-custom-scrollbar" method="post" onsubmit="inserirReagente()" name="inserir" id="insereForm">
                         <div class="btnaddreagente pb-2">
-                            <button type="button" onclick="reagenteAlterarCadastro()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Alterar Reagentes Cadastrados ?</button>
+                            <button type="button" onclick="reagenteAlterarCadastro()" class="btn btn-outline-secondary btn-rounded waves-effect btn-sm">Alterar Reagentes Cadastrados ?</button>
                             <p class="h4" id="resultado">Inserir Reagente</p>
-                            <button type="button" onclick="reagenteNaoCadastrado()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Reagente Não Cadastrado ?</button>
+                            <button type="button" onclick="reagenteNaoCadastrado()" class="btn btn-outline-secondary btn-rounded waves-effect btn-sm">Reagente Não Cadastrado ?</button>
                         </div>
         
                         <label>Reagente</label>
@@ -68,7 +72,7 @@
                         </select>
 
                         <!-- Send button -->
-                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
+                        <button class="btn btn-secondary btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
 
                     </form>
 
@@ -391,7 +395,7 @@
                     </div>
                     <div class="card cardsecundariouser mb-2">
                         <div class="card-body cardsoptions">
-                            <button type="submit" class="options">Listar Fornecedores</button>
+                            <button type="submit" class="options">Listar Fornecedor</button>
                         </div>
                     </div>
                     <div class="card cardsecundariouser mb-2">

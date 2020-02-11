@@ -5,7 +5,7 @@ include ('../funcoes.php');
 
 if(isset($_POST['entrar'])){ 
 
-  $login = $_POST['login']; 
+  $login = $_POST['login'];  
   $senha = $_POST['senha'];
   
   $array = array($login, $senha);

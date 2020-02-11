@@ -1,21 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Projeto Quimica</title>
+        <title>OnLab - Painel Administrativo</title>
         <link rel="shortcut icon" href="favicon.ico">
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <!-- Material Design Bootstrap -->
-        <link href="css/mdb.min.css" rel="stylesheet">
+        <link href="css/mdb.min.css" rel="stylesheet"> 
         <!-- Your custom styles (optional) -->
         <link href="css/style.css" rel="stylesheet">
-        </head>
-    <body>
+        <link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-96x96.png">
+    </head>
+    <body">
          <section class="secondpag">
             <nav class="navvertical menu-vertical">
                 <a href="paineladmin.php"> 
@@ -25,8 +27,8 @@
                 </a>
 
                 <ul class="uluser">
-                    <li class="inform"><?php echo($_SESSION['nome'])?></li>
-                    <li class="inform"><?php echo($_SESSION['telefone'])?></li> 
+                    <li class="inform"></li>
+                    <li class="inform"></li> 
                 </ul>
                 
                 <form action="logout.php">
@@ -37,7 +39,7 @@
 
             <section class="conteudototal adminconteudo">
                 <span>
-                    <p class="titlepagsecundario">On-Lab <img src="img/onlab.png" width="90px"></p>
+                    <p class="titlepagsecundario">OnLab<img src="img/icons/molecula.png" style="padding: 10px;"></p>
                 </span>         
                 
                 <section class="inserirreagente">
@@ -47,9 +49,9 @@
                         <!--===================================== REAGENTE========================= -->
                     <form class="text-center pl-5 pr-5 forminclude my-custom-scrollbar" method="post" onsubmit="inserirReagente()" name="inserir" id="insereForm">
                         <div class="btnaddreagente pb-2">
-                            <button type="button" onclick="reagenteAlterarCadastro()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Alterar Reagentes Cadastrados ?</button>
+                            <button type="button" onclick="reagenteAlterarCadastro()" class="btn btn-outline-secondary btn-rounded waves-effect btn-sm">Alterar Reagentes Cadastrados ?</button>
                             <p class="h4" id="resultado">Inserir Reagente</p>
-                            <button type="button" onclick="reagenteNaoCadastrado()" class="btn btn-outline-primary btn-rounded waves-effect btn-sm">Reagente Não Cadastrado ?</button>
+                            <button type="button" onclick="reagenteNaoCadastrado()" class="btn btn-outline-secondary btn-rounded waves-effect btn-sm">Reagente Não Cadastrado ?</button>
                         </div>
         
                         <label>Reagente</label>
@@ -68,7 +70,7 @@
                         </select>
 
                         <!-- Send button -->
-                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
+                        <button class="btn btn-secondary btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
 
                     </form>
 
@@ -77,9 +79,9 @@
 <!--========================== section de listagem dos reagentes da tabela reagente fornecedor -->
                 <section class="listagemreagentes p-4">
                     <div class="tabelalistagemreagentes my-custom-scrollbar">
-                        <div class="table-wrapper-scroll-y">
+                        <div class="table">
 
-                            <table class="table table-bordered table-striped table-md" id="dtHorizontalExample" cellspacing="0" width="100%">
+                            <table class="table" id="dtHorizontalExample" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">Nome Usual</th>
@@ -138,10 +140,10 @@
                 </section>
     <!--============section para atualizar a quantidade dos reagentes da tabela reagente fornecedor===================-->
                 <section id="atualizarreagentes">
-                    <div class="tabelalistagemreagentesalterar p-2">
-                        <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <div class="tabelalistagemreagentesalterar my-custom-scrollbar p-2">
+                        <div class="table-wrapper-scroll-y">
 
-                            <table class="table table-bordered table-striped" id="dtHorizontalVerticalExample2" cellspacing="0" width="100%">
+                            <table class="table table-bordered table-striped table-sm" id="dtHorizontalVerticalExample2" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                     <th scope="col">Nome Usual</th>
@@ -282,7 +284,7 @@
                             <option value="Inorganico">Inorganico</option>
                         </select>
                         <!-- Send button -->
-                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
+                        <button class="btn btn-secondary btn-block" type="submit"  name="finalizar" value="cadastrar">Cadastrar</button>
 
                     </form>
             
@@ -367,35 +369,36 @@
                 </section>
 
                 <!--================================CONTAS DOS USUÁRIOS - formulário==========================================-->
-                <section class="inserirConta" id="inserirConta">
+                <section class="inserirConta my-custom-scrollbar" id="inserirConta">
+                    <div id="retornoinserirconta">
+                    </div>
+                    <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirNovaConta()" name="inserirnewConta" id="criaConta" enctype="multipart/form-data">
+                    <p class="h4 mb-5 mt-4" id="resultadoreag">Inserir novo Usuário</p>
 
-                    <form class="text-center pl-5 pr-5 pb-2 pt-2" method="post" onsubmit="inserirNovaConta()" name="inserirnewConta" id="criaConta">
-                        <p class="h4 mb-5 mt-4" id="resultadoreag">Inserir novo Usuário</p>
-        
-                        <input type="email" class="form-control mb-4" placeholder="Email" name="novoEmailUser" onblur="confereEmail()">
-                        <input type="text" class="form-control mb-4" placeholder="Nova senha" name="novaSenha" id="password">
-                        <input type="text" class="form-control mb-4" placeholder="Confirme sua senha" name="senhaConfirm" id="passwordconfirm" onblur="confirmaSenha()">
+                    <input type="email" class="form-control mb-4" placeholder="Email" name="novoEmailUser" onblur="confereEmail()" id="email_user">
+                    <input type="text" class="form-control mb-4" placeholder="Nova senha" name="novaSenha" id="password">
+                    <input type="text" class="form-control mb-4" placeholder="Confirme sua senha" name="senhaConfirm" id="passwordconfirm" onblur="confirmaSenha()">
 
-                        <p class="text-danger" id="erro_senha" >  </p> 
-                        <input type="text" class="form-control mb-4" placeholder="Nome" name="nome">
-                        <input type="text" class="form-control mb-4" placeholder="Idade" name="idade"> 
-                    <!-- <input type="text" class="form-control mb-4" placeholder="Nome" name="nome">
-                        <input type="text" class="form-control mb-4" placeholder="Idade" name="idade"> -->
+                    <p class="text-danger" id="erro_senha" >  </p> 
 
-                        <!--Function de confirmação da senha é chamada quando se tira o foco do imput--> 
-                        <button class="btn btn-dark btn-block" type="submit"  name="finalizar" value="cadastrar" id="criaconta_enviar">Cadastrar</button>
+                    <input type="text" class="form-control mb-4" placeholder="Nome" name="nome" id="nome_user">
+                    <input type="text" class="form-control mb-4" placeholder="Idade" name="idade" id="idade_user"> 
+                    <input type="file" class="form-control mb-4" placeholder="Imagem" name="imagem" id="imagem_conta"> 
+                    <input type="hidden" name="MAX_FILE_SIZE" value="30000"> <!--Especifica o tamanho aceito pelo PHP-->
+                    <!--Function de confirmação da senha é chamada quando se tira o foco do imput--> 
+                    <button class="btn btn-secondary btn-block" type="submit"  name="finalizar" value="cadastrar" id="criaconta_enviar">Cadastrar</button>
 
                     </form>
                 </section>
                 <!--===================================================LISTAR CONTAS ================================================================-->
-                <section class="listagemcontas" id="listarConta">
-                        <div class="spinner-grow text-primary" id="mostra_loader">
+                
 
-                        </div>
+                <section class="listagemcontas my-custom-scrollbar" id="listarConta">  
+                    <div id="resultadoExcluiConta" class="resultado-exclui">
+
+                    </div> 
                 </section>
-
-            <!--=================================================================================================================-->
-
+                <!--=================================================================================================================-->
 
                 <section class="mincards admin">
                     <div class="card cardsecundarioadmin mb-2">
@@ -436,7 +439,7 @@
                     </div>
                     <div class="card cardsecundarioadmin">
                         <div class="card-body cardoptionsadmin">
-                            <button type="submit" class="options">Listar Fornecedores</button>
+                            <button type="submit" class="options">Listar Fornecedor</button>
                         </div>
                     </div>
                     <div class="card cardsecundarioadmin">

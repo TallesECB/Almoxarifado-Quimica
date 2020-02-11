@@ -12,7 +12,7 @@ $array = [$obj->nomeusual, $obj->nomeiupac, $obj->formula, $obj->classificacao];
 $resultado = inserirReagenteNovo($conexao, $array);
 
 if($resultado) {
-	echo "Inserido com Sucesso na Tabela Reagentes";
+	echo "Inserido com Sucesso na Tabela Reagentes"; //Alterar resposta pro front 
 } else {
 	echo "Erro ao Inserir";
 }

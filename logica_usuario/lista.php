@@ -4,10 +4,10 @@ header('Content-type: application/json');
 
 include("../conecta.php");
 
-    $sql = "SELECT ID_USUARIO, NOME_USUARIO, LOGIN_USUARIO, 
-	EMAIL_USUARIO, SENHA_USUARIO  
+    $sql = "SELECT ID_USUARIO, NOME_USUARIO, IDADE_USUARIO, 
+	EMAIL_USUARIO, SENHA_USUARIO, IMG_USER
 	FROM usuario 
-	ORDER BY NOME_USUARIO DESC";
+	ORDER BY NOME_USUARIO DESC"; 
 
 try {
 	
@@ -15,9 +15,10 @@ try {
 	$consulta->execute();
 
 	 $contas = $consulta->fetchAll(PDO::FETCH_ASSOC); /*Transforma em matriz*/ 
-		// var_dump($contas); 
+
+		//var_dump($contas); 
 	 	//die; 
-	  echo(json_encode($contas)); 
+	  echo(json_encode($contas));  
 
 }
 catch(PDOException $ex){
